@@ -14,7 +14,9 @@ test.describe('YouTube facade', () => {
       route.fulfill({ contentType: 'text/html', body: '<title>player</title>' }),
     );
     await page.goto(PAGE, { waitUntil: 'networkidle' });
-    await page.mouse.wheel(0, 2000);
+    // Scroll the whole page (mobile WebKit has no mouse wheel) so lazy media would load.
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+    await page.waitForLoadState('networkidle');
     expect(youtube).toEqual([]);
 
     const play = page.getByRole('button', { name: 'Play video: Until You Fall trailer' });
