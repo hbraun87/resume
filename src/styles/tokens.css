@@ -30,7 +30,8 @@
   --step-1: clamp(1.2rem, 1.12rem + 0.38vw, 1.5rem);
   --step-2: clamp(1.44rem, 1.3rem + 0.68vw, 2rem);
   --step-3: clamp(1.88rem, 1.4rem + 2.2vw, 4rem);
-  --step-hero: clamp(3.4rem, 13.5vw, 11.5rem);
+  /* Capped by height too, so a landscape phone still shows the pitch. */
+  --step-hero: clamp(3.4rem, min(13.5vw, 20svh), 11.5rem);
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -44,7 +45,7 @@
 
   --measure: 62ch;
   --content: 76rem;
-  --gutter: max(1rem, env(safe-area-inset-left), 4vw);
+  --gutter: max(1rem, env(safe-area-inset-left), env(safe-area-inset-right), 4vw);
   --header-h: 3.5rem;
   --notch: 18px;
 

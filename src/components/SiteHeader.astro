@@ -3,12 +3,10 @@ import profile from '../content/profile.json';
 import { url } from '../lib/url';
 import ThemeToggle from './ThemeToggle.astro';
 
-const nav = [
-  { label: 'Profile', href: url('/#profile') },
-  { label: 'Games', href: url('/#games') },
-  { label: 'R&D', href: url('/#research') },
-  { label: 'Contact', href: url('/#contact') },
-];
+// Profile, Games, R&D and Contact return with the home page sections they
+// point to (docs/brief/10-loading-screen-spec.md); a link to a missing
+// section is a dead link, and the system tests fail on those.
+const nav: { label: string; href: string }[] = [];
 const initials = profile.name
   .split(' ')
   .map((part) => part[0])
@@ -23,15 +21,17 @@ const initials = profile.name
       </span>
       <span class="mono name">{profile.name}</span>
     </a>
-    <nav aria-label="Main">
-      <ul class="mono">
-        {nav.map((item) => (
-          <li>
-            <a href={item.href}>{item.label}</a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    {nav.length > 0 && (
+      <nav aria-label="Main">
+        <ul class="mono">
+          {nav.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
     <div class="actions">
       <a class="cta mono" href={`mailto:${profile.email}`}>
         Email
@@ -58,6 +58,7 @@ const initials = profile.name
     min-height: var(--header-h);
   }
   .brand {
+    margin-inline-end: auto;
     display: inline-flex;
     align-items: center;
     gap: var(--space-3);
@@ -78,9 +79,6 @@ const initials = profile.name
   }
   .name {
     color: var(--bone);
-  }
-  nav {
-    margin-inline-start: auto;
   }
   nav ul {
     display: flex;
@@ -119,9 +117,6 @@ const initials = profile.name
   @media (max-width: 720px) {
     nav {
       display: none;
-    }
-    .actions {
-      margin-inline-start: auto;
     }
   }
   @media (max-width: 420px) {

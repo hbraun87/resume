@@ -24,6 +24,10 @@
     button.addEventListener('click', () => {
       const next = isLight() ? 'dark' : 'light';
       root.dataset['theme'] = next;
+      const bar = getComputedStyle(root).getPropertyValue('--ink').trim();
+      for (const meta of document.querySelectorAll('meta[name="theme-color"]')) {
+        meta.setAttribute('content', bar);
+      }
       try {
         localStorage.setItem('theme', next);
       } catch {

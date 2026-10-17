@@ -7,8 +7,9 @@
   margin: 0;
 }
 html {
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
+  /* 100%, not none: none blocks text enlargement on iOS. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 body {
   min-height: 100dvh;

@@ -32,6 +32,15 @@ const last = rest.join(' ');
   .hero {
     padding-block: var(--space-16) var(--space-12);
   }
+  /* Landscape phones: keep the name and pitch on the first screen. */
+  @media (max-height: 30rem) {
+    .hero {
+      padding-block: var(--space-6) var(--space-8);
+    }
+    .boot {
+      margin-bottom: var(--space-3);
+    }
+  }
   .boot {
     color: var(--dim);
     margin-bottom: var(--space-6);
