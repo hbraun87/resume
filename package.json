@@ -12,13 +12,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "test": "vitest run",
+    "test": "vitest run --coverage",
     "lint": "eslint .",
     "format": "prettier --write .",
     "schema": "node scripts/gen-schema.mjs",
     "new:experience": "node scripts/new-experience.mjs",
     "check:content": "node scripts/check-content.mjs",
-    "check:static": "astro check && eslint . && prettier --check . && node scripts/gen-schema.mjs --verify && node scripts/check-content.mjs && vitest run",
+    "check:static": "astro check && eslint . && prettier --check . && node scripts/gen-schema.mjs --verify && node scripts/check-content.mjs && vitest run --coverage",
     "check": "npm run check:static && npm run build"
   },
   "dependencies": {
@@ -26,12 +26,14 @@
     "@fontsource-variable/instrument-sans": "5.3.0",
     "@fontsource-variable/jetbrains-mono": "5.3.0",
     "@fontsource/unbounded": "5.3.0",
-    "astro": "7.3.8"
+    "astro": "7.3.8",
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
     "@eslint/js": "10.0.1",
     "@playwright/test": "1.64.1",
+    "@vitest/coverage-v8": "5.0.5",
     "eslint": "10.13.0",
     "eslint-plugin-astro": "1.7.0",
     "globals": "17.13.0",

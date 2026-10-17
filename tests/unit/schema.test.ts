@@ -71,6 +71,24 @@ describe('experienceSchema', () => {
     expect(result.error?.issues[0]?.message).toMatch(/before period.start/);
   });
 
+  it('requires highlights on featured and selected entries', () => {
+    const result = experienceSchema.safeParse({ ...minimal, tier: 'selected' });
+    expect(result.error?.issues[0]?.path).toEqual(['highlights']);
+  });
+
+  it('requires a publication on research entries', () => {
+    const result = experienceSchema.safeParse({ ...minimal, category: 'research' });
+    expect(result.error?.issues[0]?.path).toEqual(['publication']);
+  });
+
+  it('rejects a YouTube value that is neither an id nor a URL', () => {
+    const result = experienceSchema.safeParse({
+      ...minimal,
+      media: [{ type: 'youtube', id: 'not a video', title: 'Trailer' }],
+    });
+    expect(result.error?.issues[0]?.message).toMatch(/not a YouTube video id or URL/);
+  });
+
   it('normalizes YouTube URLs to ids', () => {
     const result = experienceSchema.parse({
       ...minimal,

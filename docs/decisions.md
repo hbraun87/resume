@@ -44,3 +44,16 @@ Short log of non-obvious choices. Newest last.
 ## 2026-10-17 · Working notes leave the content files
 
 - **Decision:** removed the `_notes` key from `profile.json`; its content lives in `docs/TODO-content.md`. `check-content` rejects any `_`-prefixed key in content.
+
+## 2026-10-17 · Media migrated from Henry's local copy of the old site
+
+- **Decision:** galleries, covers, YouTube ids and the portrait come from `D:\Projects\Web\henrybraun.info`, recompressed to JPEG, with alt text written from each image. Research pages keep their old URL in `legacyPaths`.
+- **Why:** the build environment's network policy blocks henrybraun.info; Henry pointed to his local copy.
+- **Alternatives:** wait for network access; scrape the Wayback Machine (lower quality, same blocker).
+
+## 2026-10-17 · 95% branch coverage gate on `src/lib`
+
+- **Decision:** `npm run check` runs `vitest run --coverage` with `@vitest/coverage-v8` and fails below 95% branches (and 95% functions, lines, statements). Coverage is measured on `src/lib/**`. Logic that used to live in `scripts/*.mjs` moved into `src/lib` (`content-check.ts`, `scaffold.ts`, `json-schema.ts`) so it is measured; the scripts are now thin file I/O. Client-side logic added in later phases goes in `src/lib` too.
+- **Why:** Henry's standing requirement: nothing goes to him for review unless it is gated by 95% branch coverage and the system tests it needs. Measuring Astro markup with line coverage says little; behavior in the browser is covered by the Playwright system tests instead.
+- **Dependency:** `@vitest/coverage-v8` (dev only), the coverage provider maintained with Vitest; no runtime cost. `zod` is now a direct dependency (pinned to the version Astro ships) because `src/lib` imports it.
+- **Alternatives:** istanbul provider (slower, same result); covering `scripts/` by spawning them (slow, brittle).

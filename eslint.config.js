@@ -5,7 +5,16 @@ import globals from 'globals';
 import { defineConfig } from 'eslint/config';
 
 export default defineConfig(
-  { ignores: ['dist/', '.astro/', 'node_modules/'] },
+  {
+    ignores: [
+      'dist/',
+      '.astro/',
+      'node_modules/',
+      'coverage/',
+      'playwright-report/',
+      'test-results/',
+    ],
+  },
   js.configs.recommended,
   ...tseslint.configs.strict,
   ...astro.configs.recommended,

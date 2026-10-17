@@ -8,3 +8,6 @@ playwright-report/
 .lighthouseci/
 .DS_Store
 *.log
+coverage/
+playwright-report/
+test-results/
