@@ -2,6 +2,45 @@
   "$schema": "./experience.schema.json",
   "experiences": [
     {
+      "id": "4loop",
+      "title": "4:LOOP",
+      "category": "game",
+      "tier": "selected",
+      "status": "in-development",
+      "visibility": "public",
+      "studio": "Bad Robot Games",
+      "client": "PlayStation Publishing",
+      "role": "Lead Gameplay Engineer → Engineering Manager",
+      "period": {
+        "start": "2024-01",
+        "end": "present"
+      },
+      "platforms": [
+        "PlayStation 5",
+        "PC"
+      ],
+      "platformGroup": "pc",
+      "tags": [
+        "Co-op",
+        "Roguelike",
+        "Shooter"
+      ],
+      "summary": "Four-player co-op roguelike shooter from Bad Robot Games and PlayStation, coming to PS5 and PC. I joined as Lead Gameplay Engineer and am now Engineering Manager.",
+      "highlights": [
+        "Lead Gameplay Engineer at Bad Robot Games from January 2024, and Engineering Manager since June 2026.",
+        "A third-person co-op shooter where a crew of up to four takes on an alien invasion, run after run."
+      ],
+      "links": [
+        {
+          "kind": "steam",
+          "label": "4:LOOP on Steam",
+          "url": "https://store.steampowered.com/app/3355360/4LOOP/"
+        }
+      ],
+      "media": [],
+      "order": 2
+    },
+    {
       "id": "until-you-fall",
       "title": "Until You Fall",
       "category": "game",
@@ -11,7 +50,7 @@
       "order": 1,
       "studio": "Schell Games",
       "role": "Gameplay Engineer",
-      "platformGroup": "vr",
+      "platformGroup": "playstation",
       "responsibilities": [
         "Gameplay",
         "Systems",
@@ -96,10 +135,10 @@
       "tier": "featured",
       "status": "shipped",
       "visibility": "public",
-      "order": 2,
+      "order": 3,
       "studio": "Schell Games",
       "role": "Project Director & Tech Lead",
-      "platformGroup": "vr",
+      "platformGroup": "playstation",
       "responsibilities": [
         "Tech direction",
         "Localization",
@@ -162,7 +201,7 @@
       "tier": "featured",
       "status": "shipped",
       "visibility": "public",
-      "order": 3,
+      "order": 6,
       "studio": "Schell Games",
       "role": "Tech Director",
       "platformGroup": "vr",
@@ -240,7 +279,7 @@
       "tier": "featured",
       "status": "shipped",
       "visibility": "public",
-      "order": 4,
+      "order": 7,
       "studio": "Schell Games",
       "client": "LEGO",
       "role": "Tech Director",
@@ -314,7 +353,7 @@
       "tier": "featured",
       "status": "shipped",
       "visibility": "public",
-      "order": 5,
+      "order": 8,
       "studio": "Schell Games",
       "client": "Google",
       "role": "Project Director",
@@ -383,7 +422,7 @@
       "tier": "featured",
       "status": "in-development",
       "visibility": "public",
-      "order": 6,
+      "order": 9,
       "studio": "Maned Wolf Games",
       "role": "Founder",
       "platformGroup": "pc",
@@ -457,8 +496,8 @@
       "category": "game",
       "tier": "selected",
       "status": "in-development",
-      "visibility": "draft",
-      "order": 7,
+      "visibility": "public",
+      "order": 4,
       "studio": "Twin Suns Corp",
       "role": "Programmer → Senior Programmer",
       "period": {
@@ -470,14 +509,27 @@
         "Gameplay"
       ],
       "tags": [
-        "PvPvE",
+        "Spy action",
+        "Stealth",
         "Multiplayer"
       ],
-      "summary": "PvPvE title built in Unreal Engine at Twin Suns Corp, where I worked as Programmer and then Senior Programmer.",
+      "summary": "Stylized third-person spy action game with infiltration, gunplay and close-quarters combat, built in Unreal Engine. I worked on it as Programmer and then Senior Programmer.",
       "highlights": [
-        "Worked on Project Octavia, a PvPvE Unreal Engine title, as Programmer and then Senior Programmer."
+        "Worked on Project Octavia, a PvPvE Unreal Engine title, as Programmer and then Senior Programmer.",
+        "A stylized third-person spy action game built around infiltration, gunplay and close-quarters combat."
       ],
-      "media": []
+      "media": [],
+      "platformGroup": "pc",
+      "platforms": [
+        "PC"
+      ],
+      "links": [
+        {
+          "kind": "steam",
+          "label": "Project Octavia on Steam",
+          "url": "https://store.steampowered.com/app/1941770/Project_Octavia/"
+        }
+      ]
     },
     {
       "id": "superchem-vr",
@@ -486,7 +538,7 @@
       "tier": "selected",
       "status": "prototype",
       "visibility": "public",
-      "order": 8,
+      "order": 10,
       "studio": "Schell Games",
       "role": "Tech Director",
       "platformGroup": "vr",
@@ -541,7 +593,7 @@
       "tier": "selected",
       "status": "shipped",
       "visibility": "public",
-      "order": 9,
+      "order": 11,
       "studio": "Schell Games",
       "role": "Gameplay Engineer",
       "platformGroup": "vr",
@@ -608,7 +660,7 @@
       "tier": "selected",
       "status": "shipped",
       "visibility": "public",
-      "order": 10,
+      "order": 5,
       "studio": "Aquiris Game Studio",
       "client": "Cartoon Network",
       "role": "Programmer",
@@ -676,7 +728,7 @@
       "tier": "selected",
       "status": "shipped",
       "visibility": "public",
-      "order": 11,
+      "order": 12,
       "studio": "Schell Games",
       "role": "Engineer",
       "platformGroup": "mobile",
@@ -745,7 +797,7 @@
       "tier": "selected",
       "status": "shipped",
       "visibility": "public",
-      "order": 12,
+      "order": 13,
       "studio": "Swordtales",
       "role": "Programmer (alpha)",
       "platformGroup": "pc",
@@ -811,7 +863,7 @@
       "tier": "selected",
       "status": "shipped",
       "visibility": "public",
-      "order": 13,
+      "order": 14,
       "studio": "Aquiris Game Studio",
       "client": "Cartoon Network",
       "role": "Programmer (prototype)",
@@ -879,7 +931,7 @@
       "tier": "selected",
       "status": "shipped",
       "visibility": "public",
-      "order": 14,
+      "order": 15,
       "role": "Gameplay & Systems Engineer",
       "platformGroup": "mobile",
       "platforms": [

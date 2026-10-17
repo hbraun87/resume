@@ -5,9 +5,10 @@ export type PlatformGroup = NonNullable<Experience['platformGroup']>;
 
 export const PLATFORM_LABELS: Record<PlatformGroup, string> = {
   pc: 'PC',
+  mobile: 'Mobile',
+  playstation: 'PlayStation',
   vr: 'VR',
   ar: 'AR',
-  mobile: 'Mobile',
 };
 
 const GAME_CATEGORIES = new Set<Experience['category']>(['game', 'prototype', 'jam']);
@@ -39,7 +40,7 @@ export function entryPath(entry: Pick<Experience, 'id' | 'category'>): string {
 }
 
 export function platformCounts(entries: Experience[]): Record<PlatformGroup | 'all', number> {
-  const counts = { all: entries.length, pc: 0, vr: 0, ar: 0, mobile: 0 };
+  const counts = { all: entries.length, pc: 0, mobile: 0, playstation: 0, vr: 0, ar: 0 };
   for (const entry of entries) if (entry.platformGroup) counts[entry.platformGroup] += 1;
   return counts;
 }

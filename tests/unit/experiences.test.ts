@@ -65,8 +65,22 @@ describe('entryPath', () => {
 
 describe('platformCounts', () => {
   it('counts each group and the total', () => {
-    expect(platformCounts(games(entries))).toEqual({ all: 4, pc: 1, vr: 2, ar: 0, mobile: 1 });
-    expect(platformCounts([make('ungrouped')])).toEqual({ all: 1, pc: 0, vr: 0, ar: 0, mobile: 0 });
+    expect(platformCounts(games(entries))).toEqual({
+      all: 4,
+      pc: 1,
+      mobile: 1,
+      playstation: 0,
+      vr: 2,
+      ar: 0,
+    });
+    expect(platformCounts([make('ungrouped')])).toEqual({
+      all: 1,
+      pc: 0,
+      mobile: 0,
+      playstation: 0,
+      vr: 0,
+      ar: 0,
+    });
   });
 });
 

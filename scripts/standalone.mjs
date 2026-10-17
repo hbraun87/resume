@@ -1,7 +1,7 @@
 // Packs the built home page (dist/index.html) into one self-contained HTML file
 // that opens straight from disk (file://) and works as a static page anywhere,
 // GitHub Pages included: fonts, images, styles and scripts are inlined, and
-// project links point at the matching pages on henrybraun.info.
+// project links point at the matching pages on henrybraun.info (or Steam).
 //
 //   npm run build && npm run standalone   →   standalone/index.html
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
@@ -12,7 +12,13 @@ const OUT = 'standalone/index.html';
 const LIVE_SITE = 'https://henrybraun.info';
 
 const { experiences } = JSON.parse(readFileSync('src/content/experiences.json', 'utf8'));
-const legacy = new Map(experiences.map((entry) => [entry.id, entry.legacyPaths?.[0]]));
+// Where each project card points: its page on the live site, else its first outside link (Steam).
+const destination = new Map(
+  experiences.map((entry) => [
+    entry.id,
+    entry.legacyPaths?.[0] ? LIVE_SITE + entry.legacyPaths[0] : entry.links?.[0]?.url,
+  ]),
+);
 
 const asset = (path) => readFileSync(join(DIST, path.replace(/^\//, '')));
 const dataUri = (path, type) => `data:${type};base64,${asset(path).toString('base64')}`;
@@ -69,10 +75,8 @@ html = html.replace(/href="\/"/g, 'href="#boot"');
 html = html.replace(
   /<a href="\/(work|research)\/([\w-]+)\/"([^>]*)>([\s\S]*?)<\/a>/g,
   (_, _kind, id, attrs, text) => {
-    const path = legacy.get(id);
-    return path
-      ? `<a href="${LIVE_SITE}${path}"${attrs}>${text}</a>`
-      : `<span${attrs}>${text}</span>`;
+    const href = destination.get(id);
+    return href ? `<a href="${href}"${attrs}>${text}</a>` : `<span${attrs}>${text}</span>`;
   },
 );
 

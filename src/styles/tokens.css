@@ -20,6 +20,7 @@
   --vr: #6ec6dc;
   --ar: #e8c25c;
   --mobile: #c79af2;
+  --playstation: #8fa8ff;
   --pc: var(--bone);
 
   /* --font-display, --font-body and --font-mono come from Astro's font API. */
@@ -75,6 +76,8 @@
     --vr: #1d6f84;
     --ar: #8a6a07;
     --mobile: #7a3fb0;
+    --playstation: #2f4fb8;
+    --playstation: #2f4fb8;
   }
 }
 
@@ -96,4 +99,5 @@
   --vr: #1d6f84;
   --ar: #8a6a07;
   --mobile: #7a3fb0;
+  --playstation: #2f4fb8;
 }

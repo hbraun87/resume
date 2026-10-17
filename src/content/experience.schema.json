@@ -110,9 +110,10 @@
             "type": "string",
             "enum": [
               "pc",
+              "mobile",
+              "playstation",
               "vr",
-              "ar",
-              "mobile"
+              "ar"
             ]
           },
           "engine": {

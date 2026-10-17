@@ -116,7 +116,7 @@ export const experienceSchema = z
       .optional(),
     platforms: z.array(z.string()).optional(),
     /** The home page filter group (docs/brief/10-loading-screen-spec.md). */
-    platformGroup: z.enum(['pc', 'vr', 'ar', 'mobile']).optional(),
+    platformGroup: z.enum(['pc', 'mobile', 'playstation', 'vr', 'ar']).optional(),
     engine: z.string().optional(),
     tech: z.array(z.string()).optional(),
     teamSize: z.number().int().positive().optional(),
@@ -186,7 +186,7 @@ export const experienceSchema = z
       ctx.addIssue({
         code: 'custom',
         path: ['platformGroup'],
-        message: 'Public games need a platformGroup: pc, vr, ar or mobile',
+        message: 'Public games need a platformGroup: pc, mobile, playstation, vr or ar',
       });
     }
     if (entry.category === 'research' && !entry.publication) {

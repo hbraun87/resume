@@ -6,8 +6,8 @@ Facts and media the site is waiting on. Nothing here is invented: unknown values
 
 | #   | Question                                                                          | Default in use until Henry answers                                                               |
 | --- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| 1   | What Bad Robot Games work can be public?                                          | Role and dates only, no project page                                                             |
-| 2   | Can Project Octavia (Twin Suns) be public, and what did Henry own?                | Draft (hidden)                                                                                   |
+| 1   | What Bad Robot Games work can be public?                                          | Henry added 4:LOOP (Oct 17). His part on it is shown as his Bad Robot titles until he says more  |
+| 2   | Can Project Octavia (Twin Suns) be public, and what did Henry own?                | Public (Henry, Oct 17). What he owned is still open                                              |
 | 3   | Target roles for the headline                                                     | "Engineering Manager, Games"                                                                     |
 | 4   | Featured list                                                                     | Until You Fall, IEYTD Localization, HoloLAB Champions, LEGO BrickHeadz, Domino World AR, Arithal |
 | 5   | Arithal status                                                                    | In development                                                                                   |

@@ -122,3 +122,9 @@ Short log of non-obvious choices. Newest last.
 
 - **Decision:** Henry asked to remove the floating asset-stream log (the `levels/….lvl` and `shaders/….glsl` lines at the bottom right) and every mention of where he was born. The log is gone; game cards still count toward "Streaming levels (N/21)" in the HUD. The boot console's origin line now reads `base Pittsburgh, PA`, the character sheet has no Origin row, the bio starts with his degree, `home.origin` is out of the schema, and the chimarrão tip is gone. Work locations in `roles` stay in the data but are not shown.
 - **Why:** Henry's call (Oct 17, 2026); his word wins over spec `10`.
+
+## 2026-10-17 · A PlayStation platform group, and a mixed top row
+
+- **Decision:** `platformGroup` gains `playstation`. Until You Fall and I Expect You To Die show PlayStation instead of VR, the filters read All · PC · Mobile · PlayStation · VR · AR, and the first cards alternate platforms (Until You Fall, 4:LOOP, I Expect You To Die, Project Octavia, Ben 10, then the VR titles). 4:LOOP and Project Octavia are new public entries, grouped as PC (Steam is their link), with no cover art until Henry confirms rights. Cards without a henrybraun.info page link to Steam in the single-file copy.
+- **Why:** Henry (Oct 17, 2026): VR repeated too often, and PC and Mobile should show near the top.
+- **Alternatives:** several platform chips per card (busier cards, and the filters would need multi-group logic).
