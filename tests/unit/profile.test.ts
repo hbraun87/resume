@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import profile from '../../src/content/profile.json';
-import { guilds, paragraphs, questLog, yearSpan } from '../../src/lib/profile';
+import { paragraphs, questLog, yearSpan } from '../../src/lib/profile';
 import type { Profile } from '../../src/lib/schema';
 
 type Role = Profile['roles'][number];
@@ -46,18 +46,6 @@ describe('questLog', () => {
       company: 'Schell Games',
       years: '2015–2021',
     });
-  });
-});
-
-describe('guilds', () => {
-  it('lists current companies once each', () => {
-    expect(
-      guilds([
-        role('A', 'x', '2020', 'present'),
-        role('A', 'y', '2021', 'present'),
-        role('B', 'z', '2010', '2012'),
-      ]),
-    ).toEqual(['A']);
   });
 });
 

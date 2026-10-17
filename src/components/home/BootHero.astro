@@ -15,7 +15,7 @@ const last = rest.join(' ');
 const pak = `${profile.name.toLowerCase().replace(/\s+/g, '_')}.pak`;
 const console = [
   { text: `mount ${pak}`, tag: 'OK' },
-  { text: `origin ${home.origin} → ${profile.location}`, tag: 'OK' },
+  { text: `base ${profile.location}`, tag: 'OK' },
   { text: `class ${home.class}`, tag: 'OK' },
   { text: `assets ${titles} titles · ${researchCount} research projects`, tag: 'READY' },
 ];
@@ -54,15 +54,10 @@ const console = [
       <span>{profile.location}</span>
     </div>
   </div>
-  <p class="credits mono">
-    <span class="credits-label">Credits</span>
-    {profile.credits.map((credit, i) => (
-      <span class="credit">
-        {i > 0 && <span aria-hidden="true">· </span>}
-        {credit}
-      </span>
-    ))}
-  </p>
+  <p
+    class="statement"
+    set:html={inlineMarkdown(home.statement.replaceAll('{titles}', String(titles)))}
+  />
 </section>
 
 <style>
@@ -176,21 +171,25 @@ const console = [
       transform: translateY(3px);
     }
   }
-  .credits {
+  .statement {
+    max-width: 58rem;
     margin-top: var(--space-12);
-    padding-top: var(--space-4);
+    padding-top: var(--space-6);
     border-top: 1px solid var(--line);
-    color: var(--dim);
-    line-height: 1.9;
+    color: var(--bone-soft);
+    font-size: var(--step-1);
+    line-height: 1.5;
+    text-wrap: pretty;
   }
-  .credit {
-    white-space: nowrap;
-  }
-  .credit + .credit {
-    margin-inline-start: 0.5em;
-  }
-  .credits-label {
-    margin-inline-end: var(--space-3);
-    color: var(--wolf);
+  .statement :global(strong) {
+    display: block;
+    margin-bottom: var(--space-2);
+    color: var(--bone);
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    text-transform: uppercase;
   }
 </style>

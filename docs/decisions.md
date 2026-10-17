@@ -117,3 +117,8 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** `scripts/standalone.mjs` packs the built home page into `standalone/index.html`, with fonts and one WebP per card inlined as data URIs and the scripts inlined as modules. It drops the CSP meta (its hashes cover the separate files, and a file opened from disk has no origin for `'self'`) and the prefetch script. Project and research links go to the same projects on henrybraun.info through each entry's `legacyPaths`; entries without one show their title without a link. The file is committed so it can be opened or hosted as is.
 - **Why:** Henry asked (Oct 17, 2026) for one self-sufficient HTML file he can open locally and host as a static page on GitHub Pages, while the full site is still going through its gates.
 - **Alternatives:** zipping `dist/` (several files, and module scripts are blocked from `file://`).
+
+## 2026-10-17 · No asset log, no birthplace
+
+- **Decision:** Henry asked to remove the floating asset-stream log (the `levels/….lvl` and `shaders/….glsl` lines at the bottom right) and every mention of where he was born. The log is gone; game cards still count toward "Streaming levels (N/21)" in the HUD. The boot console's origin line now reads `base Pittsburgh, PA`, the character sheet has no Origin row, the bio starts with his degree, `home.origin` is out of the schema, and the chimarrão tip is gone. Work locations in `roles` stay in the data but are not shown.
+- **Why:** Henry's call (Oct 17, 2026); his word wins over spec `10`.

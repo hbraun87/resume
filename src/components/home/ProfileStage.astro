@@ -2,7 +2,7 @@
 /* Stage 1: bio, character sheet and quest log. */
 import profile from '../../content/profile.json';
 import StageHeader from '../StageHeader.astro';
-import { guilds, paragraphs, questLog } from '../../lib/profile';
+import { paragraphs, questLog } from '../../lib/profile';
 
 interface Props {
   titles: number;
@@ -17,12 +17,6 @@ const stats = [
   { value: String(titles), label: 'Titles in the log' },
   platforms,
   { value: String(researchCount), label: 'R&D projects' },
-];
-const attributes = [
-  ['Class', home.class],
-  ['Origin', home.origin],
-  ['Base', profile.location],
-  ['Guilds', guilds(profile.roles).join(' · ')],
 ];
 const quests = questLog(profile.roles);
 const training = profile.education.map((item) => ({
@@ -62,14 +56,6 @@ const columns = [
           <div>
             <dt class="mono">{stat?.label}</dt>
             <dd>{stat?.value}</dd>
-          </div>
-        ))}
-      </dl>
-      <dl class="attributes">
-        {attributes.map(([name, value]) => (
-          <div>
-            <dt class="mono">{name}</dt>
-            <dd>{value}</dd>
           </div>
         ))}
       </dl>
@@ -167,22 +153,6 @@ const columns = [
     font-size: var(--step-2);
     font-weight: 800;
     font-variant-numeric: tabular-nums;
-  }
-  .attributes {
-    display: grid;
-    gap: var(--space-2);
-    margin-bottom: var(--space-6);
-  }
-  .attributes div {
-    display: grid;
-    grid-template-columns: 6rem minmax(0, 1fr);
-    gap: var(--space-3);
-    padding-bottom: var(--space-2);
-    border-bottom: 1px solid var(--line);
-  }
-  .attributes dt {
-    color: var(--dim);
-    padding-top: 0.2em;
   }
   .skills {
     display: flex;

@@ -56,11 +56,6 @@ export function questLog(roles: Role[]): { active: Quest[]; completed: Quest[] }
   return { active, completed };
 }
 
-/** Companies of the current roles, in order, without repeats. */
-export function guilds(roles: Role[]): string[] {
-  return [...new Set(roles.filter((role) => role.end === 'present').map((role) => role.company))];
-}
-
 /** The bio split into paragraphs. */
 export function paragraphs(text: string): string[] {
   return text

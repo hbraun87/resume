@@ -1,12 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
-  assetLine,
-  assetName,
   COMPLETE_AT,
   currentOf,
   easeToward,
   nextTip,
-  pushLine,
   scrollProgress,
   stageLabel,
 } from '../../src/lib/hud';
@@ -67,33 +64,6 @@ describe('stageLabel', () => {
   it('shows the stage name, or "Load complete" once done', () => {
     expect(stageLabel({ stage: 'Finalizing' }, 0, false)).toBe('Finalizing');
     expect(stageLabel({ stage: 'Finalizing' }, 0, true)).toBe('Load complete');
-  });
-});
-
-describe('assetName', () => {
-  it('makes a short file-like name from the first words', () => {
-    expect(assetName('Until You Fall')).toBe('until_you_fall');
-    expect(assetName('As Aventuras do Avião Vermelho')).toBe('as_aventuras_do');
-    expect(assetName('N.E.R.O.T.', 9)).toBe('n_e_r_o_t');
-  });
-  it('never returns an empty name', () => {
-    expect(assetName('…')).toBe('asset');
-  });
-});
-
-describe('assetLine', () => {
-  it('formats levels with a size, shaders and stages with a status', () => {
-    expect(assetLine('level', 'toren', () => 0)).toBe('levels/toren.lvl 1.0MB');
-    expect(assetLine('level', 'toren', () => 0.9999)).toBe('levels/toren.lvl 9.9MB');
-    expect(assetLine('shader', 'sky', () => 0)).toBe('shaders/sky.glsl OK');
-    expect(assetLine('stage', 'games', () => 0)).toBe('stage/games.bundle LOADED');
-  });
-});
-
-describe('pushLine', () => {
-  it('keeps the newest lines', () => {
-    expect(pushLine(['a', 'b'], 'c', 2)).toEqual(['b', 'c']);
-    expect(pushLine([], 'a')).toEqual(['a']);
   });
 });
 

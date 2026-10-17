@@ -37,31 +37,6 @@ export function stageLabel(info: StageInfo, streamed: number, done: boolean): st
     : info.stage;
 }
 
-/** File-like asset name from the first words: "Until You Fall" → "until_you_fall". */
-export function assetName(text: string, maxWords = 3): string {
-  const words = text
-    .normalize('NFD')
-    .replace(/\p{M}/gu, '')
-    .toLowerCase()
-    .split(/[^a-z0-9]+/)
-    .filter(Boolean);
-  return words.slice(0, maxWords).join('_') || 'asset';
-}
-
-export type AssetKind = 'level' | 'shader' | 'stage';
-
-/** One asset-stream line; levels get a made-up size between 1.0 and 9.9 MB. */
-export function assetLine(kind: AssetKind, name: string, random: () => number): string {
-  if (kind === 'level') return `levels/${name}.lvl ${(1 + random() * 8.9).toFixed(1)}MB`;
-  if (kind === 'shader') return `shaders/${name}.glsl OK`;
-  return `stage/${name}.bundle LOADED`;
-}
-
-/** Keeps the newest lines (6 by default), oldest first. */
-export function pushLine(lines: string[], line: string, keep = 6): string[] {
-  return [...lines, line].slice(-keep);
-}
-
 /** The next tip index, wrapping around. */
 export function nextTip(index: number, count: number): number {
   return count > 0 ? (index + 1) % count : 0;

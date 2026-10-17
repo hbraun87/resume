@@ -7,7 +7,7 @@ You are building and maintaining Henry Braun's professional portfolio: a static 
 Henry chose (Oct 17, 2026) to **combine** the two briefs:
 
 - `docs/brief/01`–`09` set the foundation: Astro on GitHub Pages, content as JSON, project pages, résumé, and the quality gates.
-- `docs/brief/10-loading-screen-spec.md` sets the home page experience and the look: the page is a game loading sequence (scroll fills a loading HUD, stages, asset log, loading tips) that ends in the particle "LET'S BUILD THE NEXT ONE." finale and PRESS START contact. Its design system (blueprint grid, bone text, maned-wolf rust accent, Unbounded / Instrument Sans / JetBrains Mono, clipped corners) is the site's look.
+- `docs/brief/10-loading-screen-spec.md` sets the home page experience and the look: the page is a game loading sequence (scroll fills a loading HUD, stages, loading tips; Henry dropped the asset log on Oct 17, 2026) that ends in the particle "LET'S BUILD THE NEXT ONE." finale and PRESS START contact. Its design system (blueprint grid, bone text, maned-wolf rust accent, Unbounded / Instrument Sans / JetBrains Mono, clipped corners) is the site's look.
 
 Where they conflict:
 

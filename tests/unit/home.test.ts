@@ -39,7 +39,6 @@ const PAGE = `
     <div data-hud-bar role="progressbar" aria-valuenow="0"><span data-hud-fill></span></div>
     <a href="#contact"><span data-hud-cta>Loading…</span></a>
   </div>
-  <ol data-asset-log></ol>
   <div data-toasts></div>
   <div data-flash></div>`;
 
@@ -164,31 +163,23 @@ describe('initHome', () => {
     expect(h.pending()).toBe(0);
   });
 
-  it('streams assets into the log and counts levels', () => {
+  it('counts each game card once as it streams in', () => {
     const h = harness();
     layoutSections();
     const home = must(initHome(document, h.env), 'home');
     scrollTo(2100);
     const [first, second] = [...document.querySelectorAll('[data-asset="level"]')];
     h.fire(0.35, [must(first, 'card')]);
-    h.fire(0.35, [must(second, 'card'), $('[data-asset="shader"]'), $('#games')]);
-    h.fire(0.35, [$('#research')], false);
+    h.fire(0.35, [must(second, 'card')], false);
+    expect(home.streamed).toBe(1);
+    expect(text('[data-hud-stage]')).toBe('Streaming levels (1/2)');
+    h.fire(0.35, [must(second, 'card')]);
     expect(home.streamed).toBe(2);
-    expect(text('[data-hud-stage]')).toBe('Streaming levels (2/2)');
-    const lines = [...document.querySelectorAll('[data-asset-log] li')].map((li) => li.textContent);
-    expect(lines).toEqual([
-      'levels/until_you_fall.lvl 5.5MB',
-      'levels/toren.lvl 5.5MB',
-      'shaders/sky_rendering.glsl OK',
-      'stage/games.bundle LOADED',
-    ]);
-    expect(document.querySelector('[data-asset-log] li')?.className).toBe('old');
     const observer = must(
       h.observers.find((o) => o.threshold === 0.35),
       'observer',
     );
-    expect(observer.targets.has(must(first, 'card'))).toBe(false);
-    expect(observer.targets.has($('#research'))).toBe(true);
+    expect(observer.targets.size).toBe(0);
   });
 
   it('completes once at the bottom: HUD, labels, burst, flash and toast', () => {
@@ -202,9 +193,6 @@ describe('initHome', () => {
     expect(text('[data-hud-cta]')).toBe('Press start ▸');
     expect(text('[data-finale-state]')).toBe('Load complete');
     expect(text('[data-hud-stage]')).toBe('Load complete');
-    expect(document.querySelector('[data-asset-log] li:last-child')?.textContent).toBe(
-      'henry_braun.pak 100%',
-    );
     vi.advanceTimersByTime(350);
     expect(home.finale?.phase).toBe('burst');
     expect($('[data-flash]').classList.contains('is-flashing')).toBe(true);
@@ -217,7 +205,7 @@ describe('initHome', () => {
     h.settle();
     expect(home.shown).toBe(1);
     home.complete();
-    expect(document.querySelectorAll('[data-asset-log] li')).toHaveLength(1);
+    expect(text('[data-toasts] .toast-title')).toBe('Completionist');
   });
 
   it('skips flash and shake under reduced motion and snaps the particles', () => {

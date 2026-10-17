@@ -1,21 +1,10 @@
 // Wires the loading-screen home page (docs/brief/10-loading-screen-spec.md).
-// The page is complete HTML without this script; it adds the HUD, the asset
-// stream, filters, the typing console, the finale canvas, copy and toasts.
+// The page is complete HTML without this script; it adds the HUD, filters,
+// the typing console, the finale canvas, copy and toasts.
 import { copyText, linkToButton } from './clipboard';
 import { Finale, type Context2D } from './finale';
 import { enhanceFilters } from './filter';
-import {
-  assetLine,
-  assetName,
-  COMPLETE_AT,
-  currentOf,
-  easeToward,
-  nextTip,
-  pushLine,
-  scrollProgress,
-  stageLabel,
-  type AssetKind,
-} from './hud';
+import { COMPLETE_AT, currentOf, easeToward, nextTip, scrollProgress, stageLabel } from './hud';
 import { konamiListener } from './konami';
 import { showToast } from './toast';
 import { typeLines } from './typing';
@@ -93,7 +82,6 @@ export function initHome(doc: Document = document, env: HomeEnv = browserEnv()):
   const stage = $('[data-hud-stage]');
   const tip = $('[data-hud-tip]');
   const cta = $('[data-hud-cta]');
-  const log = $('[data-asset-log]');
   const toasts = $('[data-toasts]');
   const flash = $('[data-flash]');
   const finaleStage = $('[data-finale]');
@@ -109,25 +97,12 @@ export function initHome(doc: Document = document, env: HomeEnv = browserEnv()):
   let tops: { section: HTMLElement; top: number }[] = [];
   let finaleVisible = false;
   let looping = false;
-  let lines: string[] = [];
 
   hud.hidden = false;
   root.classList.add('has-hud');
 
   const toast = (kicker: string, title: string, detail?: string) => {
     if (toasts) showToast(toasts, { kicker, title, detail }, 4200, win);
-  };
-  const logAsset = (line: string) => {
-    if (!log) return;
-    lines = pushLine(lines, line);
-    log.replaceChildren(
-      ...lines.map((text, i) => {
-        const item = doc.createElement('li');
-        item.textContent = text;
-        if (i < lines.length - 3) item.className = 'old';
-        return item;
-      }),
-    );
   };
 
   // The finale canvas. Without a 2D context the headline stays as text.
@@ -258,7 +233,6 @@ export function initHome(doc: Document = document, env: HomeEnv = browserEnv()):
       state.textContent = 'Load complete';
     }
     label();
-    logAsset('henry_braun.pak 100%');
     schedule();
     win.setTimeout(() => {
       burstNow();
@@ -288,20 +262,16 @@ export function initHome(doc: Document = document, env: HomeEnv = browserEnv()):
     }, TIP_MS);
   }
 
-  // The asset stream: each card, row and section logs once as it enters.
-  const assets = env.observe((entries) => {
+  // "Streaming levels (N/21)": each game card counts once as it enters the screen.
+  const levels = env.observe((entries) => {
     for (const { target, isIntersecting } of entries) {
       if (!isIntersecting) continue;
-      assets.unobserve(target);
-      const element = target as HTMLElement;
-      const kind = (element.dataset['asset'] ?? 'stage') as AssetKind;
-      const name = assetName(element.dataset['assetName'] ?? element.id);
-      if (kind === 'level') streamed += 1;
-      logAsset(assetLine(kind, name, env.random));
+      levels.unobserve(target);
+      streamed += 1;
     }
     label();
   }, 0.35);
-  for (const target of doc.querySelectorAll('[data-asset], [data-stage]')) assets.observe(target);
+  for (const card of doc.querySelectorAll('[data-asset="level"]')) levels.observe(card);
 
   const filters = $('[data-filters]');
   if (filters) {

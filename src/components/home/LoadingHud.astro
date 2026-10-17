@@ -1,6 +1,5 @@
 ---
-/* The fixed loading HUD, the desktop asset stream, toasts and the finale
-   flash. All hidden until the home page script runs. */
+/* The fixed loading HUD, toasts and the finale flash. All hidden until the home page script runs. */
 import profile from '../../content/profile.json';
 ---
 
@@ -37,7 +36,6 @@ import profile from '../../content/profile.json';
     </a>
   </div>
 </div>
-<ol class="asset-log mono" data-asset-log aria-hidden="true"></ol>
 <div class="toasts" role="status" data-toasts></div>
 <div class="flash" data-flash aria-hidden="true"></div>
 
@@ -171,37 +169,6 @@ import profile from '../../content/profile.json';
   @keyframes pulse {
     50% {
       box-shadow: 0 0 0 6px color-mix(in srgb, var(--wolf) 25%, transparent);
-    }
-  }
-  .asset-log {
-    position: fixed;
-    right: var(--gutter);
-    bottom: calc(4rem + env(safe-area-inset-bottom) + var(--space-3));
-    z-index: 39;
-    display: grid;
-    justify-items: end;
-    gap: 2px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    max-width: 24rem;
-    color: var(--dim);
-    pointer-events: none;
-  }
-  .asset-log :global(li) {
-    max-width: 100%;
-    overflow: hidden;
-    padding-inline: var(--space-1);
-    background: color-mix(in srgb, var(--ink) 80%, transparent);
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .asset-log :global(.old) {
-    opacity: 0.35;
-  }
-  @media (max-width: 1100px) {
-    .asset-log {
-      display: none;
     }
   }
   .toasts {

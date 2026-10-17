@@ -235,8 +235,9 @@ export const profileSchema = z.object({
   credits: z.array(z.string()),
   /** Copy for the loading-screen home page (docs/brief/10-loading-screen-spec.md). */
   home: z.object({
-    origin: z.string().min(1),
     class: z.string().min(1),
+    /** The hero's career line; {titles} becomes the number of public games. */
+    statement: z.string().min(1),
     tagline: z.string().min(1),
     profileHeadline: z.string().min(1),
     /** Stats the data cannot compute; the page adds title and research counts. */
