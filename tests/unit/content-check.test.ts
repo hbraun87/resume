@@ -68,6 +68,24 @@ describe('checkContent', () => {
     ]);
   });
 
+  it('rejects GIFs, clips and cover loops in public entries until the media pipeline exists', () => {
+    const media = [
+      { type: 'gif', src: 'a.gif', alt: 'Loop' },
+      { type: 'video', src: 'b.mp4', alt: 'Clip' },
+    ];
+    const files = { 'my-game': ['a.gif', 'b.mp4', 'c.mp4'], draft: ['a.gif', 'b.mp4', 'c.mp4'] };
+    const coverLoop = { src: 'c.mp4' };
+    const report = run(
+      [entry({ media, coverLoop }), entry({ id: 'draft', visibility: 'draft', media, coverLoop })],
+      files,
+    );
+    expect(report.errors).toEqual([
+      'experiences.json → my-game → coverLoop: needs the media pipeline (docs/decisions.md)',
+      'experiences.json → my-game → media[0]: gif files need the media pipeline (docs/decisions.md); use an image or YouTube for now',
+      'experiences.json → my-game → media[1]: video files need the media pipeline (docs/decisions.md); use an image or YouTube for now',
+    ]);
+  });
+
   it('checks covers, cover loops and YouTube posters, and warns on unused files', () => {
     const report = run(
       [
@@ -83,6 +101,7 @@ describe('checkContent', () => {
       { 'my-game': ['cover.jpg', 'loop.mp4', 'extra.png', '.DS_Store'] },
     );
     expect(report.errors).toEqual([
+      'experiences.json → my-game → coverLoop: needs the media pipeline (docs/decisions.md)',
       'experiences.json → my-game → media[0].poster "poster.jpg" not found in src/assets/projects/my-game/',
     ]);
     expect(report.warnings).toEqual([

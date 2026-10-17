@@ -45,8 +45,17 @@ function checkMedia(entry: Experience, files: string[], report: ContentReport): 
   if (entry.cover) need(entry.cover.src, 'cover.src');
   else if (isPublic && entry.tier === 'featured')
     report.warnings.push(`${where}: featured entry has no cover`);
-  if (entry.coverLoop) need(entry.coverLoop.src, 'coverLoop.src');
+  if (entry.coverLoop) {
+    need(entry.coverLoop.src, 'coverLoop.src');
+    if (isPublic)
+      report.errors.push(`${where} → coverLoop: needs the media pipeline (docs/decisions.md)`);
+  }
   entry.media?.forEach((item, index) => {
+    if ((item.type === 'gif' || item.type === 'video') && isPublic) {
+      report.errors.push(
+        `${where} → media[${index}]: ${item.type} files need the media pipeline (docs/decisions.md); use an image or YouTube for now`,
+      );
+    }
     if (item.type !== 'youtube') need(item.src, `media[${index}].src`);
     else if (item.poster) need(item.poster, `media[${index}].poster`);
   });

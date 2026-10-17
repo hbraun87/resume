@@ -1,0 +1,81 @@
+---
+/* Every media component in every state, for review and the system tests.
+   Not linked, not in the sitemap, and noindex. */
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Figure from '../components/Figure.astro';
+import Gallery from '../components/Gallery.astro';
+import YouTube from '../components/YouTube.astro';
+import { posterFile, projectImage } from '../lib/media';
+
+const entry = await getEntry('experiences', 'until-you-fall');
+if (!entry) throw new Error('styleguide needs the until-you-fall entry');
+const { data } = entry;
+const video = data.media?.find((item) => item.type === 'youtube');
+const images = data.media?.filter((item) => item.type === 'image') ?? [];
+const poster = video && posterFile(data, video);
+const single = await getEntry('experiences', 'vhup');
+const singleImage = single?.data.cover;
+---
+
+<Base title="Styleguide" noindex>
+  <div class="container guide">
+    <h1>Media components</h1>
+
+    <section aria-labelledby="yt">
+      <h2 id="yt">YouTube facade</h2>
+      <p>Poster from the project's own images; the player loads only after a click.</p>
+      {video && (
+        <YouTube
+          id={video.id}
+          title={video.title}
+          start={video.start}
+          poster={poster ? projectImage(data.id, poster) : undefined}
+        />
+      )}
+      <h3>Without a poster</h3>
+      <div class="narrow">
+        <YouTube id="BbTIdBKVmeI" title="I Expect You To Die localization trailer" />
+      </div>
+    </section>
+
+    <section aria-labelledby="figure">
+      <h2 id="figure">Figure</h2>
+      {single && singleImage && (
+        <Figure
+          image={projectImage(single.data.id, singleImage.src)}
+          alt={singleImage.alt}
+          caption="A caption says what the image proves."
+          credit="Credit line"
+        />
+      )}
+    </section>
+
+    <section aria-labelledby="gallery">
+      <h2 id="gallery">Gallery and lightbox</h2>
+      <Gallery entryId={data.id} items={images} label={`${data.title} screenshots`} />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .guide {
+    display: grid;
+    gap: var(--space-12);
+    padding-block: var(--space-12);
+  }
+  section {
+    display: grid;
+    gap: var(--space-4);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+  }
+  h2 {
+    font-size: var(--step-2);
+  }
+  .narrow {
+    max-width: 32rem;
+  }
+</style>

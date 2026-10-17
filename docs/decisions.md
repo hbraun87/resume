@@ -65,3 +65,27 @@ Short log of non-obvious choices. Newest last.
 - **Dependency:** `@axe-core/playwright` (dev only), Deque's official axe integration, pinned to 4.13.0 rather than the 4.14.0 published two days earlier.
 - **Fixes found while writing them:** `text-size-adjust: none` blocked text enlargement on iOS (now `100%`); `theme-color` was always dark (now one per scheme, updated by the toggle); header links pointed at home page sections that do not exist yet (removed until those sections ship).
 - **Alternatives:** Chromium-only device emulation (misses Safari bugs, which is the main iPhone risk); a cloud device farm (cost, credentials, third-party access to previews).
+
+## 2026-10-17 · Video posters come from Henry's own images
+
+- **Decision:** a YouTube facade's poster is its `poster` field, else the entry's cover, else its first image (`posterFile()` in `src/lib/media.ts`). Nothing is downloaded from `i.ytimg.com`; brief `06` suggested build-time thumbnail downloads.
+- **Why:** the project's captures look better than YouTube's auto thumbnails, need no network at build (the build environment cannot reach YouTube), and keep the page free of YouTube requests until the visitor clicks. Every entry with a video already has images.
+- **Alternatives:** download thumbnails in CI with a cache (adds network to the build and still needs an offline fallback).
+
+## 2026-10-17 · DOM logic is unit tested in happy-dom
+
+- **Decision:** browser behavior (YouTube facade, lightbox) lives in `src/lib/*.ts` as plain functions over the DOM, unit tested in `happy-dom` (dev only, 20.14.6 rather than the 21.x major published days earlier) with network loading switched off, and system tested in real browsers by Playwright. Components only render markup and call the enhancer.
+- **Why:** keeps all logic under the 95% branch coverage gate instead of hiding it in component scripts the gate cannot see.
+- **Alternatives:** jsdom (heavier, slower, same coverage); Vitest browser mode (a second browser runner next to Playwright).
+
+## 2026-10-17 · Lightbox on a native `<dialog>`
+
+- **Decision:** thumbnails are links to a 2400px WebP; with JavaScript they open one shared `<dialog>` with previous, next and close buttons, arrow keys, swipe, backdrop click and Escape, and focus returns to the thumbnail. On phones the arrows sit under the image.
+- **Why:** `showModal()` gives focus trapping, inert background and Escape for free in every current browser; the link keeps it working without JavaScript and lets modified clicks open a new tab.
+- **Alternatives:** a lightbox library (a runtime dependency for what the platform now does).
+
+## 2026-10-17 · GIF and clip pipeline deferred until there is a GIF or clip
+
+- **Decision:** `scripts/media.mjs` (ffmpeg conversion of GIFs and cover loops, brief `06`) is not built yet. No content uses `gif`, `video` or `coverLoop`; `check-content` fails the build if a public entry does, so nothing ships unrendered.
+- **Why:** it would add `ffmpeg-static` (a large binary) and a cache step for zero current media. It lands with the first GIF or clip Henry provides.
+- **Alternatives:** build it now as the plan lists (unused code and dependency weight).

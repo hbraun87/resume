@@ -1,0 +1,141 @@
+---
+/* Click-to-load YouTube (docs/brief/06-media-pipeline.md). Renders a link to
+   youtube.com over a self-hosted poster; src/lib/youtube.ts upgrades it to a
+   play button that loads the youtube-nocookie player only on click. */
+import type { ImageMetadata } from 'astro';
+import { Picture } from 'astro:assets';
+import { watchUrl } from '../lib/youtube';
+
+interface Props {
+  id: string;
+  title: string;
+  start?: number | undefined;
+  poster?: ImageMetadata | undefined;
+  vertical?: boolean;
+  /** Layout slot width, for the poster's `sizes`. */
+  sizes?: string;
+  /** Load the poster eagerly when the video is the page's first large image. */
+  eager?: boolean;
+}
+
+const {
+  id,
+  title,
+  start,
+  poster,
+  vertical = false,
+  sizes = '(min-width: 76rem) 76rem, 100vw',
+  eager = false,
+} = Astro.props;
+const widths = poster ? [480, 800, 1200, 1600].filter((w) => w <= poster.width) : [];
+---
+
+<div
+  class:list={['yt', { vertical }]}
+  data-youtube-id={id}
+  data-youtube-title={title}
+  data-youtube-start={start}
+>
+  <a class="yt-target" href={watchUrl(id, start)}>
+    {poster ? (
+      <Picture
+        class="yt-poster"
+        src={poster}
+        alt=""
+        formats={['avif', 'webp']}
+        widths={widths.length ? widths : [poster.width]}
+        sizes={sizes}
+        loading={eager ? 'eager' : 'lazy'}
+        fetchpriority={eager ? 'high' : 'auto'}
+      />
+    ) : (
+      <span class="yt-poster yt-blank" />
+    )}
+    <span class="yt-play" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="28" height="28">
+        <path d="M8 5v14l11-7z" fill="currentColor"></path>
+      </svg>
+    </span>
+    <span class="visually-hidden">Watch {title} on YouTube</span>
+  </a>
+</div>
+
+<script>
+  import { enhanceYouTube } from '../lib/youtube';
+  enhanceYouTube();
+</script>
+
+<style>
+  .yt {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--sunken);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .yt.vertical {
+    aspect-ratio: 9 / 16;
+    max-height: 80svh;
+  }
+  .yt :global(iframe),
+  .yt-target {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .yt-target {
+    display: grid;
+    place-items: center;
+    padding: 0;
+    background: none;
+    color: var(--on-wolf);
+    cursor: pointer;
+  }
+  .yt-target > :global(*) {
+    grid-area: 1 / 1;
+  }
+  .yt-poster,
+  .yt-target :global(picture),
+  .yt-target :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .yt-blank {
+    background:
+      linear-gradient(135deg, transparent 0 48%, var(--line) 48% 52%, transparent 52%), var(--panel);
+  }
+  .yt-play {
+    display: grid;
+    place-items: center;
+    width: 4.5rem;
+    height: 3.25rem;
+    background: var(--wolf);
+    clip-path: polygon(
+      0 0,
+      calc(100% - 10px) 0,
+      100% 10px,
+      100% 100%,
+      10px 100%,
+      0 calc(100% - 10px)
+    );
+    box-shadow: 0 0 0 1px var(--wolf-deep);
+  }
+  .yt-target:hover .yt-play,
+  .yt-target:focus-visible .yt-play {
+    background: var(--wolf-strong);
+  }
+  .yt-target:focus-visible {
+    outline-offset: -4px;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .yt-play {
+      transition: transform var(--dur-fast) var(--ease-out);
+    }
+    .yt-target:hover .yt-play {
+      transform: scale(1.06);
+    }
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+/* One image with an optional caption and credit, sized for its layout slot. */
+import type { ImageMetadata } from 'astro';
+import { Picture } from 'astro:assets';
+
+interface Props {
+  image: ImageMetadata;
+  alt: string;
+  caption?: string | undefined;
+  credit?: string | undefined;
+  sizes?: string;
+  /** The page's largest image above the fold: load it first. */
+  eager?: boolean;
+}
+
+const {
+  image,
+  alt,
+  caption,
+  credit,
+  sizes = '(min-width: 76rem) 76rem, 100vw',
+  eager = false,
+} = Astro.props;
+const widths = [480, 800, 1200, 1600, 2400].filter((w) => w <= image.width);
+---
+
+<figure class="figure">
+  <Picture
+    src={image}
+    alt={alt}
+    formats={['avif', 'webp']}
+    widths={widths.length ? widths : [image.width]}
+    sizes={sizes}
+    loading={eager ? 'eager' : 'lazy'}
+    fetchpriority={eager ? 'high' : 'auto'}
+  />
+  {(caption || credit) && (
+    <figcaption>
+      {caption}
+      {credit && <span class="mono credit">{credit}</span>}
+    </figcaption>
+  )}
+</figure>
+
+<style>
+  /* Natural size up to the column width: small originals are never upscaled. */
+  .figure :global(img) {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    background: var(--sunken);
+  }
+  figcaption {
+    margin-top: var(--space-2);
+    color: var(--dim);
+    font-size: var(--step--1);
+  }
+  .credit {
+    display: block;
+    margin-top: var(--space-1);
+  }
+</style>
