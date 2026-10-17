@@ -1,4 +1,10 @@
 import { expect, test, type Page } from '@playwright/test';
+import content from '../../src/content/experiences.json' with { type: 'json' };
+import { games } from '../../src/lib/experiences';
+import type { Experience } from '../../src/lib/schema';
+
+// The number of game cards on the home page, from the content itself.
+const GAMES = games(content.experiences as Experience[]).length;
 
 // The loading-screen home page (docs/brief/10-loading-screen-spec.md), on every
 // phone, tablet and desktop profile.
@@ -22,7 +28,9 @@ test.describe('loading HUD', () => {
       const games = document.getElementById('games');
       if (games) window.scrollTo(0, games.offsetTop);
     });
-    await expect(page.locator('[data-hud-stage]')).toHaveText(/^Streaming levels \(\d+\/21\)$/);
+    await expect(page.locator('[data-hud-stage]')).toHaveText(
+      new RegExp(`^Streaming levels \\(\\d+/${GAMES}\\)$`),
+    );
     // The nav is hidden on phones, but still marks the section in view.
     await expect(page.locator('[data-nav] a[href$="#games"]')).toHaveAttribute(
       'aria-current',
@@ -118,17 +126,17 @@ test.describe('finale', () => {
 test('platform filters show one platform and announce the count', async ({ page }) => {
   await page.goto('');
   const cards = page.locator('[data-platform]');
-  await expect(cards).toHaveCount(21);
+  await expect(cards).toHaveCount(GAMES);
   const vr = page.getByRole('button', { name: /^VR \d+$/ });
   await vr.scrollIntoViewIfNeeded();
   await vr.click();
   await expect(vr).toHaveAttribute('aria-pressed', 'true');
   const shown = await cards.filter({ visible: true }).count();
   expect(shown).toBeGreaterThan(0);
-  expect(shown).toBeLessThan(21);
+  expect(shown).toBeLessThan(GAMES);
   await expect(page.locator('[data-filter-status]')).toHaveText(`Showing ${shown} VR titles`);
   await page.getByRole('button', { name: /^All \d+$/ }).click();
-  await expect(cards.filter({ visible: true })).toHaveCount(21);
+  await expect(cards.filter({ visible: true })).toHaveCount(GAMES);
 });
 
 test('every card and research row links to its own page', async ({ page, request }) => {
@@ -147,7 +155,7 @@ test.describe('home without JavaScript', () => {
     await page.goto('');
     await expect(hud(page)).toBeHidden();
     await expect(page.locator('[data-filters]')).toBeHidden();
-    await expect(page.locator('[data-platform]').filter({ visible: true })).toHaveCount(21);
+    await expect(page.locator('[data-platform]').filter({ visible: true })).toHaveCount(GAMES);
     await expect(page.getByRole('heading', { name: "Let's build the next one." })).toBeVisible();
     await expect(page.getByRole('link', { name: 'Press start' })).toHaveAttribute(
       'href',
