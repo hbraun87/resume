@@ -7,8 +7,16 @@ const DARK_INK = 'rgb(13, 17, 24)';
 const LIGHT_INK = 'rgb(244, 241, 234)';
 
 /** Fails the test on console errors, uncaught exceptions and any request off this origin. */
-function watch(page: Page) {
+async function watch(page: Page) {
   const problems: string[] = [];
+  // Name what a Content Security Policy violation blocked; browsers' own messages often don't.
+  await page.addInitScript(() => {
+    document.addEventListener('securitypolicyviolation', (event) => {
+      console.error(
+        `CSP blocked ${event.effectiveDirective}: ${event.blockedURI} ${event.sample}`.trim(),
+      );
+    });
+  });
   page.on('console', (message) => {
     if (message.type() === 'error') problems.push(`console: ${message.text()}`);
   });
@@ -29,7 +37,7 @@ for (const path of pages) {
       test.use({ colorScheme: scheme });
 
       test('loads cleanly, fits the screen and passes axe', async ({ page }, testInfo) => {
-        const problems = watch(page);
+        const problems = await watch(page);
         await page.goto(path, { waitUntil: 'networkidle' });
 
         const fit = await page.evaluate(() => ({
@@ -43,11 +51,14 @@ for (const path of pages) {
           .analyze();
         expect(axe.violations.map((v) => `${v.id}: ${v.help}`)).toEqual([]);
 
+        expect(problems).toEqual([]);
+
+        // caret: 'initial' stops Playwright injecting a <style>, which WebKit
+        // rightly blocks under the site's Content Security Policy.
         await testInfo.attach(`${scheme}.png`, {
-          body: await page.screenshot({ fullPage: true }),
+          body: await page.screenshot({ fullPage: true, caret: 'initial' }),
           contentType: 'image/png',
         });
-        expect(problems).toEqual([]);
       });
     });
   }
