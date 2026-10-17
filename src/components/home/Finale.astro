@@ -1,0 +1,304 @@
+---
+/* Stage 4: the particle finale and the contact row. Without JavaScript (or a
+   canvas) the headline is plain text and PRESS START is an email link. */
+import profile from '../../content/profile.json';
+import StageHeader from '../StageHeader.astro';
+
+const { home } = profile;
+const pak = `${profile.name.toLowerCase().replace(/\s+/g, '_')}.pak`;
+const build = new Date().toISOString().slice(0, 7).replace('-', '.');
+const mailto = `mailto:${profile.email}`;
+---
+
+<section
+  id="contact"
+  class="container stage"
+  data-stage="Finalizing"
+  aria-labelledby="finale-title"
+>
+  <StageHeader stage="Stage 4" label="Waiting for load…" state />
+  <div class="frame" data-finale data-headline={home.finaleHeadline} data-name={profile.name}>
+    <span class="corner tl mono" aria-hidden="true">
+      {pak}
+    </span>
+    <span class="corner tr mono live" aria-hidden="true">
+      Load <span data-finale-pct>0%</span>
+    </span>
+    <span class="corner bl mono live" aria-hidden="true">
+      <span class="fine">Move the cursor over the text</span>
+      <span class="coarse">Drag a finger over the text</span>
+    </span>
+    <span class="corner br mono" aria-hidden="true">
+      Build {build}
+    </span>
+    <canvas aria-hidden="true"></canvas>
+    <h2 id="finale-title" class="headline">
+      {home.finaleHeadline}
+    </h2>
+  </div>
+  <div class="contact">
+    <div class="contact-text">
+      <h3 class="contact-title">{home.contactHeadline}</h3>
+      <p class="lede">{home.contactLede}</p>
+      <p class="email-row">
+        <span class="email" data-email>
+          {profile.email}
+        </span>
+        <button type="button" class="copy mono" data-copy hidden>
+          Copy
+        </button>
+      </p>
+      <ul class="links mono">
+        <li>
+          <a href={mailto}>Email</a>
+        </li>
+        {profile.links.map((link) => (
+          <li>
+            <a href={link.url} target="_blank" rel="noopener">
+              {link.label}
+              <span class="visually-hidden"> (opens in a new tab)</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <a class="start" href={mailto} data-start>
+      Press start
+    </a>
+  </div>
+  <p class="cheat mono">
+    <span aria-hidden="true">↑ ↑ ↓ ↓ ← → ← → B A</span>
+    <span class="visually-hidden">
+      Cheat code: up, up, down, down, left, right, left, right, B, A
+    </span>
+  </p>
+</section>
+
+<style>
+  .stage {
+    padding-block: var(--space-16) var(--space-8);
+  }
+  .frame {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: clamp(300px, 54vh, 540px);
+    margin-top: var(--space-6);
+    padding: var(--space-12) var(--space-4);
+    background: color-mix(in srgb, var(--panel) 70%, transparent);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  @media (max-width: 560px) {
+    .frame {
+      height: clamp(260px, 46vh, 420px);
+    }
+  }
+  canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    touch-action: pan-y;
+  }
+  .headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 8vw, 5.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    text-align: center;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  .frame:global(.is-live) canvas {
+    display: block;
+  }
+  .frame:global(.is-live) .headline {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .frame:not(:global(.is-live)) .live {
+    display: none;
+  }
+  .corner {
+    position: absolute;
+    z-index: 1;
+    color: var(--dim);
+    pointer-events: none;
+  }
+  .tl {
+    top: var(--space-3);
+    left: var(--space-4);
+  }
+  .tr {
+    top: var(--space-3);
+    right: var(--space-4);
+    font-variant-numeric: tabular-nums;
+  }
+  .bl {
+    bottom: var(--space-3);
+    left: var(--space-4);
+  }
+  .br {
+    bottom: var(--space-3);
+    right: var(--space-4);
+  }
+  .coarse {
+    display: none;
+  }
+  @media (pointer: coarse) {
+    .fine {
+      display: none;
+    }
+    .coarse {
+      display: inline;
+    }
+  }
+  @media (max-width: 480px) {
+    .br {
+      display: none;
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .frame:global(.is-shaking) {
+      animation: shake 0.45s linear;
+    }
+  }
+  @keyframes shake {
+    20% {
+      transform: translate(-6px, 3px);
+    }
+    40% {
+      transform: translate(5px, -4px);
+    }
+    60% {
+      transform: translate(-4px, -2px);
+    }
+    80% {
+      transform: translate(3px, 4px);
+    }
+  }
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+  }
+  .contact-text {
+    flex: 1 1 28rem;
+    min-width: 0;
+  }
+  .contact-title {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  .lede {
+    max-width: var(--measure);
+    margin-top: var(--space-3);
+    color: var(--bone-soft);
+  }
+  .email-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+  .email {
+    font-family: var(--font-mono);
+    font-size: var(--step-1);
+    overflow-wrap: anywhere;
+    user-select: all;
+  }
+  .copy {
+    min-height: 2.75rem;
+    padding-inline: var(--space-4);
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--bone);
+    cursor: pointer;
+  }
+  .copy[hidden] {
+    display: none;
+  }
+  .copy:hover {
+    border-color: var(--wolf);
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-6);
+    margin-top: var(--space-4);
+    padding: 0;
+    list-style: none;
+  }
+  .links a {
+    display: inline-block;
+    padding-block: var(--space-2);
+  }
+  /* The clipped shape is painted by ::before, so the focus outline is not clipped too. */
+  .start {
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-items: center;
+    min-height: 4.5rem;
+    padding-inline: var(--space-12);
+    background: none;
+    border: 0;
+    color: var(--on-wolf);
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .start::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--wolf);
+    clip-path: polygon(
+      0 0,
+      calc(100% - 16px) 0,
+      100% 16px,
+      100% 100%,
+      16px 100%,
+      0 calc(100% - 16px)
+    );
+  }
+  .start:hover {
+    color: var(--on-wolf);
+  }
+  .start:hover::before {
+    background: var(--wolf-strong);
+  }
+  .start:focus-visible {
+    outline-offset: 4px;
+  }
+  @media (max-width: 760px) {
+    .start {
+      width: 100%;
+    }
+  }
+  .cheat {
+    margin-top: var(--space-12);
+    color: var(--dim);
+    text-align: center;
+  }
+</style>

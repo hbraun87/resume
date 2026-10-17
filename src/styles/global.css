@@ -78,3 +78,8 @@ a:hover {
 .skip-link:focus-visible {
   transform: none;
 }
+
+/* Room for the home page's fixed loading HUD, added when its script runs. */
+.has-hud body {
+  padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+}

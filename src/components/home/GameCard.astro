@@ -1,0 +1,215 @@
+---
+/* A level-select card: art band, platform chip, role, title and summary. The
+   whole card is one link to the project page. */
+import { Picture } from 'astro:assets';
+import { entryPath, glyph, PLATFORM_LABELS } from '../../lib/experiences';
+import { projectImage } from '../../lib/media';
+import type { Experience } from '../../lib/schema';
+import { inlineMarkdown } from '../../lib/text';
+import { url } from '../../lib/url';
+
+interface Props {
+  entry: Experience;
+}
+
+const { entry } = Astro.props;
+const group = entry.platformGroup ?? 'pc';
+const featured = entry.tier === 'featured';
+const cover = entry.cover && projectImage(entry.id, entry.cover.src);
+const widths = cover ? [400, 800].filter((w) => w <= cover.width) : [];
+---
+
+<li
+  class:list={['card', group, { featured }]}
+  data-platform={group}
+  data-asset="level"
+  data-asset-name={entry.title}
+>
+  <div class="art" aria-hidden="true">
+    {cover ? (
+      <Picture
+        src={cover}
+        alt=""
+        formats={['avif', 'webp']}
+        widths={widths.length ? widths : [cover.width]}
+        sizes={
+          featured
+            ? '(min-width: 76rem) 37rem, (min-width: 40rem) 60vw, 100vw'
+            : '(min-width: 76rem) 18rem, (min-width: 40rem) 45vw, 100vw'
+        }
+        loading="lazy"
+      />
+    ) : (
+      <span class="glyph">{glyph(entry)}</span>
+    )}
+  </div>
+  <div class="body">
+    <p class="meta mono">
+      <span class="chip">{PLATFORM_LABELS[group]}</span>
+      <span>{entry.role}</span>
+    </p>
+    <h3>
+      <a href={url(entryPath(entry))}>{entry.title}</a>
+    </h3>
+    <p class="summary" set:html={inlineMarkdown(entry.summary)} />
+  </div>
+</li>
+
+<style>
+  .card {
+    --tint: var(--pc);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    transition:
+      transform var(--dur-med) ease,
+      border-color var(--dur-med) ease;
+  }
+  .card.vr {
+    --tint: var(--vr);
+  }
+  .card.ar {
+    --tint: var(--ar);
+  }
+  .card.mobile {
+    --tint: var(--mobile);
+  }
+  .card[hidden] {
+    display: none;
+  }
+  /* Featured cards span two columns only when the grid has two (17rem each + gap). */
+  @container (min-width: 35rem) {
+    .featured {
+      grid-column: span 2;
+    }
+  }
+  .card:hover,
+  .card:focus-within {
+    border-color: var(--tint);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-4px);
+    }
+  }
+  .art {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--tint) 22%, var(--panel)),
+      var(--panel) 70%
+    );
+    border-bottom: 1px solid var(--line);
+  }
+  @container (min-width: 35rem) {
+    .featured .art {
+      aspect-ratio: 21 / 9;
+    }
+  }
+  .art :global(picture),
+  .art :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* The platform tint over the art keeps the grid reading as one set. */
+  .art::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      180deg,
+      transparent 40%,
+      color-mix(in srgb, var(--tint) 30%, transparent)
+    );
+  }
+  /* The scan line sweeps down on hover. */
+  .art::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    top: -20%;
+    z-index: 2;
+    height: 20%;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      color-mix(in srgb, var(--tint) 45%, transparent),
+      transparent
+    );
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .card:hover .art::after,
+    .card:focus-within .art::after {
+      opacity: 1;
+      animation: scan 0.9s var(--ease-out) forwards;
+    }
+  }
+  @keyframes scan {
+    to {
+      top: 100%;
+    }
+  }
+  .glyph {
+    position: absolute;
+    inset: auto auto var(--space-3) var(--space-4);
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--tint);
+  }
+  .body {
+    display: grid;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-4) var(--space-6);
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+    color: var(--dim);
+  }
+  .chip {
+    padding: 0.1rem 0.4rem;
+    border: 1px solid var(--tint);
+    color: var(--tint);
+  }
+  h3 {
+    font-size: var(--step-0);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  h3 a {
+    text-decoration: none;
+  }
+  /* The title link covers the whole card. */
+  h3 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+  }
+  h3 a:focus-visible {
+    outline: none;
+  }
+  .card:has(h3 a:focus-visible) {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+  .summary {
+    color: var(--bone-soft);
+    font-size: var(--step--1);
+    line-height: 1.55;
+  }
+</style>

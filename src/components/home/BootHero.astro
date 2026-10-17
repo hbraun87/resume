@@ -1,0 +1,196 @@
+---
+/* Stage 0: the boot console and the name (docs/brief/10-loading-screen-spec.md). */
+import profile from '../../content/profile.json';
+import { inlineMarkdown } from '../../lib/text';
+
+interface Props {
+  titles: number;
+  researchCount: number;
+}
+
+const { titles, researchCount } = Astro.props;
+const { home } = profile;
+const [first, ...rest] = profile.name.split(' ');
+const last = rest.join(' ');
+const pak = `${profile.name.toLowerCase().replace(/\s+/g, '_')}.pak`;
+const console = [
+  { text: `mount ${pak}`, tag: 'OK' },
+  { text: `origin ${home.origin} → ${profile.location}`, tag: 'OK' },
+  { text: `class ${home.class}`, tag: 'OK' },
+  { text: `assets ${titles} titles · ${researchCount} research projects`, tag: 'READY' },
+];
+---
+
+<section
+  id="boot"
+  class="hero container"
+  data-stage="Booting player profile"
+  aria-labelledby="hero-name"
+>
+  <div class="console mono" data-boot aria-hidden="true">
+    {console.map((line) => (
+      <p>
+        <span data-type>{line.text}</span>{' '}
+        <span class="tag" data-type-tag>
+          [{line.tag}]
+        </span>
+      </p>
+    ))}
+    <span class="caret"></span>
+  </div>
+  <h1 id="hero-name" class="name">
+    <span class="solid">{first}</span>
+    <span class="outline">
+      {last}
+      <span class="dot">.</span>
+    </span>
+  </h1>
+  <div class="row">
+    <p class="tagline" set:html={inlineMarkdown(home.tagline)} />
+    <div class="side mono">
+      <a class="scroll" href="#profile">
+        Scroll to load <span aria-hidden="true">▾</span>
+      </a>
+      <span>{profile.location}</span>
+    </div>
+  </div>
+  <p class="credits mono">
+    <span class="credits-label">Credits</span>
+    {profile.credits.map((credit, i) => (
+      <span class="credit">
+        {i > 0 && <span aria-hidden="true">· </span>}
+        {credit}
+      </span>
+    ))}
+  </p>
+</section>
+
+<style>
+  .hero {
+    padding-block: var(--space-12) var(--space-16);
+  }
+  @media (max-height: 30rem) {
+    .hero {
+      padding-block: var(--space-6) var(--space-8);
+    }
+  }
+  .console {
+    display: grid;
+    gap: var(--space-1);
+    margin-bottom: var(--space-8);
+    color: var(--dim);
+  }
+  @media (max-height: 30rem) {
+    .console {
+      display: none;
+    }
+  }
+  .tag {
+    color: var(--wolf);
+  }
+  .console :global(.type-rest),
+  .console :global(.type-pending) {
+    visibility: hidden;
+  }
+  .caret {
+    display: inline-block;
+    width: 0.6em;
+    height: 1.1em;
+    background: var(--wolf);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .caret {
+      animation: blink 1s steps(1) infinite;
+    }
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  .name {
+    display: grid;
+    font-family: var(--font-display);
+    font-size: var(--step-hero);
+    font-weight: 900;
+    line-height: 0.86;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+  /* The stroke is painted under an ink-colored fill, which hides the font's
+     overlapping inner contours and leaves a clean 2px outline. */
+  .outline {
+    color: var(--ink);
+    -webkit-text-stroke: 4px var(--bone);
+    paint-order: stroke fill;
+  }
+  .dot {
+    color: var(--wolf);
+    -webkit-text-stroke: 0;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+  }
+  .tagline {
+    max-width: var(--measure);
+    color: var(--bone-soft);
+    font-size: var(--step-1);
+    line-height: 1.45;
+  }
+  .tagline :global(strong) {
+    color: var(--wolf);
+    font-weight: 600;
+  }
+  .side {
+    display: grid;
+    gap: var(--space-2);
+    justify-items: end;
+    color: var(--dim);
+  }
+  @media (max-width: 640px) {
+    .side {
+      justify-items: start;
+    }
+  }
+  .scroll {
+    padding-block: var(--space-2);
+    color: var(--bone);
+    text-decoration: none;
+  }
+  .scroll span {
+    color: var(--wolf);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll span {
+      display: inline-block;
+      animation: nudge 1.6s var(--ease-out) infinite;
+    }
+  }
+  @keyframes nudge {
+    50% {
+      transform: translateY(3px);
+    }
+  }
+  .credits {
+    margin-top: var(--space-12);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--line);
+    color: var(--dim);
+    line-height: 1.9;
+  }
+  .credit {
+    white-space: nowrap;
+  }
+  .credit + .credit {
+    margin-inline-start: 0.5em;
+  }
+  .credits-label {
+    margin-inline-end: var(--space-3);
+    color: var(--wolf);
+  }
+</style>

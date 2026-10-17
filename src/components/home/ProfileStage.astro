@@ -1,0 +1,259 @@
+---
+/* Stage 1: bio, character sheet and quest log. */
+import profile from '../../content/profile.json';
+import StageHeader from '../StageHeader.astro';
+import { guilds, paragraphs, questLog } from '../../lib/profile';
+
+interface Props {
+  titles: number;
+  researchCount: number;
+}
+
+const { titles, researchCount } = Astro.props;
+const { home } = profile;
+const [years, platforms] = home.stats;
+const stats = [
+  years,
+  { value: String(titles), label: 'Titles in the log' },
+  platforms,
+  { value: String(researchCount), label: 'R&D projects' },
+];
+const attributes = [
+  ['Class', home.class],
+  ['Origin', home.origin],
+  ['Base', profile.location],
+  ['Guilds', guilds(profile.roles).join(' · ')],
+];
+const quests = questLog(profile.roles);
+const training = profile.education.map((item) => ({
+  title: item.degree,
+  company: [item.institution, item.notes].filter(Boolean).join(' · '),
+  years: [item.start, item.end].filter(Boolean).join('–'),
+}));
+const columns = [
+  { heading: 'Active quests', items: quests.active, active: true },
+  { heading: 'Completed', items: quests.completed, active: false },
+  { heading: 'Training', items: training, active: false },
+];
+---
+
+<section
+  id="profile"
+  class="container stage"
+  data-stage="Loading character sheet"
+  aria-labelledby="profile-title"
+>
+  <StageHeader stage="Stage 1" label="Player profile" />
+  <h2 id="profile-title" class="headline">
+    {home.profileHeadline}
+  </h2>
+  <div class="split">
+    <div class="bio">
+      {paragraphs(profile.bio).map((text) => (
+        <p>{text}</p>
+      ))}
+    </div>
+    <aside class="sheet" aria-labelledby="sheet-title">
+      <h3 id="sheet-title" class="mono sheet-title">
+        Character sheet
+      </h3>
+      <dl class="stats">
+        {stats.map((stat) => (
+          <div>
+            <dt class="mono">{stat?.label}</dt>
+            <dd>{stat?.value}</dd>
+          </div>
+        ))}
+      </dl>
+      <dl class="attributes">
+        {attributes.map(([name, value]) => (
+          <div>
+            <dt class="mono">{name}</dt>
+            <dd>{value}</dd>
+          </div>
+        ))}
+      </dl>
+      <h4 class="mono skills-title">Skill tree</h4>
+      <ul class="skills">
+        {home.skillTree.map((skill) => (
+          <li class="mono">{skill}</li>
+        ))}
+      </ul>
+    </aside>
+  </div>
+  <div class="quests">
+    {columns.map((column) => (
+      <div class:list={['quest-column', { active: column.active }]}>
+        <h3 class="mono">{column.heading}</h3>
+        <ul>
+          {column.items.map((quest) => (
+            <li>
+              <strong>{quest.title}</strong>
+              <span>{quest.company}</span>
+              {quest.years && <span class="mono when">{quest.years}</span>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .stage {
+    padding-block: var(--space-16);
+  }
+  .headline {
+    margin-block: var(--space-6) var(--space-12);
+    max-width: 18ch;
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: var(--space-12);
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .split {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .bio {
+    display: grid;
+    gap: var(--space-4);
+    max-width: var(--measure);
+    color: var(--bone-soft);
+    line-height: 1.6;
+  }
+  .sheet {
+    padding: var(--space-6);
+    background: var(--panel);
+    border: 1px solid var(--line);
+    clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% var(--notch), 100% 100%, 0 100%);
+  }
+  .sheet-title,
+  .skills-title {
+    color: var(--wolf);
+    font-size: var(--step--2);
+    font-weight: 600;
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    margin-block: var(--space-4) var(--space-6);
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .stats div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: var(--space-1);
+    padding: var(--space-4);
+    background: var(--panel);
+  }
+  .stats dt {
+    color: var(--dim);
+  }
+  .stats dd {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+  }
+  .attributes {
+    display: grid;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+  }
+  .attributes div {
+    display: grid;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: var(--space-3);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .attributes dt {
+    color: var(--dim);
+    padding-top: 0.2em;
+  }
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+    padding: 0;
+    list-style: none;
+  }
+  .skills li {
+    padding: var(--space-1) var(--space-2);
+    border: 1px solid var(--line);
+    color: var(--bone);
+  }
+  .quests {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: var(--space-12);
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 860px) {
+    .quests {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .quest-column {
+    padding: var(--space-6);
+    background: var(--panel);
+  }
+  .quest-column h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+    color: var(--dim);
+    font-size: var(--step--2);
+    font-weight: 600;
+  }
+  .quest-column h3::before {
+    content: '';
+    width: 0.55rem;
+    height: 0.55rem;
+    border: 1px solid var(--dim);
+  }
+  .active h3 {
+    color: var(--bone);
+  }
+  .active h3::before {
+    background: var(--wolf);
+    border-color: var(--wolf);
+    box-shadow: 0 0 10px var(--wolf);
+  }
+  .quest-column ul {
+    display: grid;
+    gap: var(--space-4);
+    padding: 0;
+    list-style: none;
+  }
+  .quest-column li {
+    display: grid;
+    gap: 0.15rem;
+    color: var(--bone-soft);
+    font-size: var(--step--1);
+  }
+  .quest-column strong {
+    color: var(--bone);
+    font-size: var(--step-0);
+  }
+  .when {
+    color: var(--dim);
+  }
+</style>

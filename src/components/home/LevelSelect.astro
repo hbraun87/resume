@@ -1,0 +1,130 @@
+---
+/* Stage 2: the shipped titles grid with platform filters. */
+import profile from '../../content/profile.json';
+import GameCard from './GameCard.astro';
+import StageHeader from '../StageHeader.astro';
+import { PLATFORM_LABELS, platformCounts, type PlatformGroup } from '../../lib/experiences';
+import type { Experience } from '../../lib/schema';
+
+interface Props {
+  entries: Experience[];
+}
+
+const { entries } = Astro.props;
+const counts = platformCounts(entries);
+const filters = [
+  { value: 'all', label: 'All', count: counts.all },
+  ...(Object.keys(PLATFORM_LABELS) as PlatformGroup[])
+    .filter((group) => counts[group] > 0)
+    .map((group) => ({ value: group, label: PLATFORM_LABELS[group], count: counts[group] })),
+];
+---
+
+<section
+  id="games"
+  class="container stage"
+  data-stage="Streaming levels"
+  data-stage-total={entries.length}
+  aria-labelledby="games-title"
+>
+  <StageHeader stage="Stage 2" label="Level select" />
+  <div class="head">
+    <div>
+      <h2 id="games-title" class="title">
+        Shipped titles
+      </h2>
+      <p class="lede">{profile.home.gamesLede}</p>
+    </div>
+    <div class="filters mono" role="group" aria-label="Filter by platform" data-filters hidden>
+      {filters.map((filter) => (
+        <button
+          type="button"
+          class:list={['filter', filter.value]}
+          aria-pressed={filter.value === 'all' ? 'true' : 'false'}
+          data-filter={filter.value}
+          data-label={filter.label}
+        >
+          {filter.label} <span class="count">{filter.count}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+  <p class="visually-hidden" role="status" data-filter-status></p>
+  <ul class="grid">
+    {entries.map((entry) => (
+      <GameCard entry={entry} />
+    ))}
+  </ul>
+</section>
+
+<style>
+  .stage {
+    padding-block: var(--space-16);
+  }
+  .head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+    gap: var(--space-6);
+    margin-block: var(--space-6) var(--space-8);
+  }
+  .title {
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .lede {
+    max-width: var(--measure);
+    margin-top: var(--space-3);
+    color: var(--bone-soft);
+  }
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .filters[hidden] {
+    display: none;
+  }
+  .filter {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 2.75rem;
+    padding-inline: var(--space-3);
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--bone);
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    cursor: pointer;
+  }
+  .filter:hover {
+    border-color: var(--dim);
+  }
+  .filter[aria-pressed='true'] {
+    background: var(--bone);
+    border-color: var(--bone);
+    color: var(--ink);
+  }
+  .count {
+    color: var(--dim);
+  }
+  .filter[aria-pressed='true'] .count {
+    color: inherit;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+    grid-auto-flow: dense;
+    container-type: inline-size;
+    gap: var(--space-4);
+    padding: 0;
+    list-style: none;
+  }
+</style>

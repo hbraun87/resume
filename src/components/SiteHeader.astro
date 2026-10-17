@@ -3,10 +3,14 @@ import profile from '../content/profile.json';
 import { url } from '../lib/url';
 import ThemeToggle from './ThemeToggle.astro';
 
-// Profile, Games, R&D and Contact return with the home page sections they
-// point to (docs/brief/10-loading-screen-spec.md); a link to a missing
-// section is a dead link, and the system tests fail on those.
-const nav: { label: string; href: string }[] = [];
+// The home page sections (docs/brief/10-loading-screen-spec.md). On the home
+// page the script marks the one in view with aria-current.
+const nav = [
+  { label: 'Profile', href: url('/#profile') },
+  { label: 'Games', href: url('/#games') },
+  { label: 'R&D', href: url('/#research') },
+  { label: 'Contact', href: url('/#contact') },
+];
 const initials = profile.name
   .split(' ')
   .map((part) => part[0])
@@ -21,17 +25,15 @@ const initials = profile.name
       </span>
       <span class="mono name">{profile.name}</span>
     </a>
-    {nav.length > 0 && (
-      <nav aria-label="Main">
-        <ul class="mono">
-          {nav.map((item) => (
-            <li>
-              <a href={item.href}>{item.label}</a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    )}
+    <nav aria-label="Main" data-nav>
+      <ul class="mono">
+        {nav.map((item) => (
+          <li>
+            <a href={item.href}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
     <div class="actions">
       <a class="cta mono" href={`mailto:${profile.email}`}>
         Email
@@ -91,28 +93,49 @@ const initials = profile.name
     text-decoration: none;
     padding-block: var(--space-3);
   }
-  nav a:hover {
+  nav a:hover,
+  nav a[aria-current] {
     color: var(--bone);
+  }
+  nav a::before {
+    content: '▸' / '';
+    margin-inline-end: 0.35em;
+    color: var(--wolf);
+    opacity: 0;
+  }
+  nav a[aria-current]::before {
+    opacity: 1;
   }
   .actions {
     display: flex;
     align-items: center;
     gap: var(--space-3);
   }
+  /* The clipped shape is painted by ::before, so the focus outline is not clipped too. */
   .cta {
+    position: relative;
+    isolation: isolate;
     display: inline-grid;
     place-items: center;
     min-height: 2.75rem;
     padding-inline: var(--space-4);
-    background: var(--wolf);
     color: var(--on-wolf);
     text-decoration: none;
     font-weight: 600;
+  }
+  .cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--wolf);
     clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
   }
   .cta:hover {
-    background: var(--wolf-strong);
     color: var(--on-wolf);
+  }
+  .cta:hover::before {
+    background: var(--wolf-strong);
   }
   @media (max-width: 720px) {
     nav {

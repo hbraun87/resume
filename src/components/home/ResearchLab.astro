@@ -1,0 +1,136 @@
+---
+/* Stage 3: the R&D lab, one row per research project. */
+import profile from '../../content/profile.json';
+import StageHeader from '../StageHeader.astro';
+import { entryPath } from '../../lib/experiences';
+import type { Experience } from '../../lib/schema';
+import { inlineMarkdown } from '../../lib/text';
+import { url } from '../../lib/url';
+
+interface Props {
+  entries: Experience[];
+}
+
+const { entries } = Astro.props;
+---
+
+<section
+  id="research"
+  class="container stage"
+  data-stage="Compiling research shaders"
+  aria-labelledby="research-title"
+>
+  <StageHeader stage="Stage 3" label="R&D lab" />
+  <h2 id="research-title" class="title">
+    Research
+  </h2>
+  <p class="lede">{profile.home.researchLede}</p>
+  <ul class="list">
+    {entries.map((entry) => (
+      <li class="row" data-asset="shader" data-asset-name={entry.title}>
+        <span class="category mono">{entry.tags?.[0] ?? 'Research'}</span>
+        <div class="text">
+          <h3>
+            <a href={url(entryPath(entry))}>{entry.title}</a>
+          </h3>
+          <p set:html={inlineMarkdown(entry.summary)} />
+        </div>
+        <span class="arrow" aria-hidden="true">
+          →
+        </span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .stage {
+    padding-block: var(--space-16);
+  }
+  .title {
+    margin-top: var(--space-6);
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .lede {
+    max-width: var(--measure);
+    margin-block: var(--space-3) var(--space-8);
+    color: var(--bone-soft);
+  }
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-8);
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--line);
+  }
+  @media (max-width: 760px) {
+    .list {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr) auto;
+    gap: var(--space-4);
+    align-items: start;
+    padding-block: var(--space-4);
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 480px) {
+    .row {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+    .category {
+      grid-column: 1 / -1;
+    }
+  }
+  .category {
+    padding-top: 0.2em;
+    color: var(--wolf);
+  }
+  h3 {
+    font-size: var(--step-0);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  h3 a {
+    text-decoration: none;
+  }
+  h3 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  h3 a:focus-visible {
+    outline: none;
+  }
+  .row:has(h3 a:focus-visible) {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+  .text p {
+    margin-top: var(--space-1);
+    color: var(--dim);
+    font-size: var(--step--1);
+    line-height: 1.5;
+  }
+  .arrow {
+    color: var(--dim);
+    transition: transform var(--dur-med) ease;
+  }
+  .row:hover .arrow,
+  .row:focus-within .arrow {
+    color: var(--wolf);
+    transform: translateX(4px);
+  }
+  .row:hover h3 a {
+    color: var(--wolf-strong);
+  }
+</style>
