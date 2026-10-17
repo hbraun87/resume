@@ -233,6 +233,21 @@ export const profileSchema = z.object({
   bio: z.string().min(1),
   pillars: z.array(z.object({ title: z.string(), body: z.string(), proof: z.string() })),
   credits: z.array(z.string()),
+  /** Copy for the loading-screen home page (docs/brief/10-loading-screen-spec.md). */
+  home: z.object({
+    origin: z.string().min(1),
+    class: z.string().min(1),
+    tagline: z.string().min(1),
+    profileHeadline: z.string().min(1),
+    /** Stats the data cannot compute; the page adds title and research counts. */
+    stats: z.array(z.object({ value: z.string().min(1), label: z.string().min(1) })).length(2),
+    skillTree: z.array(z.string().min(1)).min(1),
+    gamesLede: z.string().min(1),
+    researchLede: z.string().min(1),
+    finaleHeadline: z.string().min(1),
+    contactHeadline: z.string().min(1),
+    contactLede: z.string().min(1),
+  }),
   /** Rotating loading-screen tips on the home page HUD. */
   tips: z.array(z.string().min(1)).min(1),
   roles: z.array(roleSchema).min(1),

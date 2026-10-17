@@ -37,6 +37,38 @@
     "Google",
     "Cartoon Network"
   ],
+  "home": {
+    "origin": "Porto Alegre, Brazil",
+    "class": "Engineering Manager · Gameplay",
+    "tagline": "Engineering Manager at **Bad Robot Games**. Founder of **Maned Wolf Games**. I build gameplay systems and lead the teams that ship them.",
+    "profileHeadline": "Systems that feel great. Teams that ship.",
+    "stats": [
+      {
+        "value": "15+",
+        "label": "Years in games"
+      },
+      {
+        "value": "4",
+        "label": "Platforms"
+      }
+    ],
+    "skillTree": [
+      "Gameplay systems",
+      "Technical leadership",
+      "VR / AR",
+      "Optimization",
+      "Localization & porting",
+      "Procedural generation",
+      "Real-time rendering",
+      "Computer vision",
+      "Unity"
+    ],
+    "gamesLede": "Games I built, led or directed, from VR combat and AR dominoes to mobile platformers and a Global Game Jam runner.",
+    "researchLede": "Graphics and simulation research from my computer science and master's years, and the tools that came out of it.",
+    "finaleHeadline": "Let's build the next one.",
+    "contactHeadline": "Your project is next in the queue.",
+    "contactLede": "Hiring for gameplay engineering or technical leadership, or have a game that needs to ship? Send me a message."
+  },
   "tips": [
     "TIP: The I Expect You To Die localization pipeline later shipped in Among Us VR.",
     "TIP: LEGO Brickheadz VR was called one of the best Daydream apps by The Verge.",
