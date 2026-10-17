@@ -1,13 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://henrybraun.info/experience.schema.json",
-  "title": "Henry Braun portfolio — experiences.json",
-  "description": "Initial spec. In the built repo this file is GENERATED from src/lib/schema.ts (Zod) by `npm run schema`; edit the Zod schema, not this file.",
   "type": "object",
-  "required": [
-    "experiences"
-  ],
-  "additionalProperties": false,
   "properties": {
     "$schema": {
       "type": "string"
@@ -15,558 +8,462 @@
     "experiences": {
       "type": "array",
       "items": {
-        "$ref": "#/$defs/experience"
-      }
-    }
-  },
-  "$defs": {
-    "slug": {
-      "type": "string",
-      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
-    },
-    "partialDate": {
-      "type": "string",
-      "pattern": "^(19|20)\\d{2}(-(0[1-9]|1[0-2]))?$",
-      "description": "YYYY or YYYY-MM"
-    },
-    "markdown": {
-      "type": "string",
-      "minLength": 1
-    },
-    "assetPath": {
-      "type": "string",
-      "pattern": "^[A-Za-z0-9._/-]+\\.(jpg|jpeg|png|webp|avif|gif|mp4|webm)$",
-      "description": "Path relative to src/assets/projects/<id>/"
-    },
-    "imageRef": {
-      "type": "object",
-      "required": [
-        "src",
-        "alt"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "src": {
-          "$ref": "#/$defs/assetPath"
-        },
-        "alt": {
-          "type": "string",
-          "minLength": 1
-        }
-      }
-    },
-    "link": {
-      "type": "object",
-      "required": [
-        "kind",
-        "label",
-        "url"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "kind": {
-          "enum": [
-            "steam",
-            "meta",
-            "app-store",
-            "google-play",
-            "website",
-            "press",
-            "paper",
-            "doi",
-            "video",
-            "repo",
-            "talk",
-            "other"
-          ]
-        },
-        "label": {
-          "type": "string",
-          "minLength": 1
-        },
-        "url": {
-          "type": "string",
-          "format": "uri",
-          "pattern": "^https?://"
-        }
-      }
-    },
-    "media": {
-      "oneOf": [
-        {
-          "type": "object",
-          "required": [
-            "type",
-            "id",
-            "title"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "type": {
-              "const": "youtube"
-            },
-            "id": {
-              "type": "string",
-              "pattern": "^[A-Za-z0-9_-]{11}$"
-            },
-            "title": {
-              "type": "string",
-              "minLength": 1
-            },
-            "start": {
-              "type": "integer",
-              "minimum": 0
-            },
-            "poster": {
-              "$ref": "#/$defs/assetPath"
-            },
-            "vertical": {
-              "type": "boolean"
-            },
-            "caption": {
-              "type": "string"
-            }
-          }
-        },
-        {
-          "type": "object",
-          "required": [
-            "type",
-            "src",
-            "alt"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "type": {
-              "const": "image"
-            },
-            "src": {
-              "$ref": "#/$defs/assetPath"
-            },
-            "alt": {
-              "type": "string",
-              "minLength": 1
-            },
-            "caption": {
-              "type": "string"
-            },
-            "credit": {
-              "type": "string"
-            }
-          }
-        },
-        {
-          "type": "object",
-          "required": [
-            "type",
-            "src",
-            "alt"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "type": {
-              "const": "gif"
-            },
-            "src": {
-              "type": "string",
-              "pattern": "\\.gif$"
-            },
-            "alt": {
-              "type": "string",
-              "minLength": 1
-            },
-            "caption": {
-              "type": "string"
-            },
-            "credit": {
-              "type": "string"
-            }
-          }
-        },
-        {
-          "type": "object",
-          "required": [
-            "type",
-            "src",
-            "alt"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "type": {
-              "const": "video"
-            },
-            "src": {
-              "type": "string",
-              "pattern": "\\.(mp4|webm)$"
-            },
-            "alt": {
-              "type": "string",
-              "minLength": 1
-            },
-            "caption": {
-              "type": "string"
-            },
-            "credit": {
-              "type": "string"
-            },
-            "loop": {
-              "type": "boolean"
-            },
-            "poster": {
-              "$ref": "#/$defs/assetPath"
-            }
-          }
-        }
-      ]
-    },
-    "experience": {
-      "type": "object",
-      "required": [
-        "id",
-        "title",
-        "category",
-        "tier",
-        "status",
-        "visibility",
-        "role",
-        "summary"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "$ref": "#/$defs/slug"
-        },
-        "title": {
-          "type": "string",
-          "minLength": 1
-        },
-        "subtitle": {
-          "type": "string"
-        },
-        "category": {
-          "enum": [
-            "game",
-            "prototype",
-            "tool",
-            "research",
-            "jam",
-            "other"
-          ]
-        },
-        "tier": {
-          "enum": [
-            "featured",
-            "selected",
-            "archive"
-          ]
-        },
-        "status": {
-          "enum": [
-            "shipped",
-            "released-early-access",
-            "in-development",
-            "prototype",
-            "unreleased",
-            "published"
-          ]
-        },
-        "visibility": {
-          "enum": [
-            "public",
-            "draft"
-          ]
-        },
-        "order": {
-          "type": "integer"
-        },
-        "studio": {
-          "type": "string"
-        },
-        "client": {
-          "type": "string"
-        },
-        "role": {
-          "type": "string",
-          "minLength": 1
-        },
-        "responsibilities": {
-          "type": "array",
-          "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subtitle": {
             "type": "string"
           },
-          "uniqueItems": true
-        },
-        "period": {
-          "type": "object",
-          "required": [
-            "start"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "start": {
-              "$ref": "#/$defs/partialDate"
+          "category": {
+            "type": "string",
+            "enum": [
+              "game",
+              "prototype",
+              "tool",
+              "research",
+              "jam",
+              "other"
+            ]
+          },
+          "tier": {
+            "type": "string",
+            "enum": [
+              "featured",
+              "selected",
+              "archive"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "shipped",
+              "released-early-access",
+              "in-development",
+              "prototype",
+              "unreleased",
+              "published"
+            ]
+          },
+          "visibility": {
+            "type": "string",
+            "enum": [
+              "public",
+              "draft"
+            ]
+          },
+          "order": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "studio": {
+            "type": "string"
+          },
+          "client": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "responsibilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "period": {
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string",
+                "pattern": "^\\d{4}(-(0[1-9]|1[0-2]))?$"
+              },
+              "end": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^\\d{4}(-(0[1-9]|1[0-2]))?$"
+                  },
+                  {
+                    "type": "string",
+                    "const": "present"
+                  }
+                ]
+              }
+            }
+          },
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "engine": {
+            "type": "string"
+          },
+          "tech": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "teamSize": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "highlights": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "metrics": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "note": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "label",
+                "value"
+              ]
+            }
+          },
+          "awards": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "year": {
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            }
+          },
+          "caseStudy": {
+            "type": "object",
+            "properties": {
+              "challenge": {
+                "type": "string",
+                "minLength": 1
+              },
+              "contributions": {
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "heading": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "body": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "media": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "heading",
+                    "body"
+                  ]
+                }
+              },
+              "deepDive": {
+                "type": "string"
+              },
+              "outcome": {
+                "type": "string",
+                "minLength": 1
+              }
             },
-            "end": {
+            "required": [
+              "challenge",
+              "contributions",
+              "outcome"
+            ]
+          },
+          "cover": {
+            "type": "object",
+            "properties": {
+              "src": {
+                "type": "string",
+                "pattern": "^[\\w.-]+\\.(jpe?g|png|webp|avif)$"
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "src",
+              "alt"
+            ]
+          },
+          "coverLoop": {
+            "type": "object",
+            "properties": {
+              "src": {
+                "type": "string",
+                "pattern": "^[\\w.-]+\\.(gif|mp4|webm)$"
+              }
+            },
+            "required": [
+              "src"
+            ]
+          },
+          "media": {
+            "type": "array",
+            "items": {
               "oneOf": [
                 {
-                  "$ref": "#/$defs/partialDate"
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "const": "youtube"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "start": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "poster": {
+                      "type": "string",
+                      "pattern": "^[\\w.-]+\\.(jpe?g|png|webp|avif)$"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "id",
+                    "title"
+                  ]
                 },
                 {
-                  "const": "present"
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "const": "image"
+                    },
+                    "src": {
+                      "type": "string",
+                      "pattern": "^[\\w.-]+\\.(jpe?g|png|webp|avif)$"
+                    },
+                    "alt": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "caption": {
+                      "type": "string"
+                    },
+                    "credit": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "src",
+                    "alt"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "const": "gif"
+                    },
+                    "src": {
+                      "type": "string",
+                      "pattern": "^[\\w.-]+\\.gif$"
+                    },
+                    "alt": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "caption": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "src",
+                    "alt"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "const": "video"
+                    },
+                    "src": {
+                      "type": "string",
+                      "pattern": "^[\\w.-]+\\.(mp4|webm)$"
+                    },
+                    "alt": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "caption": {
+                      "type": "string"
+                    },
+                    "loop": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "src",
+                    "alt"
+                  ]
                 }
               ]
             }
-          }
-        },
-        "platforms": {
-          "type": "array",
-          "items": {
-            "type": "string"
           },
-          "uniqueItems": true
-        },
-        "engine": {
-          "type": "string"
-        },
-        "tech": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "uniqueItems": true
-        },
-        "teamSize": {
-          "type": "integer",
-          "minimum": 1
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "uniqueItems": true
-        },
-        "summary": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 200
-        },
-        "highlights": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 220
-          },
-          "maxItems": 6
-        },
-        "metrics": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "label",
-              "value"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "label": {
-                "type": "string"
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "steam",
+                    "meta",
+                    "app-store",
+                    "google-play",
+                    "website",
+                    "press",
+                    "paper",
+                    "doi",
+                    "video",
+                    "repo",
+                    "talk",
+                    "other"
+                  ]
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
               },
-              "value": {
-                "type": "string"
-              },
-              "note": {
-                "type": "string"
-              }
+              "required": [
+                "kind",
+                "label",
+                "url"
+              ]
             }
-          }
-        },
-        "awards": {
-          "type": "array",
-          "items": {
+          },
+          "publication": {
             "type": "object",
-            "required": [
-              "name"
-            ],
-            "additionalProperties": false,
             "properties": {
-              "name": {
+              "venue": {
                 "type": "string"
               },
               "year": {
-                "type": "integer"
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
               },
-              "url": {
-                "type": "string",
-                "format": "uri"
-              }
-            }
-          }
-        },
-        "caseStudy": {
-          "type": "object",
-          "required": [
-            "challenge",
-            "contributions",
-            "outcome"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "challenge": {
-              "$ref": "#/$defs/markdown"
-            },
-            "contributions": {
-              "type": "array",
-              "minItems": 1,
-              "items": {
-                "type": "object",
-                "required": [
-                  "heading",
-                  "body"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "heading": {
-                    "type": "string"
-                  },
-                  "body": {
-                    "$ref": "#/$defs/markdown"
-                  },
-                  "media": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  }
+              "authors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
                 }
-              }
-            },
-            "deepDive": {
-              "$ref": "#/$defs/markdown"
-            },
-            "outcome": {
-              "$ref": "#/$defs/markdown"
-            }
-          }
-        },
-        "publication": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "venue": {
-              "type": "string"
-            },
-            "year": {
-              "type": "integer"
-            },
-            "authors": {
-              "type": "array",
-              "items": {
+              },
+              "abstract": {
                 "type": "string"
-              }
-            },
-            "abstract": {
-              "type": "string"
-            }
-          }
-        },
-        "cover": {
-          "$ref": "#/$defs/imageRef"
-        },
-        "coverLoop": {
-          "type": "object",
-          "required": [
-            "src"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "src": {
-              "$ref": "#/$defs/assetPath"
-            }
-          }
-        },
-        "media": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/media"
-          }
-        },
-        "links": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/link"
-          }
-        },
-        "legacyPaths": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^/"
-          }
-        }
-      },
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "tier": {
-                "const": "featured"
+              },
+              "peerReviewed": {
+                "type": "boolean"
               }
             }
           },
-          "then": {
-            "required": [
-              "caseStudy",
-              "highlights"
-            ]
+          "legacyPaths": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^\\/"
+            }
           }
         },
-        {
-          "if": {
-            "properties": {
-              "tier": {
-                "const": "selected"
-              }
-            }
-          },
-          "then": {
-            "required": [
-              "highlights"
-            ]
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "category": {
-                "const": "research"
-              }
-            }
-          },
-          "then": {
-            "required": [
-              "publication"
-            ]
-          }
-        },
-        {
-          "if": {
-            "not": {
-              "properties": {
-                "category": {
-                  "const": "research"
-                }
-              }
-            }
-          },
-          "then": {
-            "required": [
-              "cover"
-            ]
-          }
-        }
-      ]
+        "required": [
+          "id",
+          "title",
+          "category",
+          "tier",
+          "status",
+          "visibility",
+          "role",
+          "summary"
+        ]
+      }
     }
-  }
+  },
+  "required": [
+    "experiences"
+  ],
+  "title": "Henry Braun portfolio experiences",
+  "description": "Generated from src/lib/schema.ts by `npm run schema`. Do not edit by hand."
 }

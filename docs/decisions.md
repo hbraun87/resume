@@ -34,3 +34,13 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** Henry chose to combine both briefs. The loading-screen spec (`docs/brief/10-loading-screen-spec.md`) drives the home page and the look; `01`–`09` drive architecture, content model, project pages, résumé, and quality gates. Conflict rules live in `CLAUDE.md`.
 - **Why:** the loading sequence is the memorable hook for game studios; the repo brief adds the depth hiring managers check.
 - **Alternatives:** loading screen only (single page); repo brief only (calm multi-page).
+
+## 2026-10-17 · Cover images are optional
+
+- **Decision:** `cover` is optional for every entry. Cards without a cover render the loading-screen spec's art band: platform tint plus the title's outlined initials glyph. `check-content` warns when a public featured entry has no cover, and fails when a referenced file is missing.
+- **Why:** the loading-screen spec designs cards to work without images, and the migrated media is not downloaded yet; a cover reference to a missing file would be a false claim in the data.
+- **Alternatives:** require covers (blocks the build until media migration).
+
+## 2026-10-17 · Working notes leave the content files
+
+- **Decision:** removed the `_notes` key from `profile.json`; its content lives in `docs/TODO-content.md`. `check-content` rejects any `_`-prefixed key in content.

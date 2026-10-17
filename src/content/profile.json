@@ -156,6 +156,5 @@
   "resume": {
     "pdfFileName": "henry-braun-resume.pdf",
     "includeTiers": ["featured", "selected"]
-  },
-  "_notes": "Source: Henry's LinkedIn profile export (Oct 2026) and henrybraun.info. Empty highlights for recent roles must be filled with Henry in Phase 6; ask what can be said publicly about Bad Robot Games and Twin Suns work. Never publish the phone number from the LinkedIn export. check-content.mjs must fail the build if \"_notes\" reaches production."
+  }
 }

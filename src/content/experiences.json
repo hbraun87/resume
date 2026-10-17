@@ -40,10 +40,6 @@
         ],
         "outcome": "Until You Fall shipped from Schell Games, and it used the localization module I first built for *I Expect You To Die*."
       },
-      "cover": {
-        "src": "cover.png",
-        "alt": "Until You Fall key art"
-      },
       "media": [
         {
           "type": "youtube",
@@ -113,10 +109,6 @@
         ],
         "outcome": "The localization module outlived the project: it was later used in *Among Us VR* and *Until You Fall*."
       },
-      "cover": {
-        "src": "cover.png",
-        "alt": "I Expect You To Die key art"
-      },
       "media": [
         {
           "type": "youtube",
@@ -165,10 +157,6 @@
         ],
         "outcome": "HoloLAB Champions released in 2018 and won several awards."
       },
-      "cover": {
-        "src": "cover.png",
-        "alt": "HoloLAB Champions key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/hololab.html"
@@ -211,10 +199,6 @@
           }
         ],
         "outcome": "BrickHeadz Builder VR was widely noted as one of the best Android apps on Google Daydream by outlets including TechRadar, VRScout, and The Verge."
-      },
-      "cover": {
-        "src": "cover.png",
-        "alt": "LEGO BrickHeadz Builder VR key art"
       },
       "media": [],
       "legacyPaths": [
@@ -264,10 +248,6 @@
         ],
         "outcome": "Domino World AR launched for ARKit-compatible iOS devices and ARCore-compatible Android devices."
       },
-      "cover": {
-        "src": "cover.png",
-        "alt": "Domino World AR key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/domino.html"
@@ -307,10 +287,6 @@
         ],
         "outcome": "Arithal is in development at Maned Wolf Games."
       },
-      "cover": {
-        "src": "cover.png",
-        "alt": "Arithal key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/arithal.html"
@@ -342,10 +318,6 @@
       "highlights": [
         "Worked on Project Octavia, a PvPvE Unreal Engine title, as Programmer and then Senior Programmer."
       ],
-      "cover": {
-        "src": "cover.png",
-        "alt": "Project Octavia key art"
-      },
       "media": []
     },
     {
@@ -372,10 +344,6 @@
         "Served as Tech Director on a proof of concept exploring real-life chemistry interactions in VR.",
         "Players measure and mix liquid and solid reactants, guided by a robotic assistant and a scanner tool."
       ],
-      "cover": {
-        "src": "cover.png",
-        "alt": "SuperChem VR key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/superchem.html"
@@ -407,10 +375,6 @@
         "Owned optimization and gameplay for a launch title on the Gear VR store debut.",
         "My first published VR title at Schell Games."
       ],
-      "cover": {
-        "src": "cover.png",
-        "alt": "Orion Trail VR key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/orionvr.html"
@@ -443,10 +407,6 @@
         "Developed the game with the programming team at Aquiris Game Studio for Cartoon Network.",
         "Shipped on iOS and Android, featuring many enemies and bosses."
       ],
-      "cover": {
-        "src": "cover.png",
-        "alt": "Ben 10: Wrath of Psychobos key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/ben10.html"
@@ -479,10 +439,6 @@
         "Localized the game and ported it to iPhone and Android.",
         "My first project at Schell Games."
       ],
-      "cover": {
-        "src": "cover.png",
-        "alt": "Water Bears key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/waterbears.html"
@@ -510,10 +466,6 @@
         "Programmed part of Swordtales' Toren alpha, released on the OnLive platform.",
         "Toren later released on Steam."
       ],
-      "cover": {
-        "src": "cover.png",
-        "alt": "Toren key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/toren.html"
@@ -550,10 +502,6 @@
         "Built the prototype of a Cartoon Network tower-defense game with the Aquiris programming team.",
         "Released on the Cartoon Network website."
       ],
-      "cover": {
-        "src": "cover.png",
-        "alt": "Regular Show: The Great Prank War key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/prankwars.html"
@@ -585,10 +533,6 @@
         "Developed systems and gameplay during the first phase of development.",
         "Mobile vertical platformer with intuitive, unique controls and a bold art style."
       ],
-      "cover": {
-        "src": "cover.png",
-        "alt": "Star Botanist: Garden Planet key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/starbotanist.html"
@@ -613,10 +557,6 @@
         "Indie"
       ],
       "summary": "Multi-platform 2D game where a samurai sushi chef fights through obstacles to rescue his girlfriend. Programmed with Luiz Alvarez (Toren).",
-      "cover": {
-        "src": "cover.png",
-        "alt": "Gendai Hero key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/gendai.html"
@@ -638,10 +578,6 @@
         "Education"
       ],
       "summary": "Game based on Erico Verissimo's 1936 book, built in two months in Unity as the final project of the PUCRS/Ubisoft games specialization.",
-      "cover": {
-        "src": "cover.png",
-        "alt": "As Aventuras do Avião Vermelho key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/av.html"
@@ -665,10 +601,6 @@
         "Indie"
       ],
       "summary": "Hobby project: a fast, casual ice-hockey game built around competing for the top spot on a friends leaderboard.",
-      "cover": {
-        "src": "cover.png",
-        "alt": "Angry Pucks key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/angrypucks.html"
@@ -688,10 +620,6 @@
         "Simulation"
       ],
       "summary": "Multi-platform factory management game with 10 challenging levels, programmed as a freelancer at Rockhead Games.",
-      "cover": {
-        "src": "cover.png",
-        "alt": "Sim Camisaria key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/simcamisaria.html"
@@ -720,10 +648,6 @@
         "Procedural"
       ],
       "summary": "Bionic-samurai endless runner on a procedural infinite world, made during Global Game Jam 2012.",
-      "cover": {
-        "src": "cover.png",
-        "alt": "N.E.R.O.T. key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/nerot.html"
@@ -748,10 +672,6 @@
         "Hidden object"
       ],
       "summary": "Hidden-object game originally built for kiosks; after SD Technologies acquired the rights, we polished it and ported it to mobile.",
-      "cover": {
-        "src": "cover.png",
-        "alt": "Search N' Find key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/searchfind.html"
@@ -771,10 +691,6 @@
         "Puzzle"
       ],
       "summary": "3D puzzle horror game: Harrison Goodwin wakes after a terrible accident in a strange little town in Pennsylvania.",
-      "cover": {
-        "src": "cover.png",
-        "alt": "Pine Creek key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/pinecreek.html"
@@ -794,10 +710,6 @@
         "Multiplayer"
       ],
       "summary": "Hobby multiplayer turn-based tactics game inspired by the PlayStation classic Vandal Hearts.",
-      "cover": {
-        "src": "cover.png",
-        "alt": "Loreisle key art"
-      },
       "media": [],
       "legacyPaths": [
         "/projects/loreisle.html"
@@ -824,10 +736,6 @@
       "publication": {
         "abstract": "A procedural model for ocean breaking waves in real time, aimed at games with ocean, coast, and beach scenarios. Using a small set of parameters, the model generates a unique ocean-like scene with minimal GPU and CPU cost."
       },
-      "cover": {
-        "src": "cover.png",
-        "alt": "Rendered ocean scene with breaking waves"
-      },
       "media": []
     },
     {
@@ -849,10 +757,6 @@
       ],
       "publication": {
         "abstract": "A simple technique for sky rendering for games that need outdoor experiences with day and night cycles, with minimal GPU and CPU cost."
-      },
-      "cover": {
-        "src": "cover.png",
-        "alt": "Rendered sky at sunset"
       },
       "media": []
     },
@@ -877,10 +781,6 @@
       "publication": {
         "abstract": "Crowd simulations must represent agent behavior across different scenarios. CrowdVis visualizes previously created crowd simulations in real time, combining rendering techniques with easy management of the scene and virtual humans."
       },
-      "cover": {
-        "src": "cover.png",
-        "alt": "Crowd of virtual humans rendered in a city scene"
-      },
       "media": []
     },
     {
@@ -898,10 +798,6 @@
       "summary": "Analysis of real-time large-scale terrain rendering techniques for games, with a proposal for good visual quality at interactive rates.",
       "publication": {
         "abstract": "Analyzes current solutions for real-time large-scale terrain rendering and proposes an approach that delivers appropriate graphic quality."
-      },
-      "cover": {
-        "src": "cover.png",
-        "alt": "Rendered large-scale terrain"
       },
       "media": []
     },
@@ -922,10 +818,6 @@
       "publication": {
         "abstract": "A model for generating 2D cracks in real time for games and cartoon animation, based on a method previously used for leaf venation patterns, with interactive parameters for different visual results."
       },
-      "cover": {
-        "src": "cover.png",
-        "alt": "Procedurally generated cartoon cracks"
-      },
       "media": []
     },
     {
@@ -944,10 +836,6 @@
       "summary": "Semi-automatic process from 3D posture detection, body-part segmentation, and silhouette processing to an animatable 3D virtual human.",
       "publication": {
         "abstract": "A semi-automatic process including 3D posture detection, segmentation of human body parts, and silhouette processing, used to generate a 3D virtual human that can be animated."
-      },
-      "cover": {
-        "src": "cover.png",
-        "alt": "Virtual human generated from a photo"
       },
       "media": []
     },
@@ -968,10 +856,6 @@
       "publication": {
         "abstract": "A platform integrating key issues of collaborative virtual environments: voice and chat, computer-vision mouse control and physics-based manipulation, rendering techniques such as lights, shadows, and weather, and facial and body avatar animation."
       },
-      "cover": {
-        "src": "cover.png",
-        "alt": "Avatars in a collaborative virtual environment"
-      },
       "media": []
     },
     {
@@ -989,10 +873,6 @@
       "summary": "Real-time player for visualizing and post-processing virtual-human simulations, with lighting, shadows, weather, and video recording.",
       "publication": {
         "abstract": "An application for visualization and post-processing of virtual human simulations, replaying precomputed multi-character scenarios in real time with controls for lights, shadows, and weather effects, plus video recording."
-      },
-      "cover": {
-        "src": "cover.png",
-        "alt": "Virtual humans replayed in an environment"
       },
       "media": []
     },
@@ -1014,10 +894,6 @@
       "summary": "CMU ETC project: designed and built an interactive survey of vehicle roominess and visibility for General Motors.",
       "publication": {
         "abstract": "An Entertainment Technology Center project team at Carnegie Mellon designing and implementing a new interactive survey on vehicle roominess and visibility for General Motors."
-      },
-      "cover": {
-        "src": "cover.png",
-        "alt": "VRoom 360 vehicle interior view"
       },
       "media": [],
       "period": {
@@ -1046,10 +922,6 @@
       "publication": {
         "abstract": "Developed during the M.Sc. in Computer Science at PUCRS: reconstructs object geometry with computer vision by sweeping the object with a line laser and capturing images from different perspectives to build a 3D mesh."
       },
-      "cover": {
-        "src": "cover.png",
-        "alt": "3D mesh reconstructed by the webcam scanner"
-      },
       "media": []
     },
     {
@@ -1070,10 +942,6 @@
       "summary": "Rotoscoping and compositing tool that lets anyone make short animated videos without complex software or long renders.",
       "publication": {
         "abstract": "Software that makes rotoscoping and compositing easy without complicated animation programs or lengthy render times, so anyone can create short animated videos; also aimed at education."
-      },
-      "cover": {
-        "src": "cover.png",
-        "alt": "Phlipits animation tool interface"
       },
       "media": []
     },
@@ -1102,10 +970,6 @@
       "publication": {
         "year": 2008,
         "abstract": "A simple Solar System simulator in which users change celestial body attributes such as mass, radius, and travel speed to simulate different behaviors. Final work for an astronomy class, rendered with OpenSceneGraph or Irrlicht and HDR."
-      },
-      "cover": {
-        "src": "cover.png",
-        "alt": "Rendered Solar System simulation"
       },
       "media": []
     },
