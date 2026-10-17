@@ -27,3 +27,7 @@ Every deploy is gated on types, lint, formatting, content checks, unit tests at 
 ---
 
 Code © Henry Braun. Portfolio content © Henry Braun, all rights reserved.
+
+## Single-file version
+
+`npm run build && npm run standalone` writes `standalone/index.html`: the home page with its fonts, images, styles and scripts inlined into one file. It opens straight from disk and works as a static page anywhere, GitHub Pages included. Project and research links point at the matching pages on henrybraun.info, since the project pages are not part of the single file.

@@ -111,3 +111,9 @@ Short log of non-obvious choices. Newest last.
 
 - **Decision:** the header Email button, PRESS START and the "Next project" link draw their clipped-corner background on a `::before` layer instead of clipping the element itself.
 - **Why:** `clip-path` on the element also clipped its focus outline, so keyboard users could not see focus on those controls.
+
+## 2026-10-17 · A single-file copy of the home page
+
+- **Decision:** `scripts/standalone.mjs` packs the built home page into `standalone/index.html`, with fonts and one WebP per card inlined as data URIs and the scripts inlined as modules. It drops the CSP meta (its hashes cover the separate files, and a file opened from disk has no origin for `'self'`) and the prefetch script. Project and research links go to the same projects on henrybraun.info through each entry's `legacyPaths`; entries without one show their title without a link. The file is committed so it can be opened or hosted as is.
+- **Why:** Henry asked (Oct 17, 2026) for one self-sufficient HTML file he can open locally and host as a static page on GitHub Pages, while the full site is still going through its gates.
+- **Alternatives:** zipping `dist/` (several files, and module scripts are blocked from `file://`).
