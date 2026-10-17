@@ -32,7 +32,7 @@ These come from Henry and apply to every build anyone hands him for review.
 
 1. **Mobile is first-class.** Every page works on phones as well as on desktop, with extra attention to the latest iPhone and Android models, across resolutions, orientations and form factors. The system tests in `tests/e2e/` run every page on current iPhones (WebKit), Android phones (Chromium), an iPad, desktop Chrome, Firefox and Safari, a 1920px screen and a 320px window.
 2. **Light or dark follows the system.** The site defaults to the visitor's `prefers-color-scheme`; the toggle only overrides it, and the mobile browser bar (`theme-color`) matches whichever theme is showing.
-3. **No review without gates.** Never ask Henry to review a deployment, preview or milestone unless unit tests meet **95% branch coverage** (`vitest --coverage`, thresholds in `vitest.config.ts`) and the system tests pass in all three engines. Both run inside `npm run check`; CI runs it on every push. Logic that can be unit tested lives in `src/lib/` so the coverage gate measures it.
+3. **No review without gates.** Never ask Henry to review a deployment, preview or milestone unless unit tests meet **95% branch coverage** (`vitest --coverage`, thresholds in `vitest.config.ts`) and the system tests pass in all three engines. Coverage runs inside `npm run check` on every push. The three-engine system tests are the **extended suite** (`npm run check:extended`, or the CI workflow run by hand with `extended`); every push runs only the light suite (Henry, Oct 17, 2026), so run extended before any review. Logic that can be unit tested lives in `src/lib/` so the coverage gate measures it.
 
 ## Working agreement
 
@@ -67,9 +67,10 @@ These come from Henry and apply to every build anyone hands him for review.
 |---|---|
 | `npm run dev` | Local dev server |
 | `npm run build` | Production build into `dist/` (includes media processing) |
-| `npm run check` | Everything CI runs: types, schema sync, lint, content, unit tests with the 95% coverage gate, build, system tests (Lighthouse and link checks land in Phase 7) |
+| `npm run check` | What CI runs on every push: types, schema sync, lint, content, unit tests with the 95% coverage gate, build, and the light system tests (Android phone and desktop Chrome) |
+| `npm run check:extended` | The same with the extended system tests: all 11 devices in Chromium, Firefox and WebKit. Run before any review |
 | `npm test` | Unit tests with coverage |
-| `npm run test:e2e` | System tests against the built site (run `npm run build` first). Needs `npx playwright install chromium firefox webkit` once; on a machine with only Chromium, set `E2E_ENGINES=chromium` and CI still runs all three |
+| `npm run test:e2e` / `npm run test:e2e:extended` | Light or extended system tests against the built site (run `npm run build` first). Needs `npx playwright install chromium firefox webkit` once; on a machine with only Chromium, set `E2E_ENGINES=chromium` and CI still runs all three |
 | `npm run new:experience -- "Title"` | Scaffold a new entry in `experiences.json` |
 | `npm run schema` | Regenerate `experience.schema.json` from the Zod schema |
 

@@ -19,10 +19,11 @@ Requires Node 22.22 or later.
 npm ci
 npx playwright install chromium firefox webkit   # once, for the system tests
 npm run dev                                       # http://localhost:4321
-npm run check                                     # every gate CI runs; must pass before a push
+npm run check                                     # light gates, as CI runs on every push
+npm run check:extended                            # plus system tests on all 11 devices, 3 engines
 ```
 
-Every deploy is gated on types, lint, formatting, content checks, unit tests at 95% or more branch coverage, and system tests on current iPhones, Android phones, an iPad and desktop Chrome, Firefox and Safari, in light and dark mode.
+Every push and deploy is gated on types, lint, formatting, content checks, unit tests at 95% or more branch coverage, and the light system tests (an Android phone and desktop Chrome, in light and dark mode). The extended system tests cover current iPhones, Android phones, an iPad and desktop Chrome, Firefox and Safari. Run them before a review with `npm run check:extended`, or on GitHub under Actions, CI, "Run workflow", with the suite set to `extended`.
 
 ---
 

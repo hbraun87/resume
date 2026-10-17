@@ -33,6 +33,16 @@ const targets: { name: string; engine: Engine; use: Project['use'] }[] = [
   },
 ];
 
+// Two suites. Light (the default) runs an Android phone and desktop Chrome, so
+// every push gets a quick check. Extended (E2E_SUITE=extended) runs all eleven
+// profiles in all three engines: run it before asking Henry to review. The npm
+// script name selects it too, so `npm run test:e2e:extended` works on Windows.
+const LIGHT = new Set(['Pixel 9 Pro XL', 'Desktop Chrome']);
+const extended =
+  process.env['E2E_SUITE'] === 'extended' ||
+  (process.env['npm_lifecycle_event'] ?? '').endsWith(':extended');
+const suite = extended ? targets : targets.filter(({ name }) => LIGHT.has(name));
+
 // E2E_ENGINES=chromium runs every profile in Chromium, for machines without
 // WebKit or Firefox installed. CI installs all three and never sets it.
 const available = process.env['E2E_ENGINES']?.split(',') as Engine[] | undefined;
@@ -48,7 +58,7 @@ export default defineConfig({
     baseURL: `http://localhost:${PORT}${base}`,
     trace: 'retain-on-failure',
   },
-  projects: targets.map(({ name, engine, use }) => {
+  projects: suite.map(({ name, engine, use }) => {
     const runAs = !available || available.includes(engine) ? engine : 'chromium';
     return {
       name: runAs === engine ? name : `${name} (in ${runAs})`,

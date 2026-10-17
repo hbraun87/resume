@@ -128,3 +128,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** `platformGroup` gains `playstation`. Until You Fall and I Expect You To Die show PlayStation instead of VR, the filters read All · PC · Mobile · PlayStation · VR · AR, and the first cards alternate platforms (Until You Fall, 4:LOOP, I Expect You To Die, Project Octavia, Ben 10, then the VR titles). 4:LOOP and Project Octavia are new public entries, grouped as PC (Steam is their link), with no cover art until Henry confirms rights. Cards without a henrybraun.info page link to Steam in the single-file copy.
 - **Why:** Henry (Oct 17, 2026): VR repeated too often, and PC and Mobile should show near the top.
 - **Alternatives:** several platform chips per card (busier cards, and the filters would need multi-group logic).
+
+## 2026-10-17 · Light and extended test suites
+
+- **Decision:** `npm run check` (every push and every deploy) runs the static gates, unit tests with the 95% branch coverage gate, the build, and the light system tests: Pixel 9 Pro XL and desktop Chrome. The extended suite runs all eleven profiles in Chromium, Firefox and WebKit, via `npm run check:extended` or the CI workflow run by hand with `extended`.
+- **Why:** Henry (Oct 17, 2026): "split test in light and extended so we run light by default but can run extended when needed." The full run took about 19 minutes per push.
+- **Alternatives:** extended on pull requests to `main` only (Henry asked for on demand).

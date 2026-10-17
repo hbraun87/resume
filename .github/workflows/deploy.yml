@@ -30,8 +30,8 @@ jobs:
           node-version: lts/*
           cache: npm
       - run: npm ci
-      # Real engines for the system tests: WebKit for iPhone and iPad, Chromium for Android.
-      - run: npx playwright install --with-deps chromium firefox webkit
+      # The light suite gates deploys; run the extended suite from ci.yml before a review.
+      - run: npx playwright install --with-deps chromium
       - run: npm run check
       - if: failure()
         uses: actions/upload-artifact@v7

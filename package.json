@@ -15,13 +15,15 @@
     "preview": "astro preview",
     "test": "vitest run --coverage",
     "test:e2e": "playwright test",
+    "test:e2e:extended": "playwright test",
     "lint": "eslint .",
     "format": "prettier --write .",
     "schema": "node scripts/gen-schema.mjs",
     "new:experience": "node scripts/new-experience.mjs",
     "check:content": "node scripts/check-content.mjs",
     "check:static": "astro check && eslint . && prettier --check . && node scripts/gen-schema.mjs --verify && node scripts/check-content.mjs && vitest run --coverage",
-    "check": "npm run check:static && npm run build && npm run test:e2e"
+    "check": "npm run check:static && npm run build && npm run test:e2e",
+    "check:extended": "npm run check:static && npm run build && npm run test:e2e:extended"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",
