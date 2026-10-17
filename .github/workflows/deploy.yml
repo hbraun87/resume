@@ -19,9 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # Repository variables (Settings → Secrets and variables → Actions → Variables).
-      # Leave unset to build for https://henrybraun.info at the domain root.
-      SITE_URL: ${{ vars.SITE_URL }}
-      BASE_PATH: ${{ vars.BASE_PATH }}
+      # Unset, the site builds for https://hbraun87.github.io/resume/. For the custom
+      # domain, set SITE_URL to https://henrybraun.info and BASE_PATH to /.
+      SITE_URL: ${{ vars.SITE_URL || 'https://hbraun87.github.io' }}
+      BASE_PATH: ${{ vars.BASE_PATH || '/resume' }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
