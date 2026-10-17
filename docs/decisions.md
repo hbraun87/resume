@@ -89,3 +89,25 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** `scripts/media.mjs` (ffmpeg conversion of GIFs and cover loops, brief `06`) is not built yet. No content uses `gif`, `video` or `coverLoop`; `check-content` fails the build if a public entry does, so nothing ships unrendered.
 - **Why:** it would add `ffmpeg-static` (a large binary) and a cache step for zero current media. It lands with the first GIF or clip Henry provides.
 - **Alternatives:** build it now as the plan lists (unused code and dependency weight).
+
+## 2026-10-17 · The loading-screen home page, built from the data
+
+- **Decision:** the home page follows spec `10` section by section (boot console, player profile, level select, R&D lab, finale, loading HUD), with every word coming from `profile.json` and `experiences.json`. Where the spec hard-codes numbers or facts, the page computes them: the character sheet shows "Titles in the log" (all public games, including the two in development) and "R&D projects" (all public research) instead of the spec's "20+ shipped" and "12"; the quest log lists current roles, then one line per earlier employer from `roles`, then `education`. Research rows link to the site's own research pages, not the old `.html` files. The brief `02` credits strip sits under the hero as text. Game cards show each entry's cover under a 30% platform tint (the spec's first listed upgrade), falling back to the outlined-initials glyph.
+- **Why:** CLAUDE.md rule 2 (content is data) and rule 5 (no invented facts). The spec's bio and quest log say Henry joined Schell Games in 2013 and shipped Arithal; the data says 2015 and in development.
+- **Alternatives:** copy the spec's text into components (would drift from the JSON and repeat its factual slips).
+
+## 2026-10-17 · The loading layer is progressive enhancement
+
+- **Decision:** without JavaScript the HUD, asset log, filters and Copy button stay hidden, every card shows, the finale headline is plain text and PRESS START is a `mailto:` link. `src/lib/home.ts` reveals the HUD, swaps the link for a button, types the console (already in the HTML, so nothing shifts) and starts the canvas. All of it is unit tested in happy-dom with injected observers, frames, timers and a fake 2D context, and system tested on every phone and desktop profile.
+- **Why:** CLAUDE.md: the loading metaphor must never block reading.
+
+## 2026-10-17 · Denser finale particles than the spec
+
+- **Decision:** the particle grid step is `sqrt(width × height / 12000)` (at least 3px), about 2,500–3,500 particles, instead of the spec's `/ 5200` (~1,500).
+- **Why:** at ~1,500 particles the four-line headline on a 375px phone came out about two particles per letter stroke and was hard to read. Drawing is one `fillRect` per particle and only runs while the stage is on screen.
+- **Alternatives:** keep 1,500 and make the stage taller on phones (pushes the contact row further down).
+
+## 2026-10-17 · Clipped buttons paint their shape on `::before`
+
+- **Decision:** the header Email button, PRESS START and the "Next project" link draw their clipped-corner background on a `::before` layer instead of clipping the element itself.
+- **Why:** `clip-path` on the element also clipped its focus outline, so keyboard users could not see focus on those controls.

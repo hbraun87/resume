@@ -2,7 +2,7 @@
 
 Source for the portfolio of **Henry Braun** — Engineering Manager at Bad Robot Games, founder of Maned Wolf Games, and game engineer behind award-winning VR/AR titles at Schell Games.
 
-**Status:** in development on the `claude/resume-site-tmyy5f` branch. The foundation, content model and migrated media are in place; the pages are being built next.
+**Status:** in development on the `claude/resume-site-tmyy5f` branch. The loading-screen home page, the project pages and the research pages are built. The about page, résumé, 404, indexes and redirects come next.
 
 - [`docs/brief/README.md`](docs/brief/README.md): start here for goals, architecture, content model, quality bar and build plan.
 - [`CLAUDE.md`](CLAUDE.md): working rules for anyone, human or AI agent, who builds or maintains the site, including Henry's standing requirements.

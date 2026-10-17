@@ -33,7 +33,7 @@ Not migrated, for Henry to decide:
 - I Expect You To Die localization has only one image (the announcement). Personal captures would help.
 - Environment to Behavior, Mise en Scène and Project Octavia have no media on the old site.
 - The old CV PDF; the plan is to generate the résumé from the site instead (kickoff default 8).
-- Media rights: the galleries are the screenshots already public on henrybraun.info. Key art for client titles (Ben 10, Regular Show, Toren, Until You Fall) needs Henry's confirmation before launch, per CLAUDE.md.
+- Media rights: the galleries are the screenshots already public on henrybraun.info. Key art for client titles (Ben 10, Regular Show, Toren, Until You Fall) needs Henry's confirmation before launch, per CLAUDE.md. The home page cards use each entry's cover too, so the same confirmation covers them; any cover he declines falls back to the glyph art band when removed from the JSON.
 
 ## Facts to confirm
 
