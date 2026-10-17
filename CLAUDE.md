@@ -26,12 +26,21 @@ Where they conflict:
 6. **Protect personal data.** Publish only the email address and links in `profile.json`. Never publish Henry's phone number (it appears in his LinkedIn export) or any other private contact detail.
 7. **Respect NDAs and IP.** Unreleased or confidential work is `"visibility": "draft"` until Henry confirms it can be public. Do not use third-party logos or key art unless Henry confirms he has the right to; prefer his own captures and text credits.
 
+## Henry's standing requirements (Oct 17, 2026)
+
+These come from Henry and apply to every build anyone hands him for review.
+
+1. **Mobile is first-class.** Every page works on phones as well as on desktop, with extra attention to the latest iPhone and Android models, across resolutions, orientations and form factors. The system tests in `tests/e2e/` run every page on current iPhones (WebKit), Android phones (Chromium), an iPad, desktop Chrome, Firefox and Safari, a 1920px screen and a 320px window.
+2. **Light or dark follows the system.** The site defaults to the visitor's `prefers-color-scheme`; the toggle only overrides it, and the mobile browser bar (`theme-color`) matches whichever theme is showing.
+3. **No review without gates.** Never ask Henry to review a deployment, preview or milestone unless unit tests meet **95% branch coverage** (`vitest --coverage`, thresholds in `vitest.config.ts`) and the system tests pass in all three engines. Both run inside `npm run check`; CI runs it on every push. Logic that can be unit tested lives in `src/lib/` so the coverage gate measures it.
+
 ## Working agreement
 
 - Work in the phases of `docs/brief/08-build-plan.md`, in order. Finish each phase's acceptance criteria before starting the next. Commit in small, conventional commits (`feat:`, `fix:`, `content:`, `perf:`, `a11y:`, `ci:`, `docs:`).
 - At the start of the build, ask Henry the **Open questions** in `09-migration-inventory.md` in one batch. Proceed with sensible defaults (marked in the brief) for anything unanswered, and record what you assumed.
 - When you make a non-obvious decision, add a short entry to `docs/decisions.md` (date, decision, why, alternatives).
-- Before replying "done", run the site, look at it at 375px, 768px, and 1440px widths, in light and dark mode, and with `prefers-reduced-motion: reduce`. Fix what looks wrong.
+- Before replying "done", run the site, look at it at 375px, 768px, and 1440px widths, in light and dark mode, and with `prefers-reduced-motion: reduce`. Fix what looks wrong. The system tests attach a full-page screenshot per device and theme to the Playwright report; look at them.
+- Every new page and every new interaction gets system test coverage in `tests/e2e/`; new pages are picked up automatically from `dist/`, interactions need their own test.
 - Keep dependencies few and mainstream. Justify every new runtime dependency in `docs/decisions.md`. Pin versions via the lockfile.
 - Use the current stable major versions of Astro, Node LTS, and GitHub Actions at build time; check official docs rather than relying on memory for APIs that change (Astro content collections, `withastro/action`, `actions/deploy-pages`).
 
@@ -58,7 +67,9 @@ Where they conflict:
 |---|---|
 | `npm run dev` | Local dev server |
 | `npm run build` | Production build into `dist/` (includes media processing) |
-| `npm run check` | Everything CI runs: types, schema sync, lint, build, links, axe, Lighthouse |
+| `npm run check` | Everything CI runs: types, schema sync, lint, content, unit tests with the 95% coverage gate, build, system tests (Lighthouse and link checks land in Phase 7) |
+| `npm test` | Unit tests with coverage |
+| `npm run test:e2e` | System tests against the built site (run `npm run build` first). Needs `npx playwright install chromium firefox webkit` once; on a machine with only Chromium, set `E2E_ENGINES=chromium` and CI still runs all three |
 | `npm run new:experience -- "Title"` | Scaffold a new entry in `experiences.json` |
 | `npm run schema` | Regenerate `experience.schema.json` from the Zod schema |
 

@@ -13,13 +13,14 @@
     "build": "astro build",
     "preview": "astro preview",
     "test": "vitest run --coverage",
+    "test:e2e": "playwright test",
     "lint": "eslint .",
     "format": "prettier --write .",
     "schema": "node scripts/gen-schema.mjs",
     "new:experience": "node scripts/new-experience.mjs",
     "check:content": "node scripts/check-content.mjs",
     "check:static": "astro check && eslint . && prettier --check . && node scripts/gen-schema.mjs --verify && node scripts/check-content.mjs && vitest run --coverage",
-    "check": "npm run check:static && npm run build"
+    "check": "npm run check:static && npm run build && npm run test:e2e"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
+    "@axe-core/playwright": "4.13.0",
     "@eslint/js": "10.0.1",
     "@playwright/test": "1.64.1",
     "@vitest/coverage-v8": "5.0.5",

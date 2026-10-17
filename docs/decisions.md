@@ -57,3 +57,11 @@ Short log of non-obvious choices. Newest last.
 - **Why:** Henry's standing requirement: nothing goes to him for review unless it is gated by 95% branch coverage and the system tests it needs. Measuring Astro markup with line coverage says little; behavior in the browser is covered by the Playwright system tests instead.
 - **Dependency:** `@vitest/coverage-v8` (dev only), the coverage provider maintained with Vitest; no runtime cost. `zod` is now a direct dependency (pinned to the version Astro ships) because `src/lib` imports it.
 - **Alternatives:** istanbul provider (slower, same result); covering `scripts/` by spawning them (slow, brittle).
+
+## 2026-10-17 · System tests on real engines and current devices
+
+- **Decision:** Playwright tests in `tests/e2e/` run against the production build on 11 profiles: iPhone 17 Pro Max, iPhone 17 and iPhone 17 Pro landscape, and iPad Pro 11 in WebKit; Galaxy S24 (360px) and Pixel 9 Pro XL in Chromium; desktop Chrome, Firefox and Safari; a 1920px screen and a 320px window. Each built page is tested in light and dark mode for console errors, third-party requests, horizontal overflow, axe (WCAG 2.2 AA), dead in-page links, image alt and size, and touch target size; the theme, keyboard, no-JS, reduced-motion and mobile-setup behaviors have their own tests. `npm run check` runs them after the build; CI installs all three engines.
+- **Why:** Henry's standing requirement that phones, especially the latest iPhones and Android phones, work as well as desktop, and that nothing reaches him for review without system tests. Real WebKit is the closest thing to iOS Safari that runs in CI.
+- **Dependency:** `@axe-core/playwright` (dev only), Deque's official axe integration, pinned to 4.13.0 rather than the 4.14.0 published two days earlier.
+- **Fixes found while writing them:** `text-size-adjust: none` blocked text enlargement on iOS (now `100%`); `theme-color` was always dark (now one per scheme, updated by the toggle); header links pointed at home page sections that do not exist yet (removed until those sections ship).
+- **Alternatives:** Chromium-only device emulation (misses Safari bugs, which is the main iPhone risk); a cloud device farm (cost, credentials, third-party access to previews).
