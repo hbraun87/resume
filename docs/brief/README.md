@@ -53,6 +53,7 @@ After launch, add new work by editing **one file**, `src/content/experiences.jso
 | 07 | [`07-technical-excellence.md`](07-technical-excellence.md) | Performance budgets, accessibility, SEO, privacy, CI quality gates, the dev console. |
 | 08 | [`08-build-plan.md`](08-build-plan.md) | Phased milestones with acceptance criteria, and the launch checklist. |
 | 09 | [`09-migration-inventory.md`](09-migration-inventory.md) | Verified career facts (site + LinkedIn), content to recover, open questions. |
+| 10 | [`10-loading-screen-spec.md`](10-loading-screen-spec.md) | The home page experience and visual design: the game loading sequence, HUD, particle finale. Combined with 01–09 as described in `CLAUDE.md`. |
 
 ---
 

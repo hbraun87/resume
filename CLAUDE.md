@@ -1,6 +1,20 @@
 # CLAUDE.md — Agent rules for the henrybraun.info portfolio
 
-You are building and maintaining Henry Braun's professional portfolio: a static Astro site deployed to GitHub Pages from `hbraun87/resume`. The full brief lives in `docs/brief/`. Read `docs/brief/README.md` and files `01`–`09` before writing code. When this file and the brief disagree, this file wins; when the brief and Henry disagree, Henry wins.
+You are building and maintaining Henry Braun's professional portfolio: a static Astro site deployed to GitHub Pages from `hbraun87/resume`. The full brief lives in `docs/brief/`. Read `docs/brief/README.md` and files `01`–`10` before writing code. When this file and the brief disagree, this file wins; when the brief and Henry disagree, Henry wins.
+
+## Two briefs, one site
+
+Henry chose (Oct 17, 2026) to **combine** the two briefs:
+
+- `docs/brief/01`–`09` set the foundation: Astro on GitHub Pages, content as JSON, project pages, résumé, and the quality gates.
+- `docs/brief/10-loading-screen-spec.md` sets the home page experience and the look: the page is a game loading sequence (scroll fills a loading HUD, stages, asset log, loading tips) that ends in the particle "LET'S BUILD THE NEXT ONE." finale and PRESS START contact. Its design system (blueprint grid, bone text, maned-wolf rust accent, Unbounded / Instrument Sans / JetBrains Mono, clipped corners) is the site's look.
+
+Where they conflict:
+
+- **Facts:** `09-migration-inventory.md` (LinkedIn) wins over `10`. Schell Games started in 2015, Henry is the sole founder of Maned Wolf Games, Arithal is in development, LinkedIn is `linkedin.com/in/hbraun87`.
+- **Engineering rules:** this file and `07` win over `10`: fonts are self-hosted (no Google Fonts), no analytics or third-party requests, GitHub Pages (not Cloudflare/Netlify), Lighthouse budgets from `07`, light and dark themes.
+- **Content:** card copy, research list, and loading tips in `10` are display text; they must be generated from `experiences.json` / `profile.json`, never hard-coded.
+- The loading metaphor must never block reading: all content is real HTML, readable without JS and with reduced motion.
 
 ## Prime directives
 

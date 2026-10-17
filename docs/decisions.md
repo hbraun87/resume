@@ -28,3 +28,9 @@ Short log of non-obvious choices. Newest last.
 ## 2026-10-17 · GitHub Actions versions
 
 - **Decision:** `actions/checkout@v7`, `actions/setup-node@v7`, `actions/upload-pages-artifact@v5`, `actions/deploy-pages@v5`, Node `lts/*`; the latest major tags on the build date.
+
+## 2026-10-17 · Combine the repo brief and the loading-screen Build Spec
+
+- **Decision:** Henry chose to combine both briefs. The loading-screen spec (`docs/brief/10-loading-screen-spec.md`) drives the home page and the look; `01`–`09` drive architecture, content model, project pages, résumé, and quality gates. Conflict rules live in `CLAUDE.md`.
+- **Why:** the loading sequence is the memorable hook for game studios; the repo brief adds the depth hiring managers check.
+- **Alternatives:** loading screen only (single page); repo brief only (calm multi-page).
