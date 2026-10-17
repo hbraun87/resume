@@ -31,6 +31,7 @@ const singleImage = single?.data.cover;
           title={video.title}
           start={video.start}
           poster={poster ? projectImage(data.id, poster) : undefined}
+          eager
         />
       )}
       <h3>Without a poster</h3>
