@@ -17,16 +17,23 @@ Facts and media the site is waiting on. Nothing here is invented: unknown values
 | 9   | Availability line                                                                 | None                                                                                             |
 | 10  | Pine Creek and Loreisle                                                           | Draft (hidden)                                                                                   |
 
-## Media migration (Phase 2), blocked
+## Media migration (Phase 2), done
 
-The cloud build environment cannot reach `henrybraun.info` yet (network policy). Once it can, download for every project page `https://henrybraun.info/projects/<legacy>.html`:
+Migrated from Henry's local copy of henrybraun.info (`D:\Projects\Web\henrybraun.info`), because the build environment cannot reach the live site.
 
-- cover `/img/projs/<legacy>.png` → `src/assets/projects/<id>/cover.png`, then add `cover` with real alt text;
-- full-size gallery images `/img/<legacy>/<n>.png` (not `_thumb`) → `media[]`;
-- any YouTube embed ids not already in the JSON;
-- research figures from `/research.html`, and the portrait `/img/henry.png` → `src/assets/profile/`.
+- 171 gallery images across 33 entries, recompressed to JPEG under `src/assets/projects/<id>/`, each with alt text written from the image itself. Thumbnails, duplicate frames and logo-only images were left out.
+- A cover for every entry with images, and 28 YouTube videos from the old pages added to the two already in the JSON.
+- Research entries carry their old `/research/<page>.html` path in `legacyPaths` for redirects.
+- Portrait: `src/assets/profile/henry.jpg`.
 
-Cover references were removed from `experiences.json` until the files exist, so the content check stays honest.
+Not migrated, for Henry to decide:
+
+- Research PDFs in the old `files/` folder (papers and theses). They need a decision on whether the PDFs can be republished.
+- Orphan pages `dp.html` and `star.html`, which nothing on the old site links to.
+- I Expect You To Die localization has only one image (the announcement). Personal captures would help.
+- Environment to Behavior, Mise en Scène and Project Octavia have no media on the old site.
+- The old CV PDF; the plan is to generate the résumé from the site instead (kickoff default 8).
+- Media rights: the galleries are the screenshots already public on henrybraun.info. Key art for client titles (Ben 10, Regular Show, Toren, Until You Fall) needs Henry's confirmation before launch, per CLAUDE.md.
 
 ## Facts to confirm
 

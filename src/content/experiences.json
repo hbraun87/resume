@@ -45,6 +45,31 @@
           "type": "youtube",
           "id": "S1zZHy7_BFg",
           "title": "Until You Fall trailer"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "Until You Fall key art: an armored warrior swings a glowing blade against shadowy enemies"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "Concept art of a lanky crystal-spined creature stalking through a misty forest"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "Key art of crystal-armored foes and a sword-wielding hero in a neon-lit ruin"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "The upgrade forge: a sword named Mistcutter II with its traits and stats panel"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "A hooded enemy with glowing armor seams lunges forward in the arena"
         }
       ],
       "links": [
@@ -56,7 +81,11 @@
       ],
       "legacyPaths": [
         "/projects/untilyoufall.html"
-      ]
+      ],
+      "cover": {
+        "src": "04.jpg",
+        "alt": "A hulking crystal-armored enemy with a shield looms in a red and blue arena"
+      }
     },
     {
       "id": "i-expect-you-to-die-localization",
@@ -118,7 +147,11 @@
       ],
       "legacyPaths": [
         "/projects/ieytd.html"
-      ]
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "\"I Expect You To Die goes global\" announcement listing French, German, Italian, Japanese, Korean, Simplified Chinese, Spanish and Traditional Chinese"
+      }
     },
     {
       "id": "hololab-champions",
@@ -157,10 +190,45 @@
         ],
         "outcome": "HoloLAB Champions released in 2018 and won several awards."
       },
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "OaIUD-6hSGA",
+          "title": "HoloLAB Champions video"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "The HoloLAB Champions game-show stage, with the host robot, numbered rounds and a lab bench"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "A Bunsen burner flame on the lab bench, seen from the player's point of view"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "Pouring a beaker at the lab station while a timer counts down"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "A pipette over a row of test tubes, with the elapsed-time clock and the robot host"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "The score screen: 141,993 points on a glowing track beside a trophy"
+        }
+      ],
       "legacyPaths": [
         "/projects/hololab.html"
-      ]
+      ],
+      "cover": {
+        "src": "06.jpg",
+        "alt": "The \"Glowing Flask Challenge\" banner over the lab bench and VR controllers"
+      }
     },
     {
       "id": "lego-brickheadz-builder-vr",
@@ -200,10 +268,40 @@
         ],
         "outcome": "BrickHeadz Builder VR was widely noted as one of the best Android apps on Google Daydream by outlets including TechRadar, VRScout, and The Verge."
       },
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "RW6d7Hy-Y0M",
+          "title": "LEGO BrickHeadz Builder VR video"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "A storybook of building challenges floats in a cartoon bedroom"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "Building a LEGO wrestling ring on the play mat with a laser pointer"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "A challenge book with locked and unlocked builds in the bedroom"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "A finished pirate ship and space shuttle on the play mat beside the challenge book"
+        }
+      ],
       "legacyPaths": [
         "/projects/lego.html"
-      ]
+      ],
+      "cover": {
+        "src": "04.jpg",
+        "alt": "Building instructions for a LEGO pirate ship, steps 1 to 4, above the build plate"
+      }
     },
     {
       "id": "domino-world-ar",
@@ -248,10 +346,30 @@
         ],
         "outcome": "Domino World AR launched for ARKit-compatible iOS devices and ARCore-compatible Android devices."
       },
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "X2sMpbGiTK4",
+          "title": "Domino World AR video"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "Virtual dominoes and a green dinosaur toy placed on a real table through the phone camera"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "A domino course with ramps and a tall tower set up on a real table"
+        }
+      ],
       "legacyPaths": [
         "/projects/domino.html"
-      ]
+      ],
+      "cover": {
+        "src": "02.jpg",
+        "alt": "Drawing a curving domino path across a real office table in AR"
+      }
     },
     {
       "id": "arithal",
@@ -287,10 +405,45 @@
         ],
         "outcome": "Arithal is in development at Maned Wolf Games."
       },
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "smSbxPu20CU",
+          "title": "Arithal video"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "The Arithal title screen: a hooded figure on a moonlit snowy pier, with Play, About and Exit"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "A snow-covered village with timber cottages under falling snow"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "Turn-based battle on a glowing tactical grid in the snow, with party portraits on the left"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "A lone figure under a full moon in a snowy pine forest"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "Dialogue in the snow: a portrait and a line of text beneath a cloaked character"
+        }
+      ],
       "legacyPaths": [
         "/projects/arithal.html"
-      ]
+      ],
+      "cover": {
+        "src": "02.jpg",
+        "alt": "A character stands by a campfire and cooking pot in a snowy forest at night"
+      }
     },
     {
       "id": "project-octavia",
@@ -344,10 +497,35 @@
         "Served as Tech Director on a proof of concept exploring real-life chemistry interactions in VR.",
         "Players measure and mix liquid and solid reactants, guided by a robotic assistant and a scanner tool."
       ],
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "UUUL7ToMgwk",
+          "title": "SuperChem VR video"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "The SuperChem VR lab: a futuristic bench with dispensers and a robot assistant display"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "The Lab 101 door and safety shower in the SuperChem lab"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "A player in a VR headset pours from a beaker at the lab bench"
+        }
+      ],
       "legacyPaths": [
         "/projects/superchem.html"
-      ]
+      ],
+      "cover": {
+        "src": "03.jpg",
+        "alt": "A player in a VR headset holds up a flask of glowing green liquid"
+      }
     },
     {
       "id": "orion-trail-vr",
@@ -375,10 +553,45 @@
         "Owned optimization and gameplay for a launch title on the Gear VR store debut.",
         "My first published VR title at Schell Games."
       ],
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "Ujfbwbj6mCM",
+          "title": "Orion Trail VR video"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "The starship bridge in voxel style, with a mission-select screen ahead"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "The bridge crew facing a galaxy map on the main screen"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "The ship drops out of warp in front of a bright star, crew stats along the console"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "A story event card on the bridge offering three choices to the player"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "A mini-game panel on the bridge, with the crew watching"
+        }
+      ],
       "legacyPaths": [
         "/projects/orionvr.html"
-      ]
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "Orion Trail title art: the crew posing in space beside the logo"
+      }
     },
     {
       "id": "ben-10-wrath-of-psychobos",
@@ -407,10 +620,45 @@
         "Developed the game with the programming team at Aquiris Game Studio for Cartoon Network.",
         "Shipped on iOS and Android, featuring many enemies and bosses."
       ],
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "xiNkMMt9NMg",
+          "title": "Ben 10: Wrath of Psychobos video"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "The alien selection screen with Bloxx and Armodrillo DNA cards"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "An alien hero webbing enemies in a top-down town level"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "The level map showing worlds Lignum, Earth and Ignis"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "Ben running along a jungle path in the side-scrolling view"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "A glowing crate in a top-down market level"
+        }
+      ],
       "legacyPaths": [
         "/projects/ben10.html"
-      ]
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "Ben 10 fighting a swarm of enemies with alien powers in a jungle level"
+      }
     },
     {
       "id": "water-bears",
@@ -439,10 +687,45 @@
         "Localized the game and ported it to iPhone and Android.",
         "My first project at Schell Games."
       ],
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "qLqBh3KeUKI",
+          "title": "Water Bears video"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "A castle puzzle made of grey blocks where pipes must carry water to a bear"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "An early puzzle teaching the player to drag a finger to rotate the view"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "A challenge puzzle with glowing colored pipes connecting several bears"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "A challenge puzzle where water pours down a tower into a bear's bubble"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "A purple water bear character portrait on a blue background"
+        }
+      ],
       "legacyPaths": [
         "/projects/waterbears.html"
-      ]
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "The Water Bears title screen: colorful water bears on block towers with pipes"
+      }
     },
     {
       "id": "toren",
@@ -466,13 +749,48 @@
         "Programmed part of Swordtales' Toren alpha, released on the OnLive platform.",
         "Toren later released on Steam."
       ],
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "JjSu--jB4Zs",
+          "title": "Toren video"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "Toren's heroine in a red dress gazes up at a giant glowing tree"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "The heroine stands among overgrown stone pillars"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "The grown-up heroine in a white dress, a dragon blurred behind her"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "The heroine with a sword faces a stone dragon on a hazy bridge"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "The heroine crosses a sunlit stone courtyard"
+        }
+      ],
       "legacyPaths": [
         "/projects/toren.html"
       ],
       "period": {
         "start": "2011-08",
         "end": "2012-03"
+      },
+      "cover": {
+        "src": "06.jpg",
+        "alt": "The heroine walks toward a bright gateway in a dark tower"
       }
     },
     {
@@ -502,10 +820,45 @@
         "Built the prototype of a Cartoon Network tower-defense game with the Aquiris programming team.",
         "Released on the Cartoon Network website."
       ],
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "nD0PNba43hc",
+          "title": "Regular Show: The Great Prank War video"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "A tower defense lane in autumn, with a prank machine guarding the path"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "A comic-panel cutscene: \"He scattered us to the winds\""
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "Defending a snowy path with prank machines and Mordecai"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "Rigby beside a tall prank tower on a snowy battlefield"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "A cutscene of an army marching behind a vending machine: \"Gene was obsessed with the Prank War\""
+        }
+      ],
       "legacyPaths": [
         "/projects/prankwars.html"
-      ]
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "The Great Prank War title screen with Mordecai and Rigby"
+      }
     },
     {
       "id": "star-botanist",
@@ -533,10 +886,45 @@
         "Developed systems and gameplay during the first phase of development.",
         "Mobile vertical platformer with intuitive, unique controls and a bold art style."
       ],
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "-EhzvY7CKKs",
+          "title": "Star Botanist: Garden Planet video"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "Bursting upward through a striped jungle shaft"
+        },
+        {
+          "type": "image",
+          "src": "03.png",
+          "alt": "Collecting saplings among pink foliage"
+        },
+        {
+          "type": "image",
+          "src": "04.png",
+          "alt": "A silhouette jungle against an orange sky"
+        },
+        {
+          "type": "image",
+          "src": "05.png",
+          "alt": "Dodging enemies while flying up through dark trees"
+        },
+        {
+          "type": "image",
+          "src": "06.png",
+          "alt": "Grandma explains the mission in a dialogue box"
+        }
+      ],
       "legacyPaths": [
         "/projects/starbotanist.html"
-      ]
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "Star Botanist title screen: a jetpack botanist rising over a purple sky"
+      }
     },
     {
       "id": "gendai-hero",
@@ -557,10 +945,45 @@
         "Indie"
       ],
       "summary": "Multi-platform 2D game where a samurai sushi chef fights through obstacles to rescue his girlfriend. Programmed with Luiz Alvarez (Toren).",
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "RjWafyIQrRc",
+          "title": "Gendai Hero video"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "Running across city rooftops at night collecting sushi"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "Leaping over a pink mountain landscape"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "Jumping over knives in a sushi kitchen"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "The hero and a geisha under a cherry tree at sunset"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "The name-entry screen with a Facebook login option, in Portuguese"
+        }
+      ],
       "legacyPaths": [
         "/projects/gendai.html"
-      ]
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "Gendai Hero title screen with the sushi-chef samurai and Play and Ranking buttons"
+      }
     },
     {
       "id": "aventuras-do-aviao-vermelho",
@@ -578,10 +1001,60 @@
         "Education"
       ],
       "summary": "Game based on Erico Verissimo's 1936 book, built in two months in Unity as the final project of the PUCRS/Ubisoft games specialization.",
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "rZJu4WfZN1M",
+          "title": "As Aventuras do Avião Vermelho video"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "A red toy plane at the starting line with \"Go!\" on screen"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "A dark plane racing through a sunlit bedroom"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "Two planes chasing a glowing ring over a wooden floor"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "The red plane speeding across a bright rug toward a power-up"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "The race scoreboard in Portuguese showing three players' points"
+        },
+        {
+          "type": "image",
+          "src": "07.jpg",
+          "alt": "A blue-lit plane on a bed"
+        },
+        {
+          "type": "image",
+          "src": "08.jpg",
+          "alt": "A plane flying out through a window at night"
+        },
+        {
+          "type": "image",
+          "src": "09.jpg",
+          "alt": "A plane circling under a ceiling fan in a child's room"
+        }
+      ],
       "legacyPaths": [
         "/projects/av.html"
-      ]
+      ],
+      "cover": {
+        "src": "02.jpg",
+        "alt": "The red plane flying over a rug past a soccer ball"
+      }
     },
     {
       "id": "angry-pucks",
@@ -601,10 +1074,30 @@
         "Indie"
       ],
       "summary": "Hobby project: a fast, casual ice-hockey game built around competing for the top spot on a friends leaderboard.",
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "HzRgeR6JSjc",
+          "title": "Angry Pucks video"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "The Game Over screen with score and high score on an ice rink"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "The Puck Off emblem at the start of a round"
+        }
+      ],
       "legacyPaths": [
         "/projects/angrypucks.html"
-      ]
+      ],
+      "cover": {
+        "src": "03.jpg",
+        "alt": "The Angry Pucks title screen with a hockey stick on the rink"
+      }
     },
     {
       "id": "sim-camisaria",
@@ -620,13 +1113,48 @@
         "Simulation"
       ],
       "summary": "Multi-platform factory management game with 10 challenging levels, programmed as a freelancer at Rockhead Games.",
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "IAMhH-TUF_Q",
+          "title": "Sim Camisaria video"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "The Sim Camisaria sign-in screen"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "Choosing the first business scenario, \"Meu Primeiro Negócio\""
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "The first goal: start the shirt factory and deliver an order"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "Workers at a shirt station with stock of 500 shirts"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "Delivering an order by truck from the factory floor"
+        }
+      ],
       "legacyPaths": [
         "/projects/simcamisaria.html"
       ],
       "period": {
         "start": "2013-04",
         "end": "2013-05"
+      },
+      "cover": {
+        "src": "04.jpg",
+        "alt": "The factory management view with finances, workstations and a new contract"
       }
     },
     {
@@ -648,10 +1176,50 @@
         "Procedural"
       ],
       "summary": "Bionic-samurai endless runner on a procedural infinite world, made during Global Game Jam 2012.",
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "v5WNOgYHPsM",
+          "title": "N.E.R.O.T. video"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "Running through a swirling neon tunnel against the clock"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "Dodging a carved block in the procedural tunnel"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "A runner passing ornate blocks along the tunnel wall"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "The game over screen: \"You've lasted 00:03\""
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "A neon joke card: \"I used to be an awesome developer, but then I took an arrow to the knee\""
+        },
+        {
+          "type": "image",
+          "src": "07.jpg",
+          "alt": "The N.E.R.O.T. team at Global Game Jam 2012, giving a thumbs up"
+        }
+      ],
       "legacyPaths": [
         "/projects/nerot.html"
-      ]
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "The N.E.R.O.T. title: \"Never Ending Runner Out of Time\" in neon"
+      }
     },
     {
       "id": "search-n-find",
@@ -672,10 +1240,35 @@
         "Hidden object"
       ],
       "summary": "Hidden-object game originally built for kiosks; after SD Technologies acquired the rights, we polished it and ported it to mobile.",
-      "media": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "A hidden-object scene in a cluttered bedroom with a word list"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "The Pirate Ship scene in the level picker"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "The Autumn Leaves scene in the level picker"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "The Lunar Circus scene in the level picker"
+        }
+      ],
       "legacyPaths": [
         "/projects/searchfind.html"
-      ]
+      ],
+      "cover": {
+        "src": "04.jpg",
+        "alt": "A hidden-object scene on Mars with aliens and a rocket"
+      }
     },
     {
       "id": "pine-creek",
@@ -691,10 +1284,60 @@
         "Puzzle"
       ],
       "summary": "3D puzzle horror game: Harrison Goodwin wakes after a terrible accident in a strange little town in Pennsylvania.",
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "Mq2R6rjBH_A",
+          "title": "Pine Creek video"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "The Pine Creek title screen over misty pine mountains"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "The protagonist in a dark, bloodstained room in pre-alpha footage"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "The protagonist crouching in a hospital room, with editor gizmos visible"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "Split view of the protagonist exploring a hospital ward"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "The character rig shown over a dark room in the Unity editor"
+        },
+        {
+          "type": "image",
+          "src": "07.jpg",
+          "alt": "The protagonist standing in a hospital room with \"Good luck\" on the wall"
+        },
+        {
+          "type": "image",
+          "src": "08.jpg",
+          "alt": "A barred cell and an exit-duct prompt in pre-alpha footage"
+        },
+        {
+          "type": "image",
+          "src": "09.jpg",
+          "alt": "The same area compared in 2009 and 2014 builds"
+        }
+      ],
       "legacyPaths": [
         "/projects/pinecreek.html"
-      ]
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "Pine Creek key art: hands pressing against frosted glass"
+      }
     },
     {
       "id": "loreisle",
@@ -710,10 +1353,45 @@
         "Multiplayer"
       ],
       "summary": "Hobby multiplayer turn-based tactics game inspired by the PlayStation classic Vandal Hearts.",
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "gQ5tm4Aiwko",
+          "title": "Loreisle video"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "A unit attacking on the island battlefield"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "Movement range highlighted in blue across the island grid"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "Units moving near a cottage on the autumn island"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "\"Player 1 Turn\" on a rainy river map with Move, Attack, Magic and Item buttons"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "A Loreisle collage of battle grids and a character sketch"
+        }
+      ],
       "legacyPaths": [
         "/projects/loreisle.html"
-      ]
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "A tactics grid on an autumn island with units in position"
+      }
     },
     {
       "id": "ocean-breaking-waves",
@@ -736,7 +1414,40 @@
       "publication": {
         "abstract": "A procedural model for ocean breaking waves in real time, aimed at games with ocean, coast, and beach scenarios. Using a small set of parameters, the model generates a unique ocean-like scene with minimal GPU and CPU cost."
       },
-      "media": []
+      "media": [
+        {
+          "type": "youtube",
+          "id": "TKqwlEaoxHE",
+          "title": "A Model for Real-Time Ocean Breaking Waves Animation video"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "Wireframe diagram of the six stages of a wave: forming, moving and breaking"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "Real-time ocean waves rolling toward a palm-fringed beach"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "Henry presenting the wave mathematical model at a conference"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "Henry demonstrating the real-time waves on a projector"
+        }
+      ],
+      "cover": {
+        "src": "03.jpg",
+        "alt": "Waves breaking at night, lit in blue, beside palm trees"
+      },
+      "legacyPaths": [
+        "/research/breakingwaves.html"
+      ]
     },
     {
       "id": "sky-rendering",
@@ -758,7 +1469,40 @@
       "publication": {
         "abstract": "A simple technique for sky rendering for games that need outdoor experiences with day and night cycles, with minimal GPU and CPU cost."
       },
-      "media": []
+      "media": [
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "A time-lapse strip of the sky from 5 am to 9 pm"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "A desert sky by day and at night under the moon"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "Dead trees under the sky by day and by night"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "A time-lapse strip of a desert sky from 4 am to noon"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "A forest under the sky by day and by night"
+        }
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "The same scene by day and by night, with a campfire under a shelter"
+      },
+      "legacyPaths": [
+        "/research/skyrendering.html"
+      ]
     },
     {
       "id": "crowdvis",
@@ -781,7 +1525,60 @@
       "publication": {
         "abstract": "Crowd simulations must represent agent behavior across different scenarios. CrowdVis visualizes previously created crowd simulations in real time, combining rendering techniques with easy management of the scene and virtual humans."
       },
-      "media": []
+      "media": [
+        {
+          "type": "youtube",
+          "id": "rMiNoxFx-no",
+          "title": "CrowdVis: A Framework for Real-Time Crowd Visualization video"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "Diagram of agents walking together and passing each other"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "A virtual human at three levels of detail, from 952 to 2,854 polygons"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "Virtual humans walking past a house and pool in the rain"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "A crowd in a stadium at sunset, with the CrowdVis control panel"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "A top-down view of agent paths around a house, with the control panel"
+        },
+        {
+          "type": "image",
+          "src": "07.jpg",
+          "alt": "Two virtual humans sitting on a bench in the rain"
+        },
+        {
+          "type": "image",
+          "src": "08.jpg",
+          "alt": "The same scene with fire, HDR, rain and anaglyph effects"
+        },
+        {
+          "type": "image",
+          "src": "09.jpg",
+          "alt": "A house scene before and after a fire effect"
+        }
+      ],
+      "cover": {
+        "src": "06.jpg",
+        "alt": "A large crowd of virtual humans casting shadows on white ground"
+      },
+      "legacyPaths": [
+        "/research/crowdvis.html"
+      ]
     },
     {
       "id": "large-scale-terrain-rendering",
@@ -799,7 +1596,45 @@
       "publication": {
         "abstract": "Analyzes current solutions for real-time large-scale terrain rendering and proposes an approach that delivers appropriate graphic quality."
       },
-      "media": []
+      "media": [
+        {
+          "type": "youtube",
+          "id": "y-9gb1Y1qYU",
+          "title": "Large Scale Terrain Rendering video"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "A grayscale heightmap terrain with debug stats"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "Sandy desert terrain under a pale sky"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "Wireframe view of the terrain mesh in blue"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "Wireframe terrain with distance fog"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "Grassy terrain with a house in the corner"
+        }
+      ],
+      "cover": {
+        "src": "02.jpg",
+        "alt": "Green rolling terrain fading into fog"
+      },
+      "legacyPaths": [
+        "/research/lstr.html"
+      ]
     },
     {
       "id": "cartoon-cracks-leaf-venation",
@@ -818,7 +1653,25 @@
       "publication": {
         "abstract": "A model for generating 2D cracks in real time for games and cartoon animation, based on a method previously used for leaf venation patterns, with interactive parameters for different visual results."
       },
-      "media": []
+      "media": [
+        {
+          "type": "youtube",
+          "id": "0TLOFd4Dgr0",
+          "title": "Generation of Cartoon 2D Cracks Based on Leaf Venation Patterns video"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "Three window panes showing a crack growing from a small hit to a full web"
+        }
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "Cartoon cracks spreading across a wall and a window in a first-person scene"
+      },
+      "legacyPaths": [
+        "/research/cracks.html"
+      ]
     },
     {
       "id": "making-them-alive",
@@ -837,7 +1690,35 @@
       "publication": {
         "abstract": "A semi-automatic process including 3D posture detection, segmentation of human body parts, and silhouette processing, used to generate a 3D virtual human that can be animated."
       },
-      "media": []
+      "media": [
+        {
+          "type": "youtube",
+          "id": "ANl3ff8NEj8",
+          "title": "Making Them Alive video"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "The 3D model next to the photo it was built from"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "Pose detection on a person with arms raised, and the body silhouette"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "The reconstructed virtual human animated in a city scene"
+        }
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "A person captured in a photo and turned into an animated 3D virtual human"
+      },
+      "legacyPaths": [
+        "/research/makingthemalive.html"
+      ]
     },
     {
       "id": "vhcve",
@@ -856,7 +1737,20 @@
       "publication": {
         "abstract": "A platform integrating key issues of collaborative virtual environments: voice and chat, computer-vision mouse control and physics-based manipulation, rendering techniques such as lights, shadows, and weather, and facial and body avatar animation."
       },
-      "media": []
+      "media": [
+        {
+          "type": "youtube",
+          "id": "RaQFK7sS6ME",
+          "title": "VhCVE: A Collaborative Virtual Environment Including Facial Animation and Computer Vision video"
+        }
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "The VHLab collaborative virtual environment with an avatar, controls and a chat window"
+      },
+      "legacyPaths": [
+        "/research/vhcve.html"
+      ]
     },
     {
       "id": "vhup",
@@ -874,7 +1768,20 @@
       "publication": {
         "abstract": "An application for visualization and post-processing of virtual human simulations, replaying precomputed multi-character scenarios in real time with controls for lights, shadows, and weather effects, plus video recording."
       },
-      "media": []
+      "media": [
+        {
+          "type": "youtube",
+          "id": "JUueZ4tJ6MI",
+          "title": "VHuP: A Tool to Visualize Virtual Humans video"
+        }
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "A crowd of virtual humans in a snowy city street played back in VHuP"
+      },
+      "legacyPaths": [
+        "/research/vhup.html"
+      ]
     },
     {
       "id": "vroom-360",
@@ -895,7 +1802,48 @@
       "publication": {
         "abstract": "An Entertainment Technology Center project team at Carnegie Mellon designing and implementing a new interactive survey on vehicle roominess and visibility for General Motors."
       },
-      "media": [],
+      "media": [
+        {
+          "type": "youtube",
+          "id": "wEV6WFKFC_U",
+          "title": "VRoom 360 video"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "The VRoom 360 target map: a top-down car view with visibility targets"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "The user profile page of the survey app"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "The car review history with ratings for visibility questions"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "The VRoom 360 team in an atrium"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "Presenting the project to a room of people"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "The team demoing the app to a reviewer"
+        },
+        {
+          "type": "image",
+          "src": "08.jpg",
+          "alt": "The team on stage presenting changes made to the app"
+        }
+      ],
       "period": {
         "start": "2011-07",
         "end": "2011-12"
@@ -903,6 +1851,13 @@
       "tech": [
         "C++",
         "iOS"
+      ],
+      "cover": {
+        "src": "07.jpg",
+        "alt": "The team on stage presenting OpenCV and iPad plans"
+      },
+      "legacyPaths": [
+        "/research/vroom360.html"
       ]
     },
     {
@@ -922,7 +1877,25 @@
       "publication": {
         "abstract": "Developed during the M.Sc. in Computer Science at PUCRS: reconstructs object geometry with computer vision by sweeping the object with a line laser and capturing images from different perspectives to build a 3D mesh."
       },
-      "media": []
+      "media": [
+        {
+          "type": "youtube",
+          "id": "4cZxgrEKOKQ",
+          "title": "Webcam 3D Scanner video"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "The reconstructed 3D mesh of the head in profile"
+        }
+      ],
+      "cover": {
+        "src": "01.jpg",
+        "alt": "A red laser line sweeps across a plaster head in a dark booth"
+      },
+      "legacyPaths": [
+        "/research/3dscanner.html"
+      ]
     },
     {
       "id": "phlipits",
@@ -943,7 +1916,45 @@
       "publication": {
         "abstract": "Software that makes rotoscoping and compositing easy without complicated animation programs or lengthy render times, so anyone can create short animated videos; also aimed at education."
       },
-      "media": []
+      "media": [
+        {
+          "type": "youtube",
+          "id": "R6N9yaeT6HY",
+          "title": "Phlipits video"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "Students in a classroom watching a Phlipits workshop"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "A cartoon mouse composited into a real cup on a desk"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "A drawn character lying in a colorful puddle"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "A person wearing drawn-on goggles and hair, holding a cartoon flask"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "A drawn cartoon face covering a person's face on webcam"
+        }
+      ],
+      "cover": {
+        "src": "02.jpg",
+        "alt": "A cartoon purple shark composited onto a drawn path"
+      },
+      "legacyPaths": [
+        "/research/phlipits.html"
+      ]
     },
     {
       "id": "solar-system-simulator",
@@ -971,7 +1982,25 @@
         "year": 2008,
         "abstract": "A simple Solar System simulator in which users change celestial body attributes such as mass, radius, and travel speed to simulate different behaviors. Final work for an astronomy class, rendered with OpenSceneGraph or Irrlicht and HDR."
       },
-      "media": []
+      "media": [
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "The Sun with a small Earth and Moon far off in space"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "A tilted Earth and Moon orbiting the Sun"
+        }
+      ],
+      "cover": {
+        "src": "02.jpg",
+        "alt": "Earth and the Moon close up beside the Sun"
+      },
+      "legacyPaths": [
+        "/research/solarsystem.html"
+      ]
     },
     {
       "id": "mise-en-scene",
