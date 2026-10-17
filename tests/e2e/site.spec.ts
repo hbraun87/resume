@@ -50,11 +50,23 @@ for (const path of pages) {
         const problems = await watch(page);
         await page.goto(path, { waitUntil: 'networkidle' });
 
-        const fit = await page.evaluate(() => ({
-          scrollWidth: document.documentElement.scrollWidth,
-          width: window.innerWidth,
-        }));
-        expect(fit.scrollWidth, 'no horizontal scrolling').toBeLessThanOrEqual(fit.width);
+        const fit = await page.evaluate(() => {
+          const width = window.innerWidth;
+          const sticksOut = (el: Element) => el.getBoundingClientRect().right > width + 1;
+          // Name the innermost elements past the right edge, so a failure says what to fix.
+          const culprits = [...document.querySelectorAll('body *')]
+            .filter((el) => sticksOut(el) && ![...el.children].some(sticksOut))
+            .slice(0, 5)
+            .map((el) => {
+              const { left, right } = el.getBoundingClientRect();
+              return `${el.tagName.toLowerCase()}.${[...el.classList].join('.')} ${Math.round(left)}→${Math.round(right)}`;
+            });
+          return { scrollWidth: document.documentElement.scrollWidth, width, culprits };
+        });
+        expect(
+          fit.scrollWidth,
+          `no horizontal scrolling: ${fit.culprits.join(', ')}`,
+        ).toBeLessThanOrEqual(fit.width);
 
         const axe = await new AxeBuilder({ page })
           .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
