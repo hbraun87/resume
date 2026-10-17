@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectPage from '../../components/ProjectPage.astro';
+import { nextEntry, research } from '../../lib/experiences';
+
+export async function getStaticPaths() {
+  const papers = research((await getCollection('experiences')).map((entry) => entry.data));
+  return papers.map((entry) => ({
+    params: { id: entry.id },
+    props: { entry, next: nextEntry(papers, entry.id) },
+  }));
+}
+
+const { entry, next } = Astro.props;
+---
+
+<ProjectPage entry={entry} next={next} />

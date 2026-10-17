@@ -1,0 +1,364 @@
+---
+/* One project or research page. Featured entries get the full case study
+   (docs/brief/02-content-strategy.md); the rest get the short page. */
+import Base from '../layouts/Base.astro';
+import Figure from './Figure.astro';
+import Gallery from './Gallery.astro';
+import StageHeader from './StageHeader.astro';
+import YouTube from './YouTube.astro';
+import { entryPath, PLATFORM_LABELS, periodLabel } from '../lib/experiences';
+import { posterFile, projectImage } from '../lib/media';
+import type { Experience } from '../lib/schema';
+import { inlineMarkdown, plainText } from '../lib/text';
+import { url } from '../lib/url';
+
+interface Props {
+  entry: Experience;
+  next?: Experience | undefined;
+}
+
+const { entry, next } = Astro.props;
+const research = entry.category === 'research';
+const featured = entry.tier === 'featured' && entry.caseStudy;
+const videos = entry.media?.filter((item) => item.type === 'youtube') ?? [];
+const images = entry.media?.filter((item) => item.type === 'image') ?? [];
+const [heroVideo, ...moreVideos] = videos;
+const heroPoster = heroVideo && posterFile(entry, heroVideo);
+
+const STATUS: Record<Experience['status'], string> = {
+  shipped: 'Shipped',
+  'released-early-access': 'Early access',
+  'in-development': 'In development',
+  prototype: 'Prototype',
+  unreleased: 'Unreleased',
+  published: 'Published',
+};
+const platforms =
+  entry.platforms?.join(', ') ?? (entry.platformGroup && PLATFORM_LABELS[entry.platformGroup]);
+const years = periodLabel(entry.period);
+const glance = [
+  ['Role', entry.role],
+  ['Studio', entry.studio],
+  ['Client', entry.client],
+  ['Years', years || undefined],
+  ['Platforms', platforms],
+  ['Engine', entry.engine],
+  ['Team size', entry.teamSize ? String(entry.teamSize) : undefined],
+  ['Status', STATUS[entry.status]],
+  ['Published in', entry.publication?.venue],
+  ['Year', entry.publication?.year ? String(entry.publication.year) : undefined],
+  ['Authors', entry.publication?.authors?.join(', ')],
+].filter((row): row is [string, string] => Boolean(row[1]));
+const back = research
+  ? { href: url('/#research'), label: 'R&D lab' }
+  : { href: url('/#games'), label: 'Level select' };
+---
+
+<Base title={`${entry.title} · Henry Braun`} description={plainText(entry.summary)}>
+  <article class="container project">
+    <nav class="crumbs mono" aria-label="Breadcrumb">
+      <a href={back.href}>{back.label}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{entry.title}</span>
+    </nav>
+
+    <header class="hero">
+      <p class="chips mono">
+        {entry.platformGroup && (
+          <span class:list={['chip', entry.platformGroup]}>
+            {PLATFORM_LABELS[entry.platformGroup]}
+          </span>
+        )}
+        {research && <span class="chip">Research</span>}
+        <span>{entry.role}</span>
+      </p>
+      <h1>{entry.title}</h1>
+      {entry.subtitle && <p class="subtitle">{entry.subtitle}</p>}
+      <p class="lede" set:html={inlineMarkdown(entry.summary)} />
+    </header>
+
+    {heroVideo ? (
+      <YouTube
+        id={heroVideo.id}
+        title={heroVideo.title}
+        start={heroVideo.start}
+        poster={heroPoster ? projectImage(entry.id, heroPoster) : undefined}
+        eager
+      />
+    ) : (
+      entry.cover && (
+        <Figure image={projectImage(entry.id, entry.cover.src)} alt={entry.cover.alt} eager />
+      )
+    )}
+
+    <section class="glance" aria-labelledby="glance">
+      <StageHeader label="At a glance" />
+      <h2 id="glance" class="visually-hidden">
+        At a glance
+      </h2>
+      <dl>
+        {glance.map(([term, value]) => (
+          <div>
+            <dt class="mono">{term}</dt>
+            <dd>{value}</dd>
+          </div>
+        ))}
+        {entry.links && entry.links.length > 0 && (
+          <div>
+            <dt class="mono">Links</dt>
+            <dd>
+              {entry.links.map((link) => (
+                <a href={link.url} rel="noopener">
+                  {link.label}
+                </a>
+              ))}
+            </dd>
+          </div>
+        )}
+      </dl>
+    </section>
+
+    {entry.highlights && entry.highlights.length > 0 && (
+      <section aria-labelledby="impact">
+        <h2 id="impact">{featured ? 'Impact' : 'Highlights'}</h2>
+        <ul class="highlights">
+          {entry.highlights.map((item) => (
+            <li set:html={inlineMarkdown(item)} />
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {entry.publication?.abstract && (
+      <section aria-labelledby="abstract">
+        <h2 id="abstract">Abstract</h2>
+        <p class="prose" set:html={inlineMarkdown(entry.publication.abstract)} />
+      </section>
+    )}
+
+    {featured && entry.caseStudy && (
+      <>
+        <section aria-labelledby="challenge">
+          <h2 id="challenge">The challenge</h2>
+          <p class="prose" set:html={inlineMarkdown(entry.caseStudy.challenge)} />
+        </section>
+        <section aria-labelledby="did">
+          <h2 id="did">What I did</h2>
+          <div class="contributions">
+            {entry.caseStudy.contributions.map((item) => (
+              <div>
+                <h3>{item.heading}</h3>
+                <p class="prose" set:html={inlineMarkdown(item.body)} />
+              </div>
+            ))}
+          </div>
+        </section>
+        {entry.caseStudy.deepDive && (
+          <details class="deep-dive" open>
+            <summary>
+              <h2>Technical deep dive</h2>
+            </summary>
+            <p class="prose" set:html={inlineMarkdown(entry.caseStudy.deepDive)} />
+          </details>
+        )}
+        <section aria-labelledby="outcome">
+          <h2 id="outcome">Outcome</h2>
+          <p class="prose" set:html={inlineMarkdown(entry.caseStudy.outcome)} />
+        </section>
+      </>
+    )}
+
+    {moreVideos.length > 0 && (
+      <section aria-labelledby="videos">
+        <h2 id="videos">More video</h2>
+        <div class="videos">
+          {moreVideos.map((video) => (
+            <YouTube
+              id={video.id}
+              title={video.title}
+              start={video.start}
+              sizes="(min-width: 60rem) 38rem, 100vw"
+            />
+          ))}
+        </div>
+      </section>
+    )}
+
+    {images.length > 0 && (
+      <section aria-labelledby="gallery">
+        <h2 id="gallery">Gallery</h2>
+        <Gallery entryId={entry.id} items={images} label={`${entry.title} images`} />
+      </section>
+    )}
+
+    {next && (
+      <nav class="next" aria-label="Next project">
+        <a href={url(entryPath(next))}>
+          <span class="mono">Next {research ? 'paper' : 'level'}</span>
+          <span class="next-title">{next.title}</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </nav>
+    )}
+  </article>
+</Base>
+
+<style>
+  .project {
+    display: grid;
+    gap: var(--space-12);
+    padding-block: var(--space-8) var(--space-16);
+  }
+  .crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    color: var(--dim);
+  }
+  .crumbs a,
+  dd a {
+    display: inline-block;
+    padding-block: var(--space-1);
+  }
+  .crumbs a {
+    color: var(--dim);
+  }
+  .crumbs a:hover {
+    color: var(--bone);
+  }
+  .hero {
+    display: grid;
+    gap: var(--space-4);
+    max-width: 56rem;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--dim);
+  }
+  .chip {
+    padding: var(--space-1) var(--space-2);
+    border: 1px solid currentColor;
+    color: var(--bone);
+  }
+  .chip.vr {
+    color: var(--vr);
+  }
+  .chip.ar {
+    color: var(--ar);
+  }
+  .chip.mobile {
+    color: var(--mobile);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    line-height: 1;
+    text-transform: uppercase;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+  .subtitle {
+    color: var(--dim);
+  }
+  .lede {
+    font-size: var(--step-1);
+    color: var(--bone-soft);
+    max-width: var(--measure);
+  }
+  h2 {
+    font-size: var(--step-2);
+    margin-bottom: var(--space-4);
+    text-wrap: balance;
+  }
+  h3 {
+    font-size: var(--step-1);
+    margin-bottom: var(--space-2);
+  }
+  .prose,
+  .highlights {
+    max-width: var(--measure);
+    color: var(--bone-soft);
+  }
+  .highlights {
+    display: grid;
+    gap: var(--space-3);
+    padding-left: 1.2em;
+  }
+  .highlights li::marker {
+    color: var(--wolf);
+  }
+  .glance dl {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: 1px;
+    margin-top: var(--space-4);
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .glance dl > div {
+    padding: var(--space-4);
+    background: var(--panel);
+  }
+  dt {
+    color: var(--dim);
+    margin-bottom: var(--space-1);
+  }
+  dd {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  .contributions {
+    display: grid;
+    gap: var(--space-6);
+  }
+  .deep-dive summary {
+    cursor: pointer;
+    list-style-position: outside;
+  }
+  .deep-dive summary h2 {
+    display: inline;
+  }
+  .videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+    gap: var(--space-4);
+  }
+  .next a {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--space-2) var(--space-4);
+    align-items: center;
+    position: relative;
+    isolation: isolate;
+    padding: var(--space-6);
+    text-decoration: none;
+  }
+  /* The clipped panel is painted by ::before, so the focus outline is not clipped too. */
+  .next a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% var(--notch), 100% 100%, 0 100%);
+  }
+  .next a:hover::before {
+    border-color: var(--wolf);
+  }
+  .next .mono {
+    grid-column: 1 / -1;
+    color: var(--dim);
+  }
+  .next-title {
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+</style>

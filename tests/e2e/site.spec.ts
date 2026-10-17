@@ -1,8 +1,17 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { builtPages } from './pages';
+import { builtPages, runsEveryPage, samplePages } from './pages';
 
 const pages = builtPages();
+const sample = samplePages(pages);
+
+/** Every page on the core profiles; one page per template everywhere else. */
+function coverPage(path: string, projectName: string) {
+  test.skip(
+    !sample.has(path) && !runsEveryPage(projectName),
+    'other profiles run one page per template',
+  );
+}
 const DARK_INK = 'rgb(13, 17, 24)';
 const LIGHT_INK = 'rgb(244, 241, 234)';
 
@@ -37,6 +46,7 @@ for (const path of pages) {
       test.use({ colorScheme: scheme });
 
       test('loads cleanly, fits the screen and passes axe', async ({ page }, testInfo) => {
+        coverPage(path, testInfo.project.name);
         const problems = await watch(page);
         await page.goto(path, { waitUntil: 'networkidle' });
 
@@ -64,6 +74,7 @@ for (const path of pages) {
   }
 
   test(`/${path}: links, images and touch targets are sound`, async ({ page }, testInfo) => {
+    coverPage(path, testInfo.project.name);
     await page.goto(path);
 
     const brokenAnchors = await page.evaluate(() =>

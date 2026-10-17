@@ -1,0 +1,35 @@
+---
+/* The loading-screen section label: "Stage 1  Player profile" with a hairline
+   running to the right edge (docs/brief/10-loading-screen-spec.md). */
+interface Props {
+  stage?: string;
+  label: string;
+  /** The finale's label, which the home page script switches to "Load complete". */
+  state?: boolean;
+}
+const { stage, label, state = false } = Astro.props;
+---
+
+<p class="stage-header mono">
+  {stage && <strong>{stage}</strong>}
+  <span data-finale-state={state || undefined}>{label}</span>
+</p>
+
+<style>
+  .stage-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--dim);
+  }
+  .stage-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  strong {
+    color: var(--wolf);
+    font-weight: 600;
+  }
+</style>
