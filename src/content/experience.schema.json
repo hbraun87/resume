@@ -1,0 +1,572 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://henrybraun.info/experience.schema.json",
+  "title": "Henry Braun portfolio — experiences.json",
+  "description": "Initial spec. In the built repo this file is GENERATED from src/lib/schema.ts (Zod) by `npm run schema`; edit the Zod schema, not this file.",
+  "type": "object",
+  "required": [
+    "experiences"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "experiences": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/experience"
+      }
+    }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "partialDate": {
+      "type": "string",
+      "pattern": "^(19|20)\\d{2}(-(0[1-9]|1[0-2]))?$",
+      "description": "YYYY or YYYY-MM"
+    },
+    "markdown": {
+      "type": "string",
+      "minLength": 1
+    },
+    "assetPath": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._/-]+\\.(jpg|jpeg|png|webp|avif|gif|mp4|webm)$",
+      "description": "Path relative to src/assets/projects/<id>/"
+    },
+    "imageRef": {
+      "type": "object",
+      "required": [
+        "src",
+        "alt"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "src": {
+          "$ref": "#/$defs/assetPath"
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "link": {
+      "type": "object",
+      "required": [
+        "kind",
+        "label",
+        "url"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "steam",
+            "meta",
+            "app-store",
+            "google-play",
+            "website",
+            "press",
+            "paper",
+            "doi",
+            "video",
+            "repo",
+            "talk",
+            "other"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://"
+        }
+      }
+    },
+    "media": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "id",
+            "title"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "youtube"
+            },
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_-]{11}$"
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "start": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "poster": {
+              "$ref": "#/$defs/assetPath"
+            },
+            "vertical": {
+              "type": "boolean"
+            },
+            "caption": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "src",
+            "alt"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "image"
+            },
+            "src": {
+              "$ref": "#/$defs/assetPath"
+            },
+            "alt": {
+              "type": "string",
+              "minLength": 1
+            },
+            "caption": {
+              "type": "string"
+            },
+            "credit": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "src",
+            "alt"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "gif"
+            },
+            "src": {
+              "type": "string",
+              "pattern": "\\.gif$"
+            },
+            "alt": {
+              "type": "string",
+              "minLength": 1
+            },
+            "caption": {
+              "type": "string"
+            },
+            "credit": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "src",
+            "alt"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "video"
+            },
+            "src": {
+              "type": "string",
+              "pattern": "\\.(mp4|webm)$"
+            },
+            "alt": {
+              "type": "string",
+              "minLength": 1
+            },
+            "caption": {
+              "type": "string"
+            },
+            "credit": {
+              "type": "string"
+            },
+            "loop": {
+              "type": "boolean"
+            },
+            "poster": {
+              "$ref": "#/$defs/assetPath"
+            }
+          }
+        }
+      ]
+    },
+    "experience": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "category",
+        "tier",
+        "status",
+        "visibility",
+        "role",
+        "summary"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/slug"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "game",
+            "prototype",
+            "tool",
+            "research",
+            "jam",
+            "other"
+          ]
+        },
+        "tier": {
+          "enum": [
+            "featured",
+            "selected",
+            "archive"
+          ]
+        },
+        "status": {
+          "enum": [
+            "shipped",
+            "released-early-access",
+            "in-development",
+            "prototype",
+            "unreleased",
+            "published"
+          ]
+        },
+        "visibility": {
+          "enum": [
+            "public",
+            "draft"
+          ]
+        },
+        "order": {
+          "type": "integer"
+        },
+        "studio": {
+          "type": "string"
+        },
+        "client": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "responsibilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "period": {
+          "type": "object",
+          "required": [
+            "start"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "start": {
+              "$ref": "#/$defs/partialDate"
+            },
+            "end": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/partialDate"
+                },
+                {
+                  "const": "present"
+                }
+              ]
+            }
+          }
+        },
+        "platforms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "engine": {
+          "type": "string"
+        },
+        "tech": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "teamSize": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "highlights": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 220
+          },
+          "maxItems": 6
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "value"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "awards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "year": {
+                "type": "integer"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        },
+        "caseStudy": {
+          "type": "object",
+          "required": [
+            "challenge",
+            "contributions",
+            "outcome"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "challenge": {
+              "$ref": "#/$defs/markdown"
+            },
+            "contributions": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": [
+                  "heading",
+                  "body"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "$ref": "#/$defs/markdown"
+                  },
+                  "media": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "deepDive": {
+              "$ref": "#/$defs/markdown"
+            },
+            "outcome": {
+              "$ref": "#/$defs/markdown"
+            }
+          }
+        },
+        "publication": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "venue": {
+              "type": "string"
+            },
+            "year": {
+              "type": "integer"
+            },
+            "authors": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "abstract": {
+              "type": "string"
+            }
+          }
+        },
+        "cover": {
+          "$ref": "#/$defs/imageRef"
+        },
+        "coverLoop": {
+          "type": "object",
+          "required": [
+            "src"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "src": {
+              "$ref": "#/$defs/assetPath"
+            }
+          }
+        },
+        "media": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/media"
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/link"
+          }
+        },
+        "legacyPaths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^/"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "tier": {
+                "const": "featured"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "caseStudy",
+              "highlights"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "tier": {
+                "const": "selected"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "highlights"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "category": {
+                "const": "research"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "publication"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "properties": {
+                "category": {
+                  "const": "research"
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "cover"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

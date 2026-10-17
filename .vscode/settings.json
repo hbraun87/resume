@@ -1,0 +1,8 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["src/content/experiences.json"],
+      "url": "./src/content/experience.schema.json"
+    }
+  ]
+}

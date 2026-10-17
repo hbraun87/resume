@@ -1,0 +1,161 @@
+{
+  "name": "Henry Braun",
+  "headline": "Engineering Manager, Games",
+  "pitch": "I lead game engineering teams and build the systems that make games feel great — from VR combat to cross-platform gameplay, on hardware that forgives nothing.",
+  "location": "Pittsburgh, PA",
+  "email": "hbraun87@gmail.com",
+  "links": [
+    { "kind": "linkedin", "label": "LinkedIn", "url": "https://www.linkedin.com/in/hbraun87/" },
+    { "kind": "github", "label": "GitHub", "url": "https://github.com/hbraun87" }
+  ],
+  "portrait": { "src": "henry.png", "alt": "Portrait of Henry Braun" },
+  "bio": "I was born in Porto Alegre, Brazil — the land of chimarrão and churrasco, and home of the Gaúchos. I earned my B.Sc. in Computer Science from PUCRS at 21, while doing computer graphics R&D at the Hewlett-Packard PUCRS Laboratory. I completed the PUCRS/Ubisoft Game Development specialization in 2011 and my master's in computer graphics in 2012, including time as a visiting scholar at Carnegie Mellon University.\n\nIn 2013 I moved to the United States as Co-Director of Interactive Media Initiatives at Vissman Management. In 2015 I joined Schell Games, where I spent more than six years as an Advanced and then Senior Engineer and technical lead on a diverse slate of projects, with a strong focus on VR and AR. I then worked as a Senior Programmer at Twin Suns Corp on Project Octavia, a PvPvE Unreal Engine title.\n\nToday I am an Engineering Manager at Bad Robot Games, where I previously served as Lead Gameplay Engineer, and the founder of Maned Wolf Games.",
+  "pillars": [
+    {
+      "title": "Engineering leadership",
+      "body": "Managing and leading engineering teams; tech and project direction on shipped VR and AR titles.",
+      "proof": "i-expect-you-to-die-localization"
+    },
+    {
+      "title": "Gameplay & systems",
+      "body": "Combat, interaction, and the systems underneath them — built to feel right in the hand.",
+      "proof": "until-you-fall"
+    },
+    {
+      "title": "Performance on constrained hardware",
+      "body": "Optimization and porting for VR headsets and mobile devices, where every millisecond counts.",
+      "proof": "orion-trail-vr"
+    }
+  ],
+  "credits": [
+    "Bad Robot Games",
+    "Among Us VR (localization tech)",
+    "I Expect You To Die",
+    "Until You Fall",
+    "HoloLAB Champions",
+    "LEGO",
+    "Google",
+    "Cartoon Network"
+  ],
+  "roles": [
+    {
+      "company": "Bad Robot Games",
+      "title": "Engineering Manager",
+      "start": "2026-06",
+      "end": "present",
+      "highlights": []
+    },
+    {
+      "company": "Bad Robot Games",
+      "title": "Lead Gameplay Engineer",
+      "start": "2024-01",
+      "end": "2026-06",
+      "highlights": []
+    },
+    {
+      "company": "Maned Wolf Games",
+      "title": "Founder",
+      "location": "Pittsburgh, PA",
+      "start": "2021-04",
+      "end": "present",
+      "highlights": ["Founded the studio; developing Arithal, its first game."]
+    },
+    {
+      "company": "Twin Suns Corp",
+      "title": "Senior Programmer",
+      "start": "2022-10",
+      "end": "2024-01",
+      "highlights": ["Worked on Project Octavia, a PvPvE title in Unreal Engine."]
+    },
+    {
+      "company": "Twin Suns Corp",
+      "title": "Programmer",
+      "start": "2021-10",
+      "end": "2022-10",
+      "highlights": []
+    },
+    {
+      "company": "Schell Games",
+      "title": "Senior Engineer",
+      "location": "Pittsburgh, PA",
+      "start": "2020-08",
+      "end": "2021-10",
+      "highlights": []
+    },
+    {
+      "company": "Schell Games",
+      "title": "Advanced Engineer",
+      "location": "Pittsburgh, PA",
+      "start": "2015-04",
+      "end": "2020-08",
+      "highlights": [
+        "Tech Director on HoloLAB Champions, LEGO BrickHeadz Builder VR, and SuperChem VR.",
+        "Project Director on Domino World AR with Google.",
+        "Project Director & Tech Lead on I Expect You To Die localization and porting; module reused in Among Us VR and Until You Fall.",
+        "Gameplay, systems, and optimization on Until You Fall and Orion Trail VR."
+      ]
+    },
+    {
+      "company": "Vissman Management, LLC",
+      "title": "Co-Director of Interactive Media Initiatives",
+      "start": "2013-09",
+      "end": "2015-04",
+      "highlights": []
+    },
+    {
+      "company": "Aquiris Game Studio",
+      "title": "Programmer",
+      "location": "Porto Alegre, Brazil",
+      "start": "2013-07",
+      "end": "2013-08",
+      "highlights": []
+    },
+    {
+      "company": "Rockhead Games",
+      "title": "Programmer (freelance)",
+      "start": "2013-04",
+      "end": "2013-05",
+      "highlights": ["Programmed Sim Camisaria, a factory management game."]
+    },
+    {
+      "company": "Swordtales",
+      "title": "Programmer",
+      "start": "2011-08",
+      "end": "2012-03",
+      "highlights": ["Programmed part of the Toren alpha released on OnLive."]
+    },
+    {
+      "company": "Carnegie Mellon University, Entertainment Technology Center",
+      "title": "Developer, VRoom 360",
+      "location": "Pittsburgh, PA",
+      "start": "2011-07",
+      "end": "2011-12",
+      "highlights": ["Built an interactive vehicle roominess and visibility survey for General Motors (C++, iOS)."]
+    },
+    {
+      "company": "Hewlett-Packard PUCRS Laboratory",
+      "title": "Research and Development Engineer",
+      "location": "Porto Alegre, Brazil",
+      "start": "2009-03",
+      "end": "2011-07",
+      "highlights": ["Computer graphics research and development through the end of my undergraduate degree and my master's."]
+    }
+  ],
+  "skills": {
+    "engines": ["Unity", "Unreal Engine"],
+    "languages": ["C#", "C++"],
+    "platforms": ["Meta Quest", "PC VR", "Gear VR", "Google Daydream", "iOS", "Android", "ARKit", "ARCore"],
+    "practices": ["Technical leadership", "Engineering management", "Gameplay systems", "Cross-platform development", "Performance optimization", "Porting", "Localization pipelines", "Real-time graphics research"]
+  },
+  "education": [
+    { "institution": "Pontifícia Universidade Católica do Rio Grande do Sul (PUCRS)", "degree": "Master's degree, Computer Graphics", "start": "2010", "end": "2012", "notes": "Visiting scholar, Carnegie Mellon University" },
+    { "institution": "Pontifícia Universidade Católica do Rio Grande do Sul (PUCRS)", "degree": "Specialization, Game Development (PUCRS/Ubisoft)", "start": "2010", "end": "2011" },
+    { "institution": "Pontifícia Universidade Católica do Rio Grande do Sul (PUCRS)", "degree": "Bachelor's degree, Computer Science", "start": "2005", "end": "2009" }
+  ],
+  "languages": ["English (full professional)", "Portuguese (native)", "Spanish (limited working)"],
+  "resume": {
+    "pdfFileName": "henry-braun-resume.pdf",
+    "includeTiers": ["featured", "selected"]
+  },
+  "_notes": "Source: Henry's LinkedIn profile export (Oct 2026) and henrybraun.info. Empty highlights for recent roles must be filled with Henry in Phase 6; ask what can be said publicly about Bad Robot Games and Twin Suns work. Never publish the phone number from the LinkedIn export. check-content.mjs must fail the build if \"_notes\" reaches production."
+}

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.cache/
+public/media/
+test-results/
+playwright-report/
+.lighthouseci/
+.DS_Store
+*.log

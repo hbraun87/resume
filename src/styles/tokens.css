@@ -1,0 +1,98 @@
+/* Design tokens. Dark is the default; light follows the system or the toggle.
+   No raw hex values outside this file. */
+:root {
+  color-scheme: dark;
+
+  --ink: #0d1118; /* page */
+  --panel: #151a24; /* cards, header, HUD track */
+  --sunken: #090c11; /* wells, code */
+  --line: #262e3d; /* hairlines, grid */
+  --bone: #ede4d3; /* primary text */
+  --bone-soft: #c9c2b4; /* long paragraphs */
+  --dim: #9aa2b3; /* secondary text, labels */
+  --wolf: #f2793a; /* the accent: progress, actions, focus */
+  --wolf-strong: #ff9459; /* hover */
+  --wolf-deep: #b8501f; /* second stripe */
+  --on-wolf: #160a03; /* text on accent */
+  --focus: #f2793a;
+  --grid: rgb(38 46 61 / 0.55);
+
+  --vr: #6ec6dc;
+  --ar: #e8c25c;
+  --mobile: #c79af2;
+  --pc: var(--bone);
+
+  /* --font-display, --font-body and --font-mono come from Astro's font API. */
+
+  --step--2: clamp(0.69rem, 0.68rem + 0.05vw, 0.75rem);
+  --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.94rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
+  --step-1: clamp(1.2rem, 1.12rem + 0.38vw, 1.5rem);
+  --step-2: clamp(1.44rem, 1.3rem + 0.68vw, 2rem);
+  --step-3: clamp(1.88rem, 1.4rem + 2.2vw, 4rem);
+  --step-hero: clamp(3.4rem, 13.5vw, 11.5rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  --measure: 62ch;
+  --content: 76rem;
+  --gutter: max(1rem, env(safe-area-inset-left), 4vw);
+  --header-h: 3.5rem;
+  --notch: 18px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-pop: cubic-bezier(0.2, 1.4, 0.4, 1);
+  --dur-fast: 120ms;
+  --dur-med: 220ms;
+  --dur-slow: 420ms;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    color-scheme: light;
+    --ink: #f4f1ea;
+    --panel: #ffffff;
+    --sunken: #e9e4d9;
+    --line: #d9d2c3;
+    --bone: #14171d;
+    --bone-soft: #2c3038;
+    --dim: #555b66;
+    --wolf: #a8470f;
+    --wolf-strong: #8a390a;
+    --wolf-deep: #e0864f;
+    --on-wolf: #ffffff;
+    --focus: #a8470f;
+    --grid: rgb(20 23 29 / 0.06);
+    --vr: #1d6f84;
+    --ar: #8a6a07;
+    --mobile: #7a3fb0;
+  }
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --ink: #f4f1ea;
+  --panel: #ffffff;
+  --sunken: #e9e4d9;
+  --line: #d9d2c3;
+  --bone: #14171d;
+  --bone-soft: #2c3038;
+  --dim: #555b66;
+  --wolf: #a8470f;
+  --wolf-strong: #8a390a;
+  --wolf-deep: #e0864f;
+  --on-wolf: #ffffff;
+  --focus: #a8470f;
+  --grid: rgb(20 23 29 / 0.06);
+  --vr: #1d6f84;
+  --ar: #8a6a07;
+  --mobile: #7a3fb0;
+}

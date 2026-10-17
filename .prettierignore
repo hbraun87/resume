@@ -1,0 +1,8 @@
+dist/
+.astro/
+node_modules/
+package-lock.json
+docs/brief/
+src/content/
+CLAUDE.md
+.claude/

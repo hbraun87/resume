@@ -1,0 +1,1146 @@
+{
+  "$schema": "./experience.schema.json",
+  "experiences": [
+    {
+      "id": "until-you-fall",
+      "title": "Until You Fall",
+      "category": "game",
+      "tier": "featured",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 1,
+      "studio": "Schell Games",
+      "role": "Gameplay Engineer",
+      "responsibilities": [
+        "Gameplay",
+        "Systems",
+        "Optimization"
+      ],
+      "tags": [
+        "VR",
+        "Combat"
+      ],
+      "summary": "VR sword-fighting game that fuses melee and magic. I worked on gameplay, systems, and optimization.",
+      "highlights": [
+        "Built gameplay and systems for a VR melee-and-magic combat game where players develop their own martial style.",
+        "Optimized the game to hold VR frame budgets in combat-heavy encounters.",
+        "Shipped with the Unity localization module I led on *I Expect You To Die*."
+      ],
+      "caseStudy": {
+        "challenge": "Until You Fall puts a sword in the player's hand and asks every swing, block, and spell to feel physical and immediate. In VR, combat feel and frame rate are inseparable: a missed frame is felt, not just seen.",
+        "contributions": [
+          {
+            "heading": "Gameplay and systems",
+            "body": "I worked on the gameplay and systems behind the game's melee-and-magic combat."
+          },
+          {
+            "heading": "Optimization",
+            "body": "I worked on performance optimization to keep combat within the headset's frame budget."
+          }
+        ],
+        "outcome": "Until You Fall shipped from Schell Games, and it used the localization module I first built for *I Expect You To Die*."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "Until You Fall key art"
+      },
+      "media": [
+        {
+          "type": "youtube",
+          "id": "S1zZHy7_BFg",
+          "title": "Until You Fall trailer"
+        }
+      ],
+      "links": [
+        {
+          "kind": "website",
+          "label": "Official site",
+          "url": "https://untilyoufall.schellgames.com/"
+        }
+      ],
+      "legacyPaths": [
+        "/projects/untilyoufall.html"
+      ]
+    },
+    {
+      "id": "i-expect-you-to-die-localization",
+      "title": "I Expect You To Die",
+      "subtitle": "Localization and porting",
+      "category": "game",
+      "tier": "featured",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 2,
+      "studio": "Schell Games",
+      "role": "Project Director & Tech Lead",
+      "responsibilities": [
+        "Tech direction",
+        "Localization",
+        "Porting",
+        "Optimization",
+        "Leadership"
+      ],
+      "tags": [
+        "VR",
+        "Leadership",
+        "Tools"
+      ],
+      "tech": [
+        "Unity"
+      ],
+      "summary": "Directed the localization and porting of the award-winning VR game, building a reusable Unity localization module later used in Among Us VR.",
+      "highlights": [
+        "Led the localization and porting effort as Project Director and Tech Lead for the award-winning *I Expect You To Die*.",
+        "Built solutions for transcribing in-world objects and presenting subtitles in VR.",
+        "Designed a modular, cloud-backed localization pipeline that third-party translators could work in directly.",
+        "The module was reused in **Among Us VR** and **Until You Fall**."
+      ],
+      "caseStudy": {
+        "challenge": "Localizing a VR game is harder than translating strings: text lives on in-world objects the player picks up and inspects, and subtitles must stay readable without breaking immersion — all while the game is ported and optimized.",
+        "contributions": [
+          {
+            "heading": "Direction and technical leadership",
+            "body": "I was Project Director and Tech Lead for the localization and porting effort, localizing the game into several languages."
+          },
+          {
+            "heading": "Localization in VR",
+            "body": "I built solutions for object transcription and subtitles in VR, and optimized the game as part of the port."
+          },
+          {
+            "heading": "A reusable module",
+            "body": "I designed the system as a modular Unity localization package backed by cloud services, so data was easy to manage and third-party translators could access it directly."
+          }
+        ],
+        "outcome": "The localization module outlived the project: it was later used in *Among Us VR* and *Until You Fall*."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "I Expect You To Die key art"
+      },
+      "media": [
+        {
+          "type": "youtube",
+          "id": "BbTIdBKVmeI",
+          "title": "I Expect You To Die trailer"
+        }
+      ],
+      "legacyPaths": [
+        "/projects/ieytd.html"
+      ]
+    },
+    {
+      "id": "hololab-champions",
+      "title": "HoloLAB Champions",
+      "category": "game",
+      "tier": "featured",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 3,
+      "studio": "Schell Games",
+      "role": "Tech Director",
+      "period": {
+        "start": "2018"
+      },
+      "responsibilities": [
+        "Tech direction",
+        "Leadership"
+      ],
+      "tags": [
+        "VR",
+        "Education",
+        "Leadership"
+      ],
+      "summary": "Award-winning VR chemistry game show where players run real lab procedures to become a Champion of lab practice. I was Tech Director.",
+      "highlights": [
+        "Served as Tech Director, leading the technology behind a VR game show built on realistic lab equipment and materials.",
+        "Shipped in 2018; the game went on to win several awards."
+      ],
+      "caseStudy": {
+        "challenge": "HoloLAB Champions asks players to complete real lab experiments in VR, interacting with equipment and materials they would find in an actual chemistry lab — so the interactions had to be believable as well as fun.",
+        "contributions": [
+          {
+            "heading": "Technical direction",
+            "body": "As Tech Director, I led the technology that brought the game to life."
+          }
+        ],
+        "outcome": "HoloLAB Champions released in 2018 and won several awards."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "HoloLAB Champions key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/hololab.html"
+      ]
+    },
+    {
+      "id": "lego-brickheadz-builder-vr",
+      "title": "LEGO BrickHeadz Builder VR",
+      "category": "game",
+      "tier": "featured",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 4,
+      "studio": "Schell Games",
+      "client": "LEGO",
+      "role": "Tech Director",
+      "platforms": [
+        "Google Daydream"
+      ],
+      "responsibilities": [
+        "Tech direction",
+        "Leadership"
+      ],
+      "tags": [
+        "VR",
+        "Licensed IP",
+        "Leadership"
+      ],
+      "summary": "LEGO and Schell Games' VR sandbox for building BrickHeadz characters, noted as one of the best Google Daydream apps. I was Tech Director.",
+      "highlights": [
+        "Served as Tech Director on LEGO's VR sandbox for building characters and solving formulas to unlock new bricks.",
+        "Recognized by TechRadar, VRScout, and The Verge among the best apps on Google Daydream."
+      ],
+      "caseStudy": {
+        "challenge": "LEGO partnered with Schell Games to bring BrickHeadz building into virtual reality on Google Daydream: a sandbox where players build characters and solve formulas to unlock new characters and bricks.",
+        "contributions": [
+          {
+            "heading": "Technical direction",
+            "body": "I was Tech Director for the project."
+          }
+        ],
+        "outcome": "BrickHeadz Builder VR was widely noted as one of the best Android apps on Google Daydream by outlets including TechRadar, VRScout, and The Verge."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "LEGO BrickHeadz Builder VR key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/lego.html"
+      ]
+    },
+    {
+      "id": "domino-world-ar",
+      "title": "Domino World AR",
+      "category": "game",
+      "tier": "featured",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 5,
+      "studio": "Schell Games",
+      "client": "Google",
+      "role": "Project Director",
+      "platforms": [
+        "iOS",
+        "Android"
+      ],
+      "tech": [
+        "ARKit",
+        "ARCore"
+      ],
+      "responsibilities": [
+        "Project direction",
+        "Leadership"
+      ],
+      "tags": [
+        "AR",
+        "Mobile",
+        "Leadership"
+      ],
+      "summary": "An AR take on a classic pastime, made with Google: build domino courses in the world around you. I was Project Director.",
+      "highlights": [
+        "Directed the project in partnership with Google, turning dominoes into a mobile AR building toy.",
+        "Shipped on iOS (ARKit) and Android (ARCore) devices."
+      ],
+      "caseStudy": {
+        "challenge": "Domino World AR reimagines a childhood pastime for augmented reality: players build domino courses quickly in their real surroundings, using an assortment of tiles, props, and toys.",
+        "contributions": [
+          {
+            "heading": "Project direction",
+            "body": "I was Project Director, working with Google to create the game."
+          }
+        ],
+        "outcome": "Domino World AR launched for ARKit-compatible iOS devices and ARCore-compatible Android devices."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "Domino World AR key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/domino.html"
+      ]
+    },
+    {
+      "id": "arithal",
+      "title": "Arithal",
+      "category": "game",
+      "tier": "featured",
+      "status": "in-development",
+      "visibility": "public",
+      "order": 6,
+      "studio": "Maned Wolf Games",
+      "role": "Founder",
+      "responsibilities": [
+        "Leadership",
+        "Gameplay",
+        "Systems"
+      ],
+      "tags": [
+        "Indie",
+        "Leadership"
+      ],
+      "summary": "Classic adventure meets turn-based battles in a dark-but-whimsical, flooded world. The first game from my studio, Maned Wolf Games.",
+      "highlights": [
+        "Founded Maned Wolf Games in 2021; Arithal is the studio's first game.",
+        "Combines classic adventure with turn-based battle mechanics in an original world."
+      ],
+      "caseStudy": {
+        "challenge": "Arithal is set in a world that suffered a devastating flood millennia ago. Only high ground is livable, and knowledge of the world before \"The Drowning\" has faded into myth.",
+        "contributions": [
+          {
+            "heading": "Founding the studio",
+            "body": "I founded Maned Wolf Games in 2021, and Arithal is the first game we are releasing."
+          }
+        ],
+        "outcome": "Arithal is in development at Maned Wolf Games."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "Arithal key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/arithal.html"
+      ]
+    },
+    {
+      "id": "project-octavia",
+      "title": "Project Octavia",
+      "category": "game",
+      "tier": "selected",
+      "status": "in-development",
+      "visibility": "draft",
+      "order": 7,
+      "studio": "Twin Suns Corp",
+      "role": "Programmer → Senior Programmer",
+      "period": {
+        "start": "2021-10",
+        "end": "2024-01"
+      },
+      "engine": "Unreal Engine",
+      "responsibilities": [
+        "Gameplay"
+      ],
+      "tags": [
+        "PvPvE",
+        "Multiplayer"
+      ],
+      "summary": "PvPvE title built in Unreal Engine at Twin Suns Corp, where I worked as Programmer and then Senior Programmer.",
+      "highlights": [
+        "Worked on Project Octavia, a PvPvE Unreal Engine title, as Programmer and then Senior Programmer."
+      ],
+      "cover": {
+        "src": "cover.png",
+        "alt": "Project Octavia key art"
+      },
+      "media": []
+    },
+    {
+      "id": "superchem-vr",
+      "title": "SuperChem VR",
+      "category": "prototype",
+      "tier": "selected",
+      "status": "prototype",
+      "visibility": "public",
+      "order": 8,
+      "studio": "Schell Games",
+      "role": "Tech Director",
+      "responsibilities": [
+        "Tech direction",
+        "Interaction"
+      ],
+      "tags": [
+        "VR",
+        "Education",
+        "Leadership"
+      ],
+      "summary": "Proof of concept for VR interactions grounded in real chemistry: measure and mix reactants to create a glowing reaction.",
+      "highlights": [
+        "Served as Tech Director on a proof of concept exploring real-life chemistry interactions in VR.",
+        "Players measure and mix liquid and solid reactants, guided by a robotic assistant and a scanner tool."
+      ],
+      "cover": {
+        "src": "cover.png",
+        "alt": "SuperChem VR key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/superchem.html"
+      ]
+    },
+    {
+      "id": "orion-trail-vr",
+      "title": "Orion Trail VR",
+      "category": "game",
+      "tier": "selected",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 9,
+      "studio": "Schell Games",
+      "role": "Gameplay Engineer",
+      "platforms": [
+        "Gear VR"
+      ],
+      "responsibilities": [
+        "Gameplay",
+        "Optimization"
+      ],
+      "tags": [
+        "VR",
+        "Mobile VR"
+      ],
+      "summary": "My first published VR title, part of the Gear VR store debut. I was responsible for optimization and gameplay.",
+      "highlights": [
+        "Owned optimization and gameplay for a launch title on the Gear VR store debut.",
+        "My first published VR title at Schell Games."
+      ],
+      "cover": {
+        "src": "cover.png",
+        "alt": "Orion Trail VR key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/orionvr.html"
+      ]
+    },
+    {
+      "id": "ben-10-wrath-of-psychobos",
+      "title": "Ben 10: Wrath of Psychobos",
+      "category": "game",
+      "tier": "selected",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 10,
+      "studio": "Aquiris Game Studio",
+      "client": "Cartoon Network",
+      "role": "Programmer",
+      "platforms": [
+        "iOS",
+        "Android"
+      ],
+      "responsibilities": [
+        "Gameplay"
+      ],
+      "tags": [
+        "Mobile",
+        "Licensed IP"
+      ],
+      "summary": "Cartoon Network mobile action-adventure using Ben's alien powers and Rook's Proto-Tool against Dr. Psychobos.",
+      "highlights": [
+        "Developed the game with the programming team at Aquiris Game Studio for Cartoon Network.",
+        "Shipped on iOS and Android, featuring many enemies and bosses."
+      ],
+      "cover": {
+        "src": "cover.png",
+        "alt": "Ben 10: Wrath of Psychobos key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/ben10.html"
+      ]
+    },
+    {
+      "id": "water-bears",
+      "title": "Water Bears",
+      "category": "game",
+      "tier": "selected",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 11,
+      "studio": "Schell Games",
+      "role": "Engineer",
+      "platforms": [
+        "iOS",
+        "Android"
+      ],
+      "responsibilities": [
+        "Localization",
+        "Porting"
+      ],
+      "tags": [
+        "Mobile",
+        "Puzzle"
+      ],
+      "summary": "Mobile 3D puzzle game about rescuing dehydrated water bears. My first project at Schell Games: localization and porting.",
+      "highlights": [
+        "Localized the game and ported it to iPhone and Android.",
+        "My first project at Schell Games."
+      ],
+      "cover": {
+        "src": "cover.png",
+        "alt": "Water Bears key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/waterbears.html"
+      ]
+    },
+    {
+      "id": "toren",
+      "title": "Toren",
+      "subtitle": "Alpha version",
+      "category": "game",
+      "tier": "selected",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 12,
+      "studio": "Swordtales",
+      "role": "Programmer (alpha)",
+      "responsibilities": [
+        "Gameplay"
+      ],
+      "tags": [
+        "Indie"
+      ],
+      "summary": "A hauntingly solitary journey through a timeless world. I programmed part of the alpha version released on OnLive.",
+      "highlights": [
+        "Programmed part of Swordtales' Toren alpha, released on the OnLive platform.",
+        "Toren later released on Steam."
+      ],
+      "cover": {
+        "src": "cover.png",
+        "alt": "Toren key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/toren.html"
+      ],
+      "period": {
+        "start": "2011-08",
+        "end": "2012-03"
+      }
+    },
+    {
+      "id": "regular-show-great-prank-war",
+      "title": "Regular Show: The Great Prank War",
+      "category": "prototype",
+      "tier": "selected",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 13,
+      "studio": "Aquiris Game Studio",
+      "client": "Cartoon Network",
+      "role": "Programmer (prototype)",
+      "platforms": [
+        "Web"
+      ],
+      "responsibilities": [
+        "Prototyping",
+        "Gameplay"
+      ],
+      "tags": [
+        "Licensed IP",
+        "Tower defense"
+      ],
+      "summary": "Cartoon Network tower-defense game. I worked on the prototype with the Aquiris programming team.",
+      "highlights": [
+        "Built the prototype of a Cartoon Network tower-defense game with the Aquiris programming team.",
+        "Released on the Cartoon Network website."
+      ],
+      "cover": {
+        "src": "cover.png",
+        "alt": "Regular Show: The Great Prank War key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/prankwars.html"
+      ]
+    },
+    {
+      "id": "star-botanist",
+      "title": "Star Botanist: Garden Planet",
+      "category": "game",
+      "tier": "selected",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 14,
+      "role": "Gameplay & Systems Engineer",
+      "platforms": [
+        "iOS",
+        "Android"
+      ],
+      "responsibilities": [
+        "Gameplay",
+        "Systems"
+      ],
+      "tags": [
+        "Mobile",
+        "Platformer"
+      ],
+      "summary": "Colorful vertical platformer for mobile with simple, unique controls. I built systems and gameplay early in development.",
+      "highlights": [
+        "Developed systems and gameplay during the first phase of development.",
+        "Mobile vertical platformer with intuitive, unique controls and a bold art style."
+      ],
+      "cover": {
+        "src": "cover.png",
+        "alt": "Star Botanist: Garden Planet key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/starbotanist.html"
+      ]
+    },
+    {
+      "id": "gendai-hero",
+      "title": "Gendai Hero",
+      "category": "game",
+      "tier": "archive",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 15,
+      "role": "Programmer",
+      "platforms": [
+        "iOS",
+        "Android"
+      ],
+      "engine": "Unity",
+      "tags": [
+        "Mobile",
+        "Indie"
+      ],
+      "summary": "Multi-platform 2D game where a samurai sushi chef fights through obstacles to rescue his girlfriend. Programmed with Luiz Alvarez (Toren).",
+      "cover": {
+        "src": "cover.png",
+        "alt": "Gendai Hero key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/gendai.html"
+      ]
+    },
+    {
+      "id": "aventuras-do-aviao-vermelho",
+      "title": "As Aventuras do Avião Vermelho",
+      "subtitle": "The Red Plane's Adventures",
+      "category": "game",
+      "tier": "archive",
+      "status": "prototype",
+      "visibility": "public",
+      "order": 16,
+      "studio": "PUCRS / Ubisoft Game Development program",
+      "role": "Programmer",
+      "engine": "Unity",
+      "tags": [
+        "Education"
+      ],
+      "summary": "Game based on Erico Verissimo's 1936 book, built in two months in Unity as the final project of the PUCRS/Ubisoft games specialization.",
+      "cover": {
+        "src": "cover.png",
+        "alt": "As Aventuras do Avião Vermelho key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/av.html"
+      ]
+    },
+    {
+      "id": "angry-pucks",
+      "title": "Angry Pucks",
+      "category": "game",
+      "tier": "archive",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 17,
+      "role": "Developer",
+      "platforms": [
+        "iOS",
+        "Android"
+      ],
+      "tags": [
+        "Mobile",
+        "Indie"
+      ],
+      "summary": "Hobby project: a fast, casual ice-hockey game built around competing for the top spot on a friends leaderboard.",
+      "cover": {
+        "src": "cover.png",
+        "alt": "Angry Pucks key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/angrypucks.html"
+      ]
+    },
+    {
+      "id": "sim-camisaria",
+      "title": "Sim Camisaria",
+      "category": "game",
+      "tier": "archive",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 18,
+      "studio": "Rockhead Games",
+      "role": "Freelance Programmer",
+      "tags": [
+        "Simulation"
+      ],
+      "summary": "Multi-platform factory management game with 10 challenging levels, programmed as a freelancer at Rockhead Games.",
+      "cover": {
+        "src": "cover.png",
+        "alt": "Sim Camisaria key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/simcamisaria.html"
+      ],
+      "period": {
+        "start": "2013-04",
+        "end": "2013-05"
+      }
+    },
+    {
+      "id": "nerot",
+      "title": "N.E.R.O.T.",
+      "subtitle": "Never Ending Runner Out of Time",
+      "category": "jam",
+      "tier": "archive",
+      "status": "prototype",
+      "visibility": "public",
+      "order": 19,
+      "studio": "Global Game Jam 2012",
+      "role": "Developer",
+      "period": {
+        "start": "2012"
+      },
+      "tags": [
+        "Game jam",
+        "Procedural"
+      ],
+      "summary": "Bionic-samurai endless runner on a procedural infinite world, made during Global Game Jam 2012.",
+      "cover": {
+        "src": "cover.png",
+        "alt": "N.E.R.O.T. key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/nerot.html"
+      ]
+    },
+    {
+      "id": "search-n-find",
+      "title": "Search N' Find",
+      "category": "game",
+      "tier": "archive",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 20,
+      "studio": "SD Technologies",
+      "role": "Engineer",
+      "responsibilities": [
+        "Porting",
+        "Polish"
+      ],
+      "tags": [
+        "Mobile",
+        "Hidden object"
+      ],
+      "summary": "Hidden-object game originally built for kiosks; after SD Technologies acquired the rights, we polished it and ported it to mobile.",
+      "cover": {
+        "src": "cover.png",
+        "alt": "Search N' Find key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/searchfind.html"
+      ]
+    },
+    {
+      "id": "pine-creek",
+      "title": "Pine Creek",
+      "category": "game",
+      "tier": "archive",
+      "status": "in-development",
+      "visibility": "draft",
+      "order": 21,
+      "role": "Developer",
+      "tags": [
+        "Horror",
+        "Puzzle"
+      ],
+      "summary": "3D puzzle horror game: Harrison Goodwin wakes after a terrible accident in a strange little town in Pennsylvania.",
+      "cover": {
+        "src": "cover.png",
+        "alt": "Pine Creek key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/pinecreek.html"
+      ]
+    },
+    {
+      "id": "loreisle",
+      "title": "Loreisle",
+      "category": "game",
+      "tier": "archive",
+      "status": "in-development",
+      "visibility": "draft",
+      "order": 22,
+      "role": "Developer",
+      "tags": [
+        "Tactics",
+        "Multiplayer"
+      ],
+      "summary": "Hobby multiplayer turn-based tactics game inspired by the PlayStation classic Vandal Hearts.",
+      "cover": {
+        "src": "cover.png",
+        "alt": "Loreisle key art"
+      },
+      "media": [],
+      "legacyPaths": [
+        "/projects/loreisle.html"
+      ]
+    },
+    {
+      "id": "ocean-breaking-waves",
+      "title": "A Model for Real-Time Ocean Breaking Waves Animation",
+      "category": "research",
+      "tier": "selected",
+      "status": "published",
+      "visibility": "public",
+      "order": 101,
+      "role": "Researcher",
+      "tags": [
+        "Graphics",
+        "Procedural"
+      ],
+      "summary": "Procedural model that animates ocean breaking waves in real time with minimal CPU and GPU cost, from a small set of parameters.",
+      "highlights": [
+        "Designed a procedural breaking-wave model for games, a feature rarely seen in ocean and coast scenes.",
+        "Generates unique ocean scenes from a few parameters at minimal CPU/GPU cost."
+      ],
+      "publication": {
+        "abstract": "A procedural model for ocean breaking waves in real time, aimed at games with ocean, coast, and beach scenarios. Using a small set of parameters, the model generates a unique ocean-like scene with minimal GPU and CPU cost."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "Rendered ocean scene with breaking waves"
+      },
+      "media": []
+    },
+    {
+      "id": "sky-rendering",
+      "title": "A Simple Model for Real-Time Sky Rendering",
+      "category": "research",
+      "tier": "selected",
+      "status": "published",
+      "visibility": "public",
+      "order": 102,
+      "role": "Researcher",
+      "tags": [
+        "Graphics"
+      ],
+      "summary": "Lightweight sky rendering technique for games with outdoor scenes and day-night cycles, at minimal CPU and GPU cost.",
+      "highlights": [
+        "Developed a simple sky rendering model supporting outdoor day-night cycles.",
+        "Designed for minimal CPU and GPU cost across many kinds of games."
+      ],
+      "publication": {
+        "abstract": "A simple technique for sky rendering for games that need outdoor experiences with day and night cycles, with minimal GPU and CPU cost."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "Rendered sky at sunset"
+      },
+      "media": []
+    },
+    {
+      "id": "crowdvis",
+      "title": "CrowdVis: A Framework for Real-Time Crowd Visualization",
+      "category": "research",
+      "tier": "selected",
+      "status": "published",
+      "visibility": "public",
+      "order": 103,
+      "role": "Researcher",
+      "tags": [
+        "Graphics",
+        "Virtual humans"
+      ],
+      "summary": "Framework for visualizing previously computed crowd simulations in real time, with rendering techniques and easy scene and agent management.",
+      "highlights": [
+        "Built a framework to replay crowd simulations in real time with configurable rendering.",
+        "Provided tools for managing the scene and its virtual humans."
+      ],
+      "publication": {
+        "abstract": "Crowd simulations must represent agent behavior across different scenarios. CrowdVis visualizes previously created crowd simulations in real time, combining rendering techniques with easy management of the scene and virtual humans."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "Crowd of virtual humans rendered in a city scene"
+      },
+      "media": []
+    },
+    {
+      "id": "large-scale-terrain-rendering",
+      "title": "Large Scale Terrain Rendering",
+      "category": "research",
+      "tier": "archive",
+      "status": "published",
+      "visibility": "public",
+      "order": 104,
+      "role": "Researcher",
+      "tags": [
+        "Graphics"
+      ],
+      "summary": "Analysis of real-time large-scale terrain rendering techniques for games, with a proposal for good visual quality at interactive rates.",
+      "publication": {
+        "abstract": "Analyzes current solutions for real-time large-scale terrain rendering and proposes an approach that delivers appropriate graphic quality."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "Rendered large-scale terrain"
+      },
+      "media": []
+    },
+    {
+      "id": "cartoon-cracks-leaf-venation",
+      "title": "Generation of Cartoon 2D Cracks Based on Leaf Venation Patterns",
+      "category": "research",
+      "tier": "archive",
+      "status": "published",
+      "visibility": "public",
+      "order": 105,
+      "role": "Researcher",
+      "tags": [
+        "Graphics",
+        "Procedural"
+      ],
+      "summary": "Real-time procedural model that generates customizable 2D cartoon cracks for games, adapted from a leaf-venation method.",
+      "publication": {
+        "abstract": "A model for generating 2D cracks in real time for games and cartoon animation, based on a method previously used for leaf venation patterns, with interactive parameters for different visual results."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "Procedurally generated cartoon cracks"
+      },
+      "media": []
+    },
+    {
+      "id": "making-them-alive",
+      "title": "Making Them Alive",
+      "category": "research",
+      "tier": "archive",
+      "status": "published",
+      "visibility": "public",
+      "order": 106,
+      "role": "Researcher",
+      "tags": [
+        "Computer vision",
+        "Virtual humans"
+      ],
+      "summary": "Semi-automatic process from 3D posture detection, body-part segmentation, and silhouette processing to an animatable 3D virtual human.",
+      "publication": {
+        "abstract": "A semi-automatic process including 3D posture detection, segmentation of human body parts, and silhouette processing, used to generate a 3D virtual human that can be animated."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "Virtual human generated from a photo"
+      },
+      "media": []
+    },
+    {
+      "id": "vhcve",
+      "title": "VhCVE: A Collaborative Virtual Environment Including Facial Animation and Computer Vision",
+      "category": "research",
+      "tier": "archive",
+      "status": "published",
+      "visibility": "public",
+      "order": 107,
+      "role": "Researcher",
+      "tags": [
+        "Virtual environments",
+        "Computer vision"
+      ],
+      "summary": "Collaborative virtual environment with voice and chat, computer-vision input, physics, weather effects, and facial and body avatar animation.",
+      "publication": {
+        "abstract": "A platform integrating key issues of collaborative virtual environments: voice and chat, computer-vision mouse control and physics-based manipulation, rendering techniques such as lights, shadows, and weather, and facial and body avatar animation."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "Avatars in a collaborative virtual environment"
+      },
+      "media": []
+    },
+    {
+      "id": "vhup",
+      "title": "VHuP: A Tool to Visualize Virtual Humans",
+      "category": "research",
+      "tier": "archive",
+      "status": "published",
+      "visibility": "public",
+      "order": 108,
+      "role": "Researcher",
+      "tags": [
+        "Virtual humans"
+      ],
+      "summary": "Real-time player for visualizing and post-processing virtual-human simulations, with lighting, shadows, weather, and video recording.",
+      "publication": {
+        "abstract": "An application for visualization and post-processing of virtual human simulations, replaying precomputed multi-character scenarios in real time with controls for lights, shadows, and weather effects, plus video recording."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "Virtual humans replayed in an environment"
+      },
+      "media": []
+    },
+    {
+      "id": "vroom-360",
+      "title": "VRoom 360",
+      "category": "research",
+      "tier": "archive",
+      "status": "published",
+      "visibility": "public",
+      "order": 109,
+      "studio": "Carnegie Mellon University, Entertainment Technology Center",
+      "client": "General Motors",
+      "role": "Developer",
+      "tags": [
+        "VR",
+        "Automotive"
+      ],
+      "summary": "CMU ETC project: designed and built an interactive survey of vehicle roominess and visibility for General Motors.",
+      "publication": {
+        "abstract": "An Entertainment Technology Center project team at Carnegie Mellon designing and implementing a new interactive survey on vehicle roominess and visibility for General Motors."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "VRoom 360 vehicle interior view"
+      },
+      "media": [],
+      "period": {
+        "start": "2011-07",
+        "end": "2011-12"
+      },
+      "tech": [
+        "C++",
+        "iOS"
+      ]
+    },
+    {
+      "id": "webcam-3d-scanner",
+      "title": "Webcam 3D Scanner",
+      "category": "research",
+      "tier": "archive",
+      "status": "published",
+      "visibility": "public",
+      "order": 110,
+      "studio": "PUCRS",
+      "role": "Researcher",
+      "tags": [
+        "Computer vision"
+      ],
+      "summary": "Master's project reconstructing object geometry as a 3D mesh by sweeping a line laser and capturing images from multiple viewpoints.",
+      "publication": {
+        "abstract": "Developed during the M.Sc. in Computer Science at PUCRS: reconstructs object geometry with computer vision by sweeping the object with a line laser and capturing images from different perspectives to build a 3D mesh."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "3D mesh reconstructed by the webcam scanner"
+      },
+      "media": []
+    },
+    {
+      "id": "phlipits",
+      "title": "Phlipits",
+      "category": "research",
+      "tier": "archive",
+      "status": "shipped",
+      "visibility": "public",
+      "order": 111,
+      "studio": "SD Technologies",
+      "role": "Developer",
+      "tags": [
+        "Tools",
+        "Animation",
+        "Education"
+      ],
+      "summary": "Rotoscoping and compositing tool that lets anyone make short animated videos without complex software or long renders.",
+      "publication": {
+        "abstract": "Software that makes rotoscoping and compositing easy without complicated animation programs or lengthy render times, so anyone can create short animated videos; also aimed at education."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "Phlipits animation tool interface"
+      },
+      "media": []
+    },
+    {
+      "id": "solar-system-simulator",
+      "title": "Solar System Simulator",
+      "category": "research",
+      "tier": "archive",
+      "status": "published",
+      "visibility": "public",
+      "order": 112,
+      "role": "Developer",
+      "period": {
+        "start": "2008"
+      },
+      "tech": [
+        "OpenSceneGraph",
+        "Irrlicht",
+        "HDR"
+      ],
+      "tags": [
+        "Graphics",
+        "Simulation"
+      ],
+      "summary": "Astronomy-class simulator where users change mass, radius, and speed of celestial bodies; rendered with OpenSceneGraph or Irrlicht and HDR.",
+      "publication": {
+        "year": 2008,
+        "abstract": "A simple Solar System simulator in which users change celestial body attributes such as mass, radius, and travel speed to simulate different behaviors. Final work for an astronomy class, rendered with OpenSceneGraph or Irrlicht and HDR."
+      },
+      "cover": {
+        "src": "cover.png",
+        "alt": "Rendered Solar System simulation"
+      },
+      "media": []
+    },
+    {
+      "id": "mise-en-scene",
+      "title": "Mise en Scène: A Framework for Virtual Humans Interactions",
+      "category": "research",
+      "tier": "archive",
+      "status": "published",
+      "visibility": "public",
+      "order": 113,
+      "role": "Researcher",
+      "tags": [
+        "Virtual humans"
+      ],
+      "summary": "Publication presenting Mise en Scène, a framework for virtual human interactions.",
+      "publication": {},
+      "media": []
+    },
+    {
+      "id": "environment-to-behavior",
+      "title": "From Their Environment to Their Behavior: A Procedural Approach to Model Groups of Virtual Agents",
+      "category": "research",
+      "tier": "archive",
+      "status": "published",
+      "visibility": "public",
+      "order": 114,
+      "role": "Researcher",
+      "tags": [
+        "Virtual humans",
+        "Procedural"
+      ],
+      "summary": "Publication on a procedural approach to modeling groups of virtual agents from their environment to their behavior.",
+      "publication": {},
+      "media": []
+    }
+  ]
+}

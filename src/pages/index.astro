@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import profile from '../content/profile.json';
+
+const [first, ...rest] = profile.name.split(' ');
+const last = rest.join(' ');
+---
+
+<Base>
+  <section class="hero container" aria-labelledby="hero-name">
+    <p class="mono boot" aria-hidden="true">
+      mount henry_braun.pak <span class="ok">[OK]</span>
+    </p>
+    <h1 id="hero-name" class="name">
+      <span class="solid">{first}</span>
+      <span class="outline">
+        {last}
+        <span class="dot">.</span>
+      </span>
+    </h1>
+    <div class="row">
+      <p class="pitch">
+        <strong>{profile.headline}.</strong> {profile.pitch}
+      </p>
+      <p class="mono where">{profile.location}</p>
+    </div>
+    <p class="mono status">Build in progress · the full site is on its way</p>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding-block: var(--space-16) var(--space-12);
+  }
+  .boot {
+    color: var(--dim);
+    margin-bottom: var(--space-6);
+  }
+  .ok {
+    color: var(--wolf);
+  }
+  .name {
+    display: grid;
+    font-family: var(--font-display);
+    font-size: var(--step-hero);
+    font-weight: 900;
+    line-height: 0.86;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+  /* The stroke is painted under an ink-colored fill, which hides the font's
+     overlapping inner contours and leaves a clean 2px outline. */
+  .outline {
+    color: var(--ink);
+    -webkit-text-stroke: 4px var(--bone);
+    paint-order: stroke fill;
+  }
+  .dot {
+    color: var(--wolf);
+    -webkit-text-stroke: 0;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+  }
+  .pitch {
+    max-width: var(--measure);
+    color: var(--bone-soft);
+    font-size: var(--step-1);
+    line-height: 1.45;
+  }
+  .pitch strong {
+    color: var(--bone);
+  }
+  .where {
+    color: var(--dim);
+  }
+  .status {
+    margin-top: var(--space-12);
+    color: var(--dim);
+  }
+</style>

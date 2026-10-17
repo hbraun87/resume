@@ -1,0 +1,41 @@
+{
+  "name": "henrybraun-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Henry Braun's portfolio: a static Astro site deployed to GitHub Pages.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "check:static": "astro check && eslint . && prettier --check . && vitest run",
+    "check": "npm run check:static && npm run build"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.7.4",
+    "@fontsource-variable/instrument-sans": "5.3.0",
+    "@fontsource-variable/jetbrains-mono": "5.3.0",
+    "@fontsource/unbounded": "5.3.0",
+    "astro": "7.3.8"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.64.1",
+    "eslint": "10.13.0",
+    "eslint-plugin-astro": "1.7.0",
+    "globals": "17.13.0",
+    "prettier": "3.9.10",
+    "prettier-plugin-astro": "1.1.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.71.2",
+    "vitest": "5.0.5"
+  }
+}
