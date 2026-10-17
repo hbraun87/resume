@@ -106,6 +106,15 @@
               "type": "string"
             }
           },
+          "platformGroup": {
+            "type": "string",
+            "enum": [
+              "pc",
+              "vr",
+              "ar",
+              "mobile"
+            ]
+          },
           "engine": {
             "type": "string"
           },

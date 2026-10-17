@@ -11,6 +11,7 @@
       "order": 1,
       "studio": "Schell Games",
       "role": "Gameplay Engineer",
+      "platformGroup": "vr",
       "responsibilities": [
         "Gameplay",
         "Systems",
@@ -98,6 +99,7 @@
       "order": 2,
       "studio": "Schell Games",
       "role": "Project Director & Tech Lead",
+      "platformGroup": "vr",
       "responsibilities": [
         "Tech direction",
         "Localization",
@@ -163,6 +165,7 @@
       "order": 3,
       "studio": "Schell Games",
       "role": "Tech Director",
+      "platformGroup": "vr",
       "period": {
         "start": "2018"
       },
@@ -241,6 +244,7 @@
       "studio": "Schell Games",
       "client": "LEGO",
       "role": "Tech Director",
+      "platformGroup": "vr",
       "platforms": [
         "Google Daydream"
       ],
@@ -314,6 +318,7 @@
       "studio": "Schell Games",
       "client": "Google",
       "role": "Project Director",
+      "platformGroup": "ar",
       "platforms": [
         "iOS",
         "Android"
@@ -381,6 +386,7 @@
       "order": 6,
       "studio": "Maned Wolf Games",
       "role": "Founder",
+      "platformGroup": "pc",
       "responsibilities": [
         "Leadership",
         "Gameplay",
@@ -483,6 +489,7 @@
       "order": 8,
       "studio": "Schell Games",
       "role": "Tech Director",
+      "platformGroup": "vr",
       "responsibilities": [
         "Tech direction",
         "Interaction"
@@ -537,6 +544,7 @@
       "order": 9,
       "studio": "Schell Games",
       "role": "Gameplay Engineer",
+      "platformGroup": "vr",
       "platforms": [
         "Gear VR"
       ],
@@ -604,6 +612,7 @@
       "studio": "Aquiris Game Studio",
       "client": "Cartoon Network",
       "role": "Programmer",
+      "platformGroup": "mobile",
       "platforms": [
         "iOS",
         "Android"
@@ -670,6 +679,7 @@
       "order": 11,
       "studio": "Schell Games",
       "role": "Engineer",
+      "platformGroup": "mobile",
       "platforms": [
         "iOS",
         "Android"
@@ -738,6 +748,7 @@
       "order": 12,
       "studio": "Swordtales",
       "role": "Programmer (alpha)",
+      "platformGroup": "pc",
       "responsibilities": [
         "Gameplay"
       ],
@@ -804,6 +815,7 @@
       "studio": "Aquiris Game Studio",
       "client": "Cartoon Network",
       "role": "Programmer (prototype)",
+      "platformGroup": "mobile",
       "platforms": [
         "Web"
       ],
@@ -869,6 +881,7 @@
       "visibility": "public",
       "order": 14,
       "role": "Gameplay & Systems Engineer",
+      "platformGroup": "mobile",
       "platforms": [
         "iOS",
         "Android"
@@ -935,6 +948,7 @@
       "visibility": "public",
       "order": 15,
       "role": "Programmer",
+      "platformGroup": "mobile",
       "platforms": [
         "iOS",
         "Android"
@@ -996,6 +1010,7 @@
       "order": 16,
       "studio": "PUCRS / Ubisoft Game Development program",
       "role": "Programmer",
+      "platformGroup": "pc",
       "engine": "Unity",
       "tags": [
         "Education"
@@ -1065,6 +1080,7 @@
       "visibility": "public",
       "order": 17,
       "role": "Developer",
+      "platformGroup": "mobile",
       "platforms": [
         "iOS",
         "Android"
@@ -1109,6 +1125,7 @@
       "order": 18,
       "studio": "Rockhead Games",
       "role": "Freelance Programmer",
+      "platformGroup": "pc",
       "tags": [
         "Simulation"
       ],
@@ -1168,6 +1185,7 @@
       "order": 19,
       "studio": "Global Game Jam 2012",
       "role": "Developer",
+      "platformGroup": "pc",
       "period": {
         "start": "2012"
       },
@@ -1231,6 +1249,7 @@
       "order": 20,
       "studio": "SD Technologies",
       "role": "Engineer",
+      "platformGroup": "mobile",
       "responsibilities": [
         "Porting",
         "Polish"
@@ -1276,9 +1295,10 @@
       "category": "game",
       "tier": "archive",
       "status": "in-development",
-      "visibility": "draft",
+      "visibility": "public",
       "order": 21,
       "role": "Developer",
+      "platformGroup": "pc",
       "tags": [
         "Horror",
         "Puzzle"
@@ -1345,9 +1365,10 @@
       "category": "game",
       "tier": "archive",
       "status": "in-development",
-      "visibility": "draft",
+      "visibility": "public",
       "order": 22,
       "role": "Developer",
+      "platformGroup": "pc",
       "tags": [
         "Tactics",
         "Multiplayer"

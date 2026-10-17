@@ -13,6 +13,7 @@ const entry = (overrides: Record<string, unknown> = {}) => ({
   visibility: 'public',
   role: 'Programmer',
   summary: 'A short summary.',
+  platformGroup: 'pc',
   ...overrides,
 });
 

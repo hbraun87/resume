@@ -37,6 +37,15 @@
     "Google",
     "Cartoon Network"
   ],
+  "tips": [
+    "TIP: The I Expect You To Die localization pipeline later shipped in Among Us VR.",
+    "TIP: LEGO Brickheadz VR was called one of the best Daydream apps by The Verge.",
+    "TIP: N.E.R.O.T. went from zero to playable in one Global Game Jam weekend.",
+    "TIP: Domino World AR was built with Google and shipped on ARKit and ARCore.",
+    "TIP: Avião Vermelho was built in two months, start to finish, in Unity.",
+    "TIP: HoloLAB Champions turns real lab procedure into a VR game show.",
+    "TIP: Gaúchos take their chimarrão seriously. Henry does too."
+  ],
   "roles": [
     {
       "company": "Bad Robot Games",

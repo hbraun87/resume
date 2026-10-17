@@ -115,6 +115,8 @@ export const experienceSchema = z
       })
       .optional(),
     platforms: z.array(z.string()).optional(),
+    /** The home page filter group (docs/brief/10-loading-screen-spec.md). */
+    platformGroup: z.enum(['pc', 'vr', 'ar', 'mobile']).optional(),
     engine: z.string().optional(),
     tech: z.array(z.string()).optional(),
     teamSize: z.number().int().positive().optional(),
@@ -176,6 +178,17 @@ export const experienceSchema = z
         message: 'Featured and selected entries need 2–4 highlights',
       });
     }
+    if (
+      entry.visibility === 'public' &&
+      ['game', 'prototype', 'jam'].includes(entry.category) &&
+      !entry.platformGroup
+    ) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['platformGroup'],
+        message: 'Public games need a platformGroup: pc, vr, ar or mobile',
+      });
+    }
     if (entry.category === 'research' && !entry.publication) {
       ctx.addIssue({
         code: 'custom',
@@ -220,6 +233,8 @@ export const profileSchema = z.object({
   bio: z.string().min(1),
   pillars: z.array(z.object({ title: z.string(), body: z.string(), proof: z.string() })),
   credits: z.array(z.string()),
+  /** Rotating loading-screen tips on the home page HUD. */
+  tips: z.array(z.string().min(1)).min(1),
   roles: z.array(roleSchema).min(1),
   skills: z.object({
     engines: z.array(z.string()),

@@ -16,6 +16,7 @@ const minimal = {
   visibility: 'public',
   role: 'Programmer',
   summary: 'A short summary.',
+  platformGroup: 'pc',
 };
 
 describe('content files', () => {
@@ -74,6 +75,12 @@ describe('experienceSchema', () => {
   it('requires highlights on featured and selected entries', () => {
     const result = experienceSchema.safeParse({ ...minimal, tier: 'selected' });
     expect(result.error?.issues[0]?.path).toEqual(['highlights']);
+  });
+
+  it('requires a platform group on public games, not drafts', () => {
+    const game = { ...minimal, platformGroup: undefined };
+    expect(experienceSchema.safeParse(game).error?.issues[0]?.path).toEqual(['platformGroup']);
+    expect(experienceSchema.safeParse({ ...game, visibility: 'draft' }).success).toBe(true);
   });
 
   it('requires a publication on research entries', () => {

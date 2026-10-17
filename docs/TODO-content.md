@@ -15,7 +15,7 @@ Facts and media the site is waiting on. Nothing here is invented: unknown values
 | 7   | Media rights; personal captures; showreel                                         | Current site media and public trailers                                                           |
 | 8   | Résumé PDF                                                                        | Generated from the site                                                                          |
 | 9   | Availability line                                                                 | None                                                                                             |
-| 10  | Pine Creek and Loreisle                                                           | Draft (hidden)                                                                                   |
+| 10  | Pine Creek and Loreisle                                                           | Public as in development: Henry's Build Spec lists both among his 21 titles                      |
 
 ## Media migration (Phase 2), done
 
@@ -36,6 +36,8 @@ Not migrated, for Henry to decide:
 - Media rights: the galleries are the screenshots already public on henrybraun.info. Key art for client titles (Ben 10, Regular Show, Toren, Until You Fall) needs Henry's confirmation before launch, per CLAUDE.md.
 
 ## Facts to confirm
+
+- Roles where the Build Spec and LinkedIn differ; the site uses LinkedIn's (rule in `CLAUDE.md`): Until You Fall is "Gameplay Engineer" (spec: tech lead), Arithal is "Founder" (spec: co-founder). The spec's "joined Schell Games in 2013" is shown as 2015, after Vissman Management (2013), per LinkedIn.
 
 - HoloLAB Champions: names of the awards.
 - LEGO BrickHeadz Builder VR: links to the TechRadar, VRScout and The Verge articles.
