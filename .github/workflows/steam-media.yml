@@ -1,0 +1,30 @@
+name: Fetch Steam media
+
+# One-off helper: the cloud sessions that build this site cannot reach Steam,
+# so this job downloads the Steam store media for 4:LOOP and Project Octavia
+# into media-incoming/ on the working branch, where they are picked by hand.
+on:
+  push:
+    branches: [claude/resume-site-tmyy5f]
+    paths: [scripts/fetch-steam-media.mjs, .github/workflows/steam-media.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+      - run: node scripts/fetch-steam-media.mjs 4loop=3355360 project-octavia=1941770
+      - name: Commit the downloads
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add media-incoming
+          git commit -m "chore: Steam media for 4:LOOP and Project Octavia (staging)" || exit 0
+          git push
