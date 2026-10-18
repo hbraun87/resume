@@ -17,7 +17,7 @@ const byOrder = (a: Experience, b: Experience) =>
   (a.order ?? Number.MAX_SAFE_INTEGER) - (b.order ?? Number.MAX_SAFE_INTEGER) ||
   a.title.localeCompare(b.title);
 
-/** Public entries in display order. Drafts never reach a page. */
+/** Public entries in display order. Hidden and draft entries never reach a page. */
 export function publicEntries(entries: Experience[]): Experience[] {
   return entries.filter((entry) => entry.visibility === 'public').sort(byOrder);
 }

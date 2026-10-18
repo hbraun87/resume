@@ -25,6 +25,16 @@ npm run check:extended                            # plus system tests on all 11 
 
 Every push and deploy is gated on types, lint, formatting, content checks, unit tests at 95% or more branch coverage, and the light system tests (an Android phone and desktop Chrome, in light and dark mode). The extended system tests cover current iPhones, Android phones, an iPad and desktop Chrome, Firefox and Safari. Run them before a review with `npm run check:extended`, or on GitHub under Actions, CI, "Run workflow", with the suite set to `extended`.
 
+## Showing or hiding a project
+
+Each project in `src/content/experiences.json` has a `visibility`:
+
+- `public` shows it on the site.
+- `hidden` keeps it off the site but leaves everything in place and keeps checking it, so switching it back to `public` brings it back as it was. Loreisle and Angry Pucks are hidden.
+- `draft` is for unreleased or confidential work that is not ready to show.
+
+Change the value, commit and push to `main`, and the site updates.
+
 ---
 
 Code © Henry Braun. Portfolio content © Henry Braun, all rights reserved.

@@ -81,6 +81,8 @@ describe('experienceSchema', () => {
     const game = { ...minimal, platformGroup: undefined };
     expect(experienceSchema.safeParse(game).error?.issues[0]?.path).toEqual(['platformGroup']);
     expect(experienceSchema.safeParse({ ...game, visibility: 'draft' }).success).toBe(true);
+    const hidden = experienceSchema.safeParse({ ...game, visibility: 'hidden' });
+    expect(hidden.error?.issues[0]?.path).toEqual(['platformGroup']);
   });
 
   it('requires a publication on research entries', () => {

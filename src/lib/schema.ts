@@ -104,7 +104,9 @@ export const experienceSchema = z
       'unreleased',
       'published',
     ]),
-    visibility: z.enum(['public', 'draft']),
+    // public: on the site. hidden: finished and checked like public, but kept off the
+    // site until Henry flips it back. draft: unreleased or NDA work, checked loosely.
+    visibility: z.enum(['public', 'hidden', 'draft']),
     order: z.number().int().optional(),
     studio: z.string().optional(),
     client: z.string().optional(),
@@ -168,7 +170,7 @@ export const experienceSchema = z
     legacyPaths: z.array(z.string().regex(/^\//, 'Legacy paths start with "/"')).optional(),
   })
   .superRefine((entry, ctx) => {
-    if (entry.tier === 'featured' && entry.visibility === 'public' && !entry.caseStudy) {
+    if (entry.tier === 'featured' && entry.visibility !== 'draft' && !entry.caseStudy) {
       ctx.addIssue({
         code: 'custom',
         path: ['caseStudy'],
@@ -183,7 +185,7 @@ export const experienceSchema = z
       });
     }
     if (
-      entry.visibility === 'public' &&
+      entry.visibility !== 'draft' &&
       ['game', 'prototype', 'jam'].includes(entry.category) &&
       !entry.platformGroup
     ) {

@@ -41,15 +41,17 @@ describe('checkContent', () => {
     expect(run([entry(), entry()]).errors).toEqual(['experiences.json → my-game: duplicate id']);
   });
 
-  it('flags placeholders and phone numbers in public entries only', () => {
+  it('flags placeholders and phone numbers in public and hidden entries, not drafts', () => {
     const report = run([
       entry({ summary: 'TODO: write this' }),
       entry({ id: 'call-me', summary: 'Call 412-555-0100' }),
       entry({ id: 'secret', visibility: 'draft', summary: 'TBD' }),
+      entry({ id: 'shelved', visibility: 'hidden', summary: 'TBD' }),
     ]);
     expect(report.errors).toEqual([
       'experiences.json → my-game.summary: placeholder text in public content',
       'experiences.json → call-me.summary: looks like a phone number; never publish it',
+      'experiences.json → shelved.summary: placeholder text in public content',
     ]);
   });
 

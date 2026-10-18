@@ -157,3 +157,9 @@ Short log of non-obvious choices. Newest last.
 
 - **Decision:** Henry's Programmer titles read Gameplay Engineer, on roles and project cards. His two Twin Suns roles are one: Senior Engineer, Oct 2021 to Jan 2024, also on Project Octavia. Toren shows PlayStation and PC.
 - **Why:** Henry (Oct 18, 2026): "on the twin suns project keep just senior engineer", "replace programmer for gameplay engineer", and Toren was a PlayStation and PC title. His word overrides the LinkedIn titles in `09-migration-inventory.md`.
+
+## 2026-10-18 · Hidden projects
+
+- **Decision:** `visibility` gains a third value, `hidden`: the entry stays in `experiences.json` with its media and is held to the same checks as a public one, but no page, card, count or filter includes it. Loreisle and Angry Pucks are hidden, so the game count reads 21. Showing one again is a one-word change to `public` (see README).
+- **Why:** Henry (Oct 18, 2026) wanted to see the site without Loreisle and Angry Pucks, to put the weight on the important titles, without deleting them, and to toggle visibility easily.
+- **Alternatives:** reusing `draft` (it means unreleased or confidential work and is checked loosely, so a project could quietly break while switched off); a separate `hidden: true` flag (two fields that could disagree).

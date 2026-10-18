@@ -29,13 +29,14 @@ const entries = [
   make('a-game', { order: 1, platformGroup: 'mobile' }),
   make('no-order', { platformGroup: 'vr' }),
   make('also-no-order', { category: 'jam', platformGroup: 'pc' }),
-  make('hidden', { visibility: 'draft', order: 0 }),
+  make('draft', { visibility: 'draft', order: 0 }),
+  make('hidden', { visibility: 'hidden', order: 0, platformGroup: 'pc' }),
   make('paper', { category: 'research', order: 100 }),
   make('tool', { category: 'tool' }),
 ];
 
 describe('publicEntries', () => {
-  it('drops drafts and sorts by order, then title', () => {
+  it('drops hidden and draft entries and sorts by order, then title', () => {
     expect(publicEntries(entries).map((e) => e.id)).toEqual([
       'a-game',
       'b-game',

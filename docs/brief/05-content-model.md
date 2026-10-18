@@ -72,7 +72,7 @@ Top level:
 | `category` | enum | ✔ | `game` · `prototype` · `tool` · `research` · `jam` · `other` |
 | `tier` | enum | ✔ | `featured` (full case study) · `selected` (short page) · `archive` (table row) |
 | `status` | enum | ✔ | `shipped` · `released-early-access` · `in-development` · `prototype` · `unreleased` · `published` (research) |
-| `visibility` | enum | ✔ | `public` · `draft` (validated but never published) |
+| `visibility` | enum | ✔ | `public` · `hidden` (finished, fully validated, kept off the site until switched back) · `draft` (validated but never published) |
 | `order` | integer | | Manual sort within tier; lower first. Default: newest `period.start` first. |
 | `studio` | string | | Studio where the work was done. |
 | `client` | string | | Partner/IP holder (e.g., "Google", "LEGO", "Cartoon Network"). |

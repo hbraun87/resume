@@ -33,7 +33,8 @@ export function scanStrings(value: unknown, where: string, errors: string[]): vo
 
 function checkMedia(entry: Experience, files: string[], report: ContentReport): void {
   const where = `experiences.json → ${entry.id}`;
-  const isPublic = entry.visibility === 'public';
+  // Hidden entries are held to the public standard so they can be shown again at any time.
+  const isPublic = entry.visibility !== 'draft';
   const referenced = new Set<string>();
   const need = (src: string, field: string) => {
     referenced.add(src);
@@ -92,7 +93,7 @@ export function checkContent(
       const where = `experiences.json → ${entry.id}`;
       if (seen.has(entry.id)) report.errors.push(`${where}: duplicate id`);
       seen.add(entry.id);
-      if (entry.visibility === 'public') scanStrings(entry, where, report.errors);
+      if (entry.visibility !== 'draft') scanStrings(entry, where, report.errors);
       checkMedia(entry, listMediaFiles(entry.id), report);
     }
   }
