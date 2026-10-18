@@ -181,3 +181,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** the site moves to Henry's domain, https://henrybraun.dev/, served by GitHub Pages at the domain root. The deploy builds for that address unless the `SITE_URL` and `BASE_PATH` repository variables say otherwise; CI keeps testing the `/resume` subpath so both setups stay working. The single-file copy links every card to its page on henrybraun.dev instead of the old henrybraun.info pages and Steam. DNS lives at Squarespace, where Henry bought the domain: four A and four AAAA records for the root, and a `www` CNAME to `hbraun87.github.io`.
 - **Why:** Henry (Oct 18, 2026) bought henrybraun.dev and asked for it to point to the new site.
 - **Alternatives:** keeping the build at `/resume` and redirecting (GitHub Pages serves a custom domain at its root, so the paths would break); moving DNS to another provider (no benefit for a static site).
+
+## 2026-10-18 · A softer contact section
+
+- **Decision:** the contact section's headline reads "Say hello." and the line under it is gone; `home.contactLede` is now optional, so a line can come back by adding it to `profile.json`.
+- **Why:** Henry (Oct 18, 2026) is still employed, and "Your project is next in the queue." read like an active job search. He picked "Say hello." from three softer options.
+- **Alternatives:** "Always up for talking games. Let's connect." and "Open to conversations about what's next."

@@ -263,7 +263,8 @@ export const profileSchema = z.object({
     researchLede: z.string().min(1),
     finaleHeadline: z.string().min(1),
     contactHeadline: z.string().min(1),
-    contactLede: z.string().min(1),
+    /** Optional line under the contact headline. */
+    contactLede: z.string().min(1).optional(),
   }),
   /** Rotating loading-screen tips on the home page HUD. */
   tips: z.array(z.string().min(1)).min(1),

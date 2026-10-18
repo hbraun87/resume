@@ -4,8 +4,9 @@
 import profile from '../../content/profile.json';
 import StageHeader from '../StageHeader.astro';
 import { visibleLinks } from '../../lib/profile';
+import type { Profile } from '../../lib/schema';
 
-const { home } = profile;
+const home: Profile['home'] = profile.home;
 const pak = `${profile.name.toLowerCase().replace(/\s+/g, '_')}.pak`;
 const build = new Date().toISOString().slice(0, 7).replace('-', '.');
 const mailto = `mailto:${profile.email}`;
@@ -40,7 +41,7 @@ const mailto = `mailto:${profile.email}`;
   <div class="contact">
     <div class="contact-text">
       <h3 class="contact-title">{home.contactHeadline}</h3>
-      <p class="lede">{home.contactLede}</p>
+      {home.contactLede && <p class="lede">{home.contactLede}</p>}
       <p class="email-row">
         <span class="email" data-email>
           {profile.email}
