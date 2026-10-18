@@ -175,3 +175,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** Sim Camisaria, N.E.R.O.T., Search N' Find, Pine Creek and Gendai Hero are hidden too, and 4:LOOP moves to first, ahead of Until You Fall. The N.E.R.O.T. loading tip is removed and the games intro no longer mentions the game jam runner, so no visible text points at a hidden project. 4:LOOP stays a regular-size card: a large featured card needs a case study of what Henry did on it, which only he can supply.
 - **Why:** Henry (Oct 18, 2026): less is more, so the smaller credits stop diluting the main titles, and 4:LOOP is his current and biggest project.
 - **Alternatives:** keeping the small titles in a collapsed archive list (still dilutes the page Henry wants to see).
+
+## 2026-10-18 · henrybraun.dev
+
+- **Decision:** the site moves to Henry's domain, https://henrybraun.dev/, served by GitHub Pages at the domain root. The deploy builds for that address unless the `SITE_URL` and `BASE_PATH` repository variables say otherwise; CI keeps testing the `/resume` subpath so both setups stay working. The single-file copy links every card to its page on henrybraun.dev instead of the old henrybraun.info pages and Steam. DNS lives at Squarespace, where Henry bought the domain: four A and four AAAA records for the root, and a `www` CNAME to `hbraun87.github.io`.
+- **Why:** Henry (Oct 18, 2026) bought henrybraun.dev and asked for it to point to the new site.
+- **Alternatives:** keeping the build at `/resume` and redirecting (GitHub Pages serves a custom domain at its root, so the paths would break); moving DNS to another provider (no benefit for a static site).

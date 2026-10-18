@@ -1,4 +1,4 @@
-# CLAUDE.md — Agent rules for the henrybraun.info portfolio
+# CLAUDE.md — Agent rules for the henrybraun.dev portfolio
 
 You are building and maintaining Henry Braun's professional portfolio: a static Astro site deployed to GitHub Pages from `hbraun87/resume`. The full brief lives in `docs/brief/`. Read `docs/brief/README.md` and files `01`–`10` before writing code. When this file and the brief disagree, this file wins; when the brief and Henry disagree, Henry wins.
 
@@ -22,7 +22,7 @@ Where they conflict:
 2. **Content is data.** All portfolio content lives in `src/content/experiences.json` and `src/content/profile.json`. No project text, titles, dates, or media references hard-coded in components. If a component needs a new kind of content, extend the schema first.
 3. **Zero-JS by default.** Pages render as static HTML + CSS. JavaScript only ships for interaction that cannot be done in CSS (video facade activation, lightbox, filtering, dev console). Every script is lazy, small, and progressively enhances working HTML.
 4. **Quality gates are law.** Do not mark a milestone done, and do not push to `main`, unless `npm run check` passes locally (types, schema, lint, build, links, a11y, Lighthouse budgets). Never weaken a gate to make it pass; fix the cause. If a gate is genuinely wrong, explain why and ask Henry.
-5. **Never invent facts about Henry.** Titles, dates, metrics, team sizes, awards, and claims of impact come only from `docs/brief/09-migration-inventory.md`, the current site (henrybraun.info), his LinkedIn profile, or Henry himself. Unknown values stay `null`/absent and are listed in `docs/TODO-content.md`. Placeholder copy must be visibly marked `TODO:` and must never reach production (a build check enforces this).
+5. **Never invent facts about Henry.** Titles, dates, metrics, team sizes, awards, and claims of impact come only from `docs/brief/09-migration-inventory.md`, his previous site (henrybraun.info), his LinkedIn profile, or Henry himself. Unknown values stay `null`/absent and are listed in `docs/TODO-content.md`. Placeholder copy must be visibly marked `TODO:` and must never reach production (a build check enforces this).
 6. **Protect personal data.** Publish only the email address and links in `profile.json`. Never publish Henry's phone number (it appears in his LinkedIn export) or any other private contact detail.
 7. **Respect NDAs and IP.** Unreleased or confidential work is `"visibility": "draft"` until Henry confirms it can be public. Do not use third-party logos or key art unless Henry confirms he has the right to; prefer his own captures and text credits.
 

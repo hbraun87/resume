@@ -1,4 +1,4 @@
-# henrybraun.info
+# henrybraun.dev
 
 Source for the portfolio of **Henry Braun** — Engineering Manager at Bad Robot Games, founder of Maned Wolf Games, and game engineer behind award-winning VR/AR titles at Schell Games.
 
@@ -43,4 +43,4 @@ Code © Henry Braun. Portfolio content © Henry Braun, all rights reserved.
 
 ## Single-file version
 
-`npm run build && npm run standalone` writes `standalone/index.html`: the home page with its fonts, images, styles and scripts inlined into one file. It opens straight from disk and works as a static page anywhere, GitHub Pages included. Project and research links point at the matching pages on henrybraun.info, since the project pages are not part of the single file.
+`npm run build && npm run standalone` writes `standalone/index.html`: the home page with its fonts, images, styles and scripts inlined into one file. It opens straight from disk and works as a static page anywhere, GitHub Pages included. Project and research links point at the matching pages on henrybraun.dev, since the project pages are not part of the single file.

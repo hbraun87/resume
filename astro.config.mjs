@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // SITE_URL and BASE_PATH come from repository variables in CI, so the same
 // build works at https://hbraun87.github.io/resume/ and at a custom domain root.
-const SITE = process.env.SITE_URL || 'https://henrybraun.info';
+const SITE = process.env.SITE_URL || 'https://henrybraun.dev';
 const BASE = process.env.BASE_PATH || '/';
 
 const FONTS = './node_modules/@fontsource';
