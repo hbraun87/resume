@@ -4,7 +4,15 @@
 import { copyText, linkToButton } from './clipboard';
 import { Finale, type Context2D } from './finale';
 import { enhanceFilters } from './filter';
-import { COMPLETE_AT, currentOf, easeToward, nextTip, scrollProgress, stageLabel } from './hud';
+import {
+  COMPLETE_AT,
+  currentOf,
+  easeToward,
+  nextTip,
+  revealed,
+  scrollProgress,
+  stageLabel,
+} from './hud';
 import { konamiListener } from './konami';
 import { showToast } from './toast';
 import { typeLines } from './typing';
@@ -101,7 +109,9 @@ export function initHome(doc: Document = document, env: HomeEnv = browserEnv()):
   hud.hidden = false;
   root.classList.add('has-hud');
 
+  let toastCount = 0;
   const toast = (kicker: string, title: string, detail?: string) => {
+    toastCount += 1;
     if (toasts) showToast(toasts, { kicker, title, detail }, 4200, win);
   };
 
@@ -208,7 +218,12 @@ export function initHome(doc: Document = document, env: HomeEnv = browserEnv()):
       else link.removeAttribute('aria-current');
     }
     label();
-    if (progress >= COMPLETE_AT) complete();
+    // The load completes at the bottom of the page, or as soon as most of the
+    // finale is on screen, so the burst plays where the visitor can see it.
+    const box = finaleStage?.getBoundingClientRect();
+    if (progress >= COMPLETE_AT || (box && revealed(box.top, box.height, win.innerHeight))) {
+      complete();
+    }
     schedule();
   }
 
@@ -234,8 +249,11 @@ export function initHome(doc: Document = document, env: HomeEnv = browserEnv()):
     }
     label();
     schedule();
+    const toastsBefore = toastCount;
     win.setTimeout(() => {
       burstNow();
+      // A toast the visitor caused in the meantime (PRESS START) is not covered up.
+      if (toastCount !== toastsBefore) return;
       toast(
         'Achievement unlocked',
         'Completionist',
@@ -303,13 +321,13 @@ export function initHome(doc: Document = document, env: HomeEnv = browserEnv()):
     const button = linkToButton(start);
     button.addEventListener('click', async () => {
       const result = await copyText(address, email);
+      if (done) burstNow();
+      else complete();
       toast(
         'Player 2 has joined',
         result === 'copied' ? 'Email copied to clipboard' : 'Email selected',
         `${address} · paste it into your mail app and say hi.`,
       );
-      if (done) burstNow();
-      else complete();
     });
   }
 

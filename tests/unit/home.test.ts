@@ -182,6 +182,31 @@ describe('initHome', () => {
     expect(observer.targets.size).toBe(0);
   });
 
+  it('completes as soon as most of the finale is on screen', () => {
+    const h = harness();
+    layoutSections();
+    const home = must(initHome(document, h.env), 'home');
+    let top = 1200;
+    $('[data-finale]').getBoundingClientRect = () => ({ top, height: 400 }) as DOMRect;
+    scrollTo(1000);
+    expect(home.done).toBe(false);
+    top = 750; // 250 of 400 px showing: not yet
+    scrollTo(1100);
+    expect(home.done).toBe(false);
+    top = 700; // 300 of 400 px showing
+    scrollTo(1200);
+    expect(home.done).toBe(true);
+  });
+
+  it('still completes at the bottom without a finale', () => {
+    const h = harness();
+    $('[data-finale]').remove();
+    layoutSections();
+    const home = must(initHome(document, h.env), 'home');
+    scrollTo(3999);
+    expect(home.done).toBe(true);
+  });
+
   it('completes once at the bottom: HUD, labels, burst, flash and toast', () => {
     const h = harness();
     layoutSections();
@@ -363,6 +388,9 @@ describe('initHome', () => {
     );
     expect(home.done).toBe(true);
     vi.advanceTimersByTime(350);
+    // The burst plays, but the Completionist toast does not cover the email.
+    expect(home.finale?.phase).toBe('burst');
+    expect(text('[data-toasts] .toast-kicker')).toBe('Player 2 has joined');
     must(home.finale, 'finale').phase = 'form';
 
     Object.defineProperty(navigator, 'clipboard', {

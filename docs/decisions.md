@@ -140,3 +140,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** the 4:LOOP and Project Octavia cards and pages use the screenshots from their Steam store pages, and 4:LOOP's page plays its gameplay reveal trailer through the YouTube facade (ID from the PlayStation Blog announcement). Octavia's only trailer is a Steam stream with no YouTube upload, so it is left out; its page links to Steam. The cloud sessions cannot reach Steam, so `steam-media.yml` (run by hand) downloads the files on a GitHub runner.
 - **Why:** Henry (Oct 18, 2026) asked for the images and video from the Steam pages, which is his OK on using that art.
 - **Alternatives:** self-hosting the Octavia trailer as an MP4 (the site has no self-hosted video player yet, and it would be the heaviest file on the site).
+
+## 2026-10-18 · The load completes when the finale is on screen
+
+- **Decision:** the load completes, and the finale bursts, as soon as three quarters of the finale frame are on screen, or at the bottom of the page, whichever comes first. If the visitor presses PRESS START before the burst, the Completionist toast is skipped so it does not cover the email message.
+- **Why:** Henry (Oct 18, 2026): the finale waited for the very bottom of the page, so by the time it fired the frame had scrolled out of view.
+- **Alternatives:** a lower completion threshold on scroll progress (the right value depends on page and screen height, so the finale could still fire off screen).

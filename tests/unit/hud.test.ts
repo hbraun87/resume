@@ -4,9 +4,26 @@ import {
   currentOf,
   easeToward,
   nextTip,
+  revealed,
   scrollProgress,
   stageLabel,
 } from '../../src/lib/hud';
+
+describe('revealed', () => {
+  it('counts a box once three quarters of it are on screen', () => {
+    expect(revealed(800, 400, 1000)).toBe(false);
+    expect(revealed(700, 400, 1000)).toBe(true);
+    expect(revealed(-100, 400, 1000)).toBe(true);
+    expect(revealed(500, 400, 1000, 1)).toBe(true);
+  });
+  it('counts a box taller than the screen once it fills it', () => {
+    expect(revealed(10, 3000, 1000)).toBe(false);
+    expect(revealed(0, 3000, 1000)).toBe(true);
+  });
+  it('never counts an empty box', () => {
+    expect(revealed(0, 0, 1000)).toBe(false);
+  });
+});
 
 describe('scrollProgress', () => {
   it('is the share of the scrollable height, clamped to 0–1', () => {

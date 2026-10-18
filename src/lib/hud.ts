@@ -5,6 +5,23 @@
 /** Not exactly 1: sub-pixel rounding and mobile address bars can stop a pixel short. */
 export const COMPLETE_AT = 0.995;
 
+/** Share of the finale that must be on screen before the load completes. */
+export const FINALE_IN_VIEW = 0.75;
+
+/**
+ * True once `share` of a box (its top relative to the viewport, and its height)
+ * has scrolled into view; a box taller than the screen counts once it fills it.
+ * Empty boxes (hidden, or not laid out) never count.
+ */
+export function revealed(
+  top: number,
+  height: number,
+  viewport: number,
+  share = FINALE_IN_VIEW,
+): boolean {
+  return height > 0 && top + Math.min(height * share, viewport) <= viewport;
+}
+
 export function scrollProgress(scrollY: number, scrollHeight: number, viewport: number): number {
   const max = Math.max(1, scrollHeight - viewport);
   return Math.min(1, Math.max(0, scrollY / max));

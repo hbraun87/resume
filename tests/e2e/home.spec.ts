@@ -49,16 +49,44 @@ test.describe('loading HUD', () => {
     await expect(percent(page)).toHaveText('100');
   });
 
+  test('completes while the finale is on screen, before the bottom', async ({ page }) => {
+    await page.goto('');
+    await page.evaluate(() => {
+      const frame = document.querySelector('[data-finale]');
+      if (!frame) return;
+      const box = frame.getBoundingClientRect();
+      // Center the finale, well short of the bottom of the page.
+      window.scrollTo(0, window.scrollY + box.top + box.height / 2 - window.innerHeight / 2);
+    });
+    const short = await page.evaluate(
+      () => window.scrollY + window.innerHeight < document.documentElement.scrollHeight - 2,
+    );
+    expect(short).toBe(true);
+    await expect(hud(page)).toHaveClass(/is-done/);
+    await expect(page.locator('[data-finale-state]')).toHaveText('Load complete');
+    await expect(page.locator('[data-finale]')).toBeInViewport({ ratio: 0.75 });
+  });
+
   test('nothing hides behind the HUD at the bottom of the page', async ({ page }) => {
     await page.goto('');
     await scrollToBottom(page);
     await expect(hud(page)).toHaveClass(/is-done/);
-    const overlap = await page.evaluate(() => {
-      const bar = document.querySelector('[data-hud]')?.getBoundingClientRect();
-      const text = document.querySelector('.site-footer p:last-child')?.getBoundingClientRect();
-      return bar && text ? text.bottom - bar.top : Infinity;
-    });
-    expect(overlap, 'the last footer line clears the HUD').toBeLessThanOrEqual(0);
+    // Measure at the settled bottom: late fonts or images can still grow the page
+    // after the first jump, leaving the window short of the end.
+    await expect
+      .poll(
+        () =>
+          page.evaluate(() => {
+            window.scrollTo(0, document.documentElement.scrollHeight);
+            const bar = document.querySelector('[data-hud]')?.getBoundingClientRect();
+            const text = document
+              .querySelector('.site-footer p:last-child')
+              ?.getBoundingClientRect();
+            return bar && text ? text.bottom - bar.top : Infinity;
+          }),
+        { message: 'the last footer line clears the HUD' },
+      )
+      .toBeLessThanOrEqual(0);
   });
 });
 
