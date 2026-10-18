@@ -1,9 +1,11 @@
 ---
 import profile from '../content/profile.json';
 import { buildInfo } from '../lib/build';
+import { visibleLinks } from '../lib/profile';
 
 const build = buildInfo();
 const repo = 'https://github.com/hbraun87/resume';
+const showBuildLine = profile.footer.buildLine !== 'hidden';
 ---
 
 <footer class="site-footer">
@@ -12,7 +14,7 @@ const repo = 'https://github.com/hbraun87/resume';
       <li>
         <a href={`mailto:${profile.email}`}>{profile.email}</a>
       </li>
-      {profile.links.map((link) => (
+      {visibleLinks(profile.links).map((link) => (
         <li>
           <a href={link.url} rel="noopener">
             {link.label}
@@ -20,19 +22,21 @@ const repo = 'https://github.com/hbraun87/resume';
         </li>
       ))}
     </ul>
-    <p class="mono meta">
-      Built with Astro ·{' '}
-      <a href={repo} rel="noopener">
-        Source on GitHub
-      </a>
-      {build.shortSha && (
-        <>
-          {' '}
-          · Build <a href={`${repo}/commit/${build.sha}`}>{build.shortSha}</a>
-        </>
-      )}{' '}
-      · {build.date}
-    </p>
+    {showBuildLine && (
+      <p class="mono meta">
+        Built with Astro ·{' '}
+        <a href={repo} rel="noopener">
+          Source on GitHub
+        </a>
+        {build.shortSha && (
+          <>
+            {' '}
+            · Build <a href={`${repo}/commit/${build.sha}`}>{build.shortSha}</a>
+          </>
+        )}{' '}
+        · {build.date}
+      </p>
+    )}
     <p class="mono meta">No cookies, no trackers, no third-party requests.</p>
   </div>
 </footer>

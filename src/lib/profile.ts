@@ -68,3 +68,8 @@ export function paragraphs(text: string): string[] {
     .map((part) => part.trim())
     .filter(Boolean);
 }
+
+/** Profile links shown on the site; a link marked "hidden" stays in profile.json only. */
+export function visibleLinks<T extends { visibility?: string }>(links: T[]): T[] {
+  return links.filter((link) => link.visibility !== 'hidden');
+}

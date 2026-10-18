@@ -3,6 +3,7 @@
    canvas) the headline is plain text and PRESS START is an email link. */
 import profile from '../../content/profile.json';
 import StageHeader from '../StageHeader.astro';
+import { visibleLinks } from '../../lib/profile';
 
 const { home } = profile;
 const pak = `${profile.name.toLowerCase().replace(/\s+/g, '_')}.pak`;
@@ -52,7 +53,7 @@ const mailto = `mailto:${profile.email}`;
         <li>
           <a href={mailto}>Email</a>
         </li>
-        {profile.links.map((link) => (
+        {visibleLinks(profile.links).map((link) => (
           <li>
             <a href={link.url} target="_blank" rel="noopener">
               {link.label}

@@ -234,7 +234,17 @@ export const profileSchema = z.object({
   location: z.string().min(1),
   availability: z.string().optional(),
   email: z.email(),
-  links: z.array(z.object({ kind: z.string(), label: z.string(), url: z.url() })),
+  /** Profile links; "hidden" keeps one in the file but off the site. */
+  links: z.array(
+    z.object({
+      kind: z.string(),
+      label: z.string(),
+      url: z.url(),
+      visibility: z.enum(['public', 'hidden']).optional(),
+    }),
+  ),
+  /** The footer's "Built with Astro · Source on GitHub · Build" line. */
+  footer: z.object({ buildLine: z.enum(['public', 'hidden']) }),
   portrait: z.object({ src: imageFile, alt: altText }).optional(),
   bio: z.string().min(1),
   pillars: z.array(z.object({ title: z.string(), body: z.string(), proof: z.string() })),

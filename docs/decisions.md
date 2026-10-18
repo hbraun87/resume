@@ -163,3 +163,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** `visibility` gains a third value, `hidden`: the entry stays in `experiences.json` with its media and is held to the same checks as a public one, but no page, card, count or filter includes it. Loreisle and Angry Pucks are hidden, so the game count reads 21. Showing one again is a one-word change to `public` (see README).
 - **Why:** Henry (Oct 18, 2026) wanted to see the site without Loreisle and Angry Pucks, to put the weight on the important titles, without deleting them, and to toggle visibility easily.
 - **Alternatives:** reusing `draft` (it means unreleased or confidential work and is checked loosely, so a project could quietly break while switched off); a separate `hidden: true` flag (two fields that could disagree).
+
+## 2026-10-18 · GitHub link and build line hidden
+
+- **Decision:** profile links take an optional `visibility` (`public` or `hidden`), and `profile.json` gains `footer.buildLine`. The GitHub link and the "Built with Astro · Source on GitHub · Build" footer line are hidden; email, LinkedIn and the "No cookies, no trackers" line stay.
+- **Why:** Henry (Oct 18, 2026): hide the GitHub link and the build line for now, since pointing visitors at the source is not relevant. He asked to hide rather than delete, so both are a one-word switch back.
+- **Alternatives:** deleting the link and the line (Henry wants to toggle them).

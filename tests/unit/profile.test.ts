@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import profile from '../../src/content/profile.json';
-import { paragraphs, questLog, yearSpan } from '../../src/lib/profile';
+import { paragraphs, questLog, visibleLinks, yearSpan } from '../../src/lib/profile';
 import type { Profile } from '../../src/lib/schema';
 
 type Role = Profile['roles'][number];
@@ -54,5 +54,16 @@ describe('questLog', () => {
 describe('paragraphs', () => {
   it('splits on blank lines and drops empty ones', () => {
     expect(paragraphs('One.\n\nTwo.\n  \n\nThree.\n\n')).toEqual(['One.', 'Two.', 'Three.']);
+  });
+});
+
+describe('visibleLinks', () => {
+  it('keeps public and unmarked links and drops hidden ones', () => {
+    const links = [
+      { kind: 'a', visibility: 'public' },
+      { kind: 'b' },
+      { kind: 'c', visibility: 'hidden' },
+    ];
+    expect(visibleLinks(links).map((link) => link.kind)).toEqual(['a', 'b']);
   });
 });

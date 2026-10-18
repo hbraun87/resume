@@ -33,6 +33,8 @@ Each project in `src/content/experiences.json` has a `visibility`:
 - `hidden` keeps it off the site but leaves everything in place and keeps checking it, so switching it back to `public` brings it back as it was. Loreisle and Angry Pucks are hidden.
 - `draft` is for unreleased or confidential work that is not ready to show.
 
+The same switch works in `src/content/profile.json`: a link with `"visibility": "hidden"` stays in the file but leaves the contact row and footer (GitHub is hidden), and `"footer": { "buildLine": "hidden" }` hides the "Built with Astro · Source on GitHub · Build" line. Use `"public"` to show either again.
+
 Change the value, commit and push to `main`, and the site updates.
 
 ---
