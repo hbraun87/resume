@@ -17,17 +17,22 @@ export function yearSpan(start: string, end?: string): string {
 }
 
 /**
- * Active quests are current roles; completed quests are earlier employers,
- * one line each with the latest title and the whole span there.
+ * Active quests are current roles, dated from when Henry joined that company
+ * (a promotion does not restart the clock); completed quests are earlier
+ * employers, one line each with the latest title and the whole span there.
  * Roles are listed newest first in profile.json.
  */
 export function questLog(roles: Role[]): { active: Quest[]; completed: Quest[] } {
+  const joined = (company: string) =>
+    roles
+      .filter((role) => role.company === company)
+      .reduce((first, role) => (role.start < first ? role.start : first), '9999');
   const active = roles
     .filter((role) => role.end === 'present')
     .map((role) => ({
       title: role.title,
       company: role.company,
-      years: yearSpan(role.start, role.end),
+      years: yearSpan(joined(role.company), role.end),
     }));
   const activeCompanies = new Set(active.map((quest) => quest.company));
   const byCompany = new Map<string, Quest & { start: string; end: string }>();

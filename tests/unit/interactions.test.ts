@@ -196,6 +196,15 @@ describe('filters', () => {
     expect(applyFilter(cards, 'all')).toBe(2);
   });
 
+  it('applyFilter matches a card on several platforms under each of them', () => {
+    const cards = [1, 2].map(() => document.createElement('li'));
+    must(cards[0], 'card').dataset['platform'] = 'playstation pc';
+    must(cards[1], 'card').dataset['platform'] = 'pc';
+    expect(applyFilter(cards, 'playstation')).toBe(1);
+    expect(applyFilter(cards, 'pc')).toBe(2);
+    expect(applyFilter(cards, 'vr')).toBe(0);
+  });
+
   it('reveals the buttons, filters, presses one button and announces the count', () => {
     const { group, cards, changed, button } = setup();
     expect(group.hidden).toBe(false);

@@ -146,3 +146,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** the load completes, and the finale bursts, as soon as three quarters of the finale frame are on screen, or at the bottom of the page, whichever comes first. If the visitor presses PRESS START before the burst, the Completionist toast is skipped so it does not cover the email message.
 - **Why:** Henry (Oct 18, 2026): the finale waited for the very bottom of the page, so by the time it fired the frame had scrolled out of view.
 - **Alternatives:** a lower completion threshold on scroll progress (the right value depends on page and screen height, so the finale could still fire off screen).
+
+## 2026-10-18 · Two platform chips, joining dates, no build-stage labels
+
+- **Decision:** games can list more platforms in `alsoOn`, each shown as its own chip and counted under each filter; Until You Fall, I Expect You To Die and 4:LOOP show PlayStation and PC. Current roles in the quest log are dated from when Henry joined the company, so Bad Robot Games reads 2024–present. Role labels no longer carry "(alpha)", "(prototype)" or "(freelance)", and Toren lost its "Alpha version" subtitle.
+- **Why:** Henry (Oct 18, 2026): use his 2024 Bad Robot start, tag games on both PlayStation and PC, and drop the qualifiers as not relevant.
+- **Alternatives:** making `platformGroup` an array (every entry and test would change for three games).

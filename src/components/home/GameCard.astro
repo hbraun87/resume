@@ -2,7 +2,7 @@
 /* A level-select card: art band, platform chip, role, title and summary. The
    whole card is one link to the project page. */
 import { Picture } from 'astro:assets';
-import { entryPath, glyph, PLATFORM_LABELS } from '../../lib/experiences';
+import { entryPath, glyph, PLATFORM_LABELS, platformGroups } from '../../lib/experiences';
 import { projectImage } from '../../lib/media';
 import type { Experience } from '../../lib/schema';
 import { inlineMarkdown } from '../../lib/text';
@@ -13,7 +13,8 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const group = entry.platformGroup ?? 'pc';
+const groups = platformGroups(entry);
+const [group = 'pc'] = groups;
 const featured = entry.tier === 'featured';
 const cover = entry.cover && projectImage(entry.id, entry.cover.src);
 const widths = cover ? [400, 800].filter((w) => w <= cover.width) : [];
@@ -21,7 +22,7 @@ const widths = cover ? [400, 800].filter((w) => w <= cover.width) : [];
 
 <li
   class:list={['card', group, { featured }]}
-  data-platform={group}
+  data-platform={groups.join(' ')}
   data-asset="level"
   data-asset-name={entry.title}
 >
@@ -45,7 +46,9 @@ const widths = cover ? [400, 800].filter((w) => w <= cover.width) : [];
   </div>
   <div class="body">
     <p class="meta mono">
-      <span class="chip">{PLATFORM_LABELS[group]}</span>
+      {groups.map((each) => (
+        <span class:list={['chip', each]}>{PLATFORM_LABELS[each]}</span>
+      ))}
       <span>{entry.role}</span>
     </p>
     <h3>
@@ -187,6 +190,22 @@ const widths = cover ? [400, 800].filter((w) => w <= cover.width) : [];
     padding: 0.1rem 0.4rem;
     border: 1px solid var(--tint);
     color: var(--tint);
+  }
+  /* Each chip takes its own platform's color, not only the card's main one. */
+  .chip.pc {
+    --tint: var(--pc);
+  }
+  .chip.mobile {
+    --tint: var(--mobile);
+  }
+  .chip.playstation {
+    --tint: var(--playstation);
+  }
+  .chip.vr {
+    --tint: var(--vr);
+  }
+  .chip.ar {
+    --tint: var(--ar);
   }
   h3 {
     font-size: var(--step-0);

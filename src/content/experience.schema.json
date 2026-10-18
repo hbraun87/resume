@@ -116,6 +116,19 @@
               "ar"
             ]
           },
+          "alsoOn": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "pc",
+                "mobile",
+                "playstation",
+                "vr",
+                "ar"
+              ]
+            }
+          },
           "engine": {
             "type": "string"
           },

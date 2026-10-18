@@ -31,7 +31,8 @@ describe('questLog', () => {
       role('Studio B', 'Engineer', '2015-04', '2020-08'),
       role('Studio B', 'Intern', '2016-01', '2016-02'),
     ]);
-    expect(log.active).toEqual([{ title: 'Manager', company: 'Studio A', years: '2026–present' }]);
+    // Dated from joining Studio A, not from the promotion.
+    expect(log.active).toEqual([{ title: 'Manager', company: 'Studio A', years: '2024–present' }]);
     expect(log.completed).toEqual([
       { title: 'Senior', company: 'Studio B', years: '2015–2021' },
       { title: 'Freelance', company: 'Studio C', years: '2013' },
@@ -41,6 +42,7 @@ describe('questLog', () => {
   it('matches the facts in profile.json', () => {
     const log = questLog(profile.roles);
     expect(log.active.map((q) => q.company)).toEqual(['Bad Robot Games', 'Maned Wolf Games']);
+    expect(log.active[0]?.years).toBe('2024–present');
     expect(log.completed.find((q) => q.company === 'Schell Games')).toEqual({
       title: 'Senior Engineer',
       company: 'Schell Games',

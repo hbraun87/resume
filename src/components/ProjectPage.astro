@@ -6,7 +6,7 @@ import Figure from './Figure.astro';
 import Gallery from './Gallery.astro';
 import StageHeader from './StageHeader.astro';
 import YouTube from './YouTube.astro';
-import { entryPath, PLATFORM_LABELS, periodLabel } from '../lib/experiences';
+import { entryPath, PLATFORM_LABELS, periodLabel, platformGroups } from '../lib/experiences';
 import { posterFile, projectImage } from '../lib/media';
 import type { Experience } from '../lib/schema';
 import { inlineMarkdown, plainText } from '../lib/text';
@@ -33,8 +33,10 @@ const STATUS: Record<Experience['status'], string> = {
   unreleased: 'Unreleased',
   published: 'Published',
 };
+const groups = platformGroups(entry);
 const platforms =
-  entry.platforms?.join(', ') ?? (entry.platformGroup && PLATFORM_LABELS[entry.platformGroup]);
+  entry.platforms?.join(', ') ??
+  (groups.map((group) => PLATFORM_LABELS[group]).join(', ') || undefined);
 const years = periodLabel(entry.period);
 const glance = [
   ['Role', entry.role],
@@ -64,11 +66,9 @@ const back = research
 
     <header class="hero">
       <p class="chips mono">
-        {entry.platformGroup && (
-          <span class:list={['chip', entry.platformGroup]}>
-            {PLATFORM_LABELS[entry.platformGroup]}
-          </span>
-        )}
+        {groups.map((group) => (
+          <span class:list={['chip', group]}>{PLATFORM_LABELS[group]}</span>
+        ))}
         {research && <span class="chip">Research</span>}
         <span>{entry.role}</span>
       </p>

@@ -19,7 +19,10 @@
         "PlayStation 5",
         "PC"
       ],
-      "platformGroup": "pc",
+      "platformGroup": "playstation",
+      "alsoOn": [
+        "pc"
+      ],
       "tags": [
         "Co-op",
         "Roguelike",
@@ -92,6 +95,9 @@
       "studio": "Schell Games",
       "role": "Gameplay Engineer",
       "platformGroup": "playstation",
+      "alsoOn": [
+        "pc"
+      ],
       "responsibilities": [
         "Gameplay",
         "Systems",
@@ -180,6 +186,9 @@
       "studio": "Schell Games",
       "role": "Project Director & Tech Lead",
       "platformGroup": "playstation",
+      "alsoOn": [
+        "pc"
+      ],
       "responsibilities": [
         "Tech direction",
         "Localization",
@@ -863,14 +872,13 @@
     {
       "id": "toren",
       "title": "Toren",
-      "subtitle": "Alpha version",
       "category": "game",
       "tier": "selected",
       "status": "shipped",
       "visibility": "public",
       "order": 13,
       "studio": "Swordtales",
-      "role": "Programmer (alpha)",
+      "role": "Programmer",
       "platformGroup": "pc",
       "responsibilities": [
         "Gameplay"
@@ -937,7 +945,7 @@
       "order": 14,
       "studio": "Aquiris Game Studio",
       "client": "Cartoon Network",
-      "role": "Programmer (prototype)",
+      "role": "Programmer",
       "platformGroup": "mobile",
       "platforms": [
         "Web"

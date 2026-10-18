@@ -6,6 +6,7 @@ import {
   nextEntry,
   periodLabel,
   platformCounts,
+  platformGroups,
   publicEntries,
   research,
 } from '../../src/lib/experiences';
@@ -60,6 +61,22 @@ describe('entryPath', () => {
   it('puts research under /research/ and everything else under /work/', () => {
     expect(entryPath({ id: 'crowdvis', category: 'research' })).toBe('/research/crowdvis/');
     expect(entryPath({ id: 'toren', category: 'game' })).toBe('/work/toren/');
+  });
+});
+
+describe('platformGroups', () => {
+  it('lists the main group first, then the others, once each', () => {
+    expect(platformGroups({ platformGroup: 'playstation', alsoOn: ['pc', 'playstation'] })).toEqual(
+      ['playstation', 'pc'],
+    );
+    expect(platformGroups({ platformGroup: 'vr' })).toEqual(['vr']);
+    expect(platformGroups({ alsoOn: ['mobile'] })).toEqual(['mobile']);
+    expect(platformGroups({})).toEqual([]);
+  });
+  it('counts a game on two platforms under both', () => {
+    const both = make('both', { platformGroup: 'playstation', alsoOn: ['pc'] });
+    const counts = platformCounts([both]);
+    expect([counts.all, counts.playstation, counts.pc]).toEqual([1, 1, 1]);
   });
 });
 

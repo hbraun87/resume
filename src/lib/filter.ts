@@ -4,7 +4,9 @@
 export function applyFilter(cards: HTMLElement[], group: string): number {
   let shown = 0;
   for (const card of cards) {
-    const visible = group === 'all' || card.dataset['platform'] === group;
+    // A card on several platforms lists them all, space-separated.
+    const platforms = (card.dataset['platform'] ?? '').split(' ');
+    const visible = group === 'all' || platforms.includes(group);
     card.hidden = !visible;
     if (visible) shown += 1;
   }

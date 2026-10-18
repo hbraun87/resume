@@ -39,9 +39,17 @@ export function entryPath(entry: Pick<Experience, 'id' | 'category'>): string {
   return `/${entry.category === 'research' ? 'research' : 'work'}/${entry.id}/`;
 }
 
+/** Every platform group of an entry: its main one first, then `alsoOn`, without repeats. */
+export function platformGroups(
+  entry: Pick<Experience, 'platformGroup' | 'alsoOn'>,
+): PlatformGroup[] {
+  const groups = entry.platformGroup ? [entry.platformGroup] : [];
+  return [...new Set([...groups, ...(entry.alsoOn ?? [])])];
+}
+
 export function platformCounts(entries: Experience[]): Record<PlatformGroup | 'all', number> {
   const counts = { all: entries.length, pc: 0, mobile: 0, playstation: 0, vr: 0, ar: 0 };
-  for (const entry of entries) if (entry.platformGroup) counts[entry.platformGroup] += 1;
+  for (const entry of entries) for (const group of platformGroups(entry)) counts[group] += 1;
   return counts;
 }
 

@@ -85,6 +85,8 @@ const linkSchema = z.object({
   url: z.url({ protocol: /^https?$/ }),
 });
 
+const platformGroup = z.enum(['pc', 'mobile', 'playstation', 'vr', 'ar']);
+
 export const experienceSchema = z
   .object({
     id: z
@@ -116,7 +118,9 @@ export const experienceSchema = z
       .optional(),
     platforms: z.array(z.string()).optional(),
     /** The home page filter group (docs/brief/10-loading-screen-spec.md). */
-    platformGroup: z.enum(['pc', 'mobile', 'playstation', 'vr', 'ar']).optional(),
+    platformGroup: platformGroup.optional(),
+    /** More groups the game is also on, each shown as its own chip and filter match. */
+    alsoOn: z.array(platformGroup).optional(),
     engine: z.string().optional(),
     tech: z.array(z.string()).optional(),
     teamSize: z.number().int().positive().optional(),
