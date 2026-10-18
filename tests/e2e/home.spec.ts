@@ -1,10 +1,11 @@
 import { expect, test, type Page } from '@playwright/test';
 import content from '../../src/content/experiences.json' with { type: 'json' };
-import { games } from '../../src/lib/experiences';
+import { games, research } from '../../src/lib/experiences';
 import type { Experience } from '../../src/lib/schema';
 
 // The number of game cards on the home page, from the content itself.
 const GAMES = games(content.experiences as Experience[]).length;
+const RESEARCH = research(content.experiences as Experience[]).length;
 
 // The loading-screen home page (docs/brief/10-loading-screen-spec.md), on every
 // phone, tablet and desktop profile.
@@ -172,7 +173,8 @@ test('every card and research row links to its own page', async ({ page, request
   const links = await page
     .locator('[data-platform] h3 a, [data-asset="shader"] h3 a')
     .evaluateAll((anchors) => anchors.map((a) => (a as HTMLAnchorElement).href));
-  expect(links.length).toBeGreaterThan(30);
+  expect(links).toHaveLength(GAMES + RESEARCH);
+  expect(new Set(links).size).toBe(links.length);
   for (const link of links.slice(0, 3)) expect((await request.get(link)).ok()).toBe(true);
 });
 

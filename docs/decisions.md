@@ -169,3 +169,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** profile links take an optional `visibility` (`public` or `hidden`), and `profile.json` gains `footer.buildLine`. The GitHub link and the "Built with Astro · Source on GitHub · Build" footer line are hidden; email, LinkedIn and the "No cookies, no trackers" line stay.
 - **Why:** Henry (Oct 18, 2026): hide the GitHub link and the build line for now, since pointing visitors at the source is not relevant. He asked to hide rather than delete, so both are a one-word switch back.
 - **Alternatives:** deleting the link and the line (Henry wants to toggle them).
+
+## 2026-10-18 · A shorter game list led by 4:LOOP
+
+- **Decision:** Sim Camisaria, N.E.R.O.T., Search N' Find, Pine Creek and Gendai Hero are hidden too, and 4:LOOP moves to first, ahead of Until You Fall. The N.E.R.O.T. loading tip is removed and the games intro no longer mentions the game jam runner, so no visible text points at a hidden project. 4:LOOP stays a regular-size card: a large featured card needs a case study of what Henry did on it, which only he can supply.
+- **Why:** Henry (Oct 18, 2026): less is more, so the smaller credits stop diluting the main titles, and 4:LOOP is his current and biggest project.
+- **Alternatives:** keeping the small titles in a collapsed archive list (still dilutes the page Henry wants to see).
