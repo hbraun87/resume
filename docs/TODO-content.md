@@ -4,18 +4,18 @@ Facts and media the site is waiting on. Nothing here is invented: unknown values
 
 ## Kickoff questions (asked Oct 17, 2026) and the defaults in use
 
-| #   | Question                                                                          | Default in use until Henry answers                                                               |
-| --- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| 1   | What Bad Robot Games work can be public?                                          | Henry added 4:LOOP (Oct 17). His part on it is shown as his Bad Robot titles until he says more  |
-| 2   | Can Project Octavia (Twin Suns) be public, and what did Henry own?                | Public (Henry, Oct 17). What he owned is still open                                              |
-| 3   | Target roles for the headline                                                     | "Engineering Manager, Games"                                                                     |
-| 4   | Featured list                                                                     | Until You Fall, IEYTD Localization, HoloLAB Champions, LEGO BrickHeadz, Domino World AR, Arithal |
-| 5   | Arithal status                                                                    | In development                                                                                   |
-| 6   | Numbers for featured projects (team size, people led, platforms, awards, metrics) | Left out                                                                                         |
-| 7   | Media rights; personal captures; showreel                                         | Current site media and public trailers                                                           |
-| 8   | Résumé PDF                                                                        | Generated from the site                                                                          |
-| 9   | Availability line                                                                 | None                                                                                             |
-| 10  | Pine Creek and Loreisle                                                           | Public as in development: Henry's Build Spec lists both among his 21 titles                      |
+| #   | Question                                                                          | Default in use until Henry answers                                                                           |
+| --- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| 1   | What Bad Robot Games work can be public?                                          | Henry added 4:LOOP (Oct 17) and approved its Steam media (Oct 18). His part is shown as his Bad Robot titles |
+| 2   | Can Project Octavia (Twin Suns) be public, and what did Henry own?                | Public (Henry, Oct 17). What he owned is still open                                                          |
+| 3   | Target roles for the headline                                                     | "Engineering Manager, Games"                                                                                 |
+| 4   | Featured list                                                                     | Until You Fall, IEYTD Localization, HoloLAB Champions, LEGO BrickHeadz, Domino World AR, Arithal             |
+| 5   | Arithal status                                                                    | In development                                                                                               |
+| 6   | Numbers for featured projects (team size, people led, platforms, awards, metrics) | Left out                                                                                                     |
+| 7   | Media rights; personal captures; showreel                                         | Current site media and public trailers                                                                       |
+| 8   | Résumé PDF                                                                        | Generated from the site                                                                                      |
+| 9   | Availability line                                                                 | None                                                                                                         |
+| 10  | Pine Creek and Loreisle                                                           | Public as in development: Henry's Build Spec lists both among his 21 titles                                  |
 
 ## Media migration (Phase 2), done
 

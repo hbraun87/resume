@@ -1,12 +1,10 @@
 name: Fetch Steam media
 
-# One-off helper: the cloud sessions that build this site cannot reach Steam,
-# so this job downloads the Steam store media for 4:LOOP and Project Octavia
-# into media-incoming/ on the working branch, where they are picked by hand.
+# Run by hand from the Actions tab: the cloud sessions that build this site cannot
+# reach Steam, so this job downloads the Steam store media for 4:LOOP and Project
+# Octavia into media-incoming/ on the chosen branch, where they are picked by hand
+# and copied into src/assets/projects/.
 on:
-  push:
-    branches: [claude/resume-site-tmyy5f]
-    paths: [scripts/fetch-steam-media.mjs, .github/workflows/steam-media.yml]
   workflow_dispatch:
 
 permissions:

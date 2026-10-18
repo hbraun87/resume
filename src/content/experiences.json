@@ -37,8 +37,49 @@
           "url": "https://store.steampowered.com/app/3355360/4LOOP/"
         }
       ],
-      "media": [],
-      "order": 2
+      "media": [
+        {
+          "type": "youtube",
+          "id": "6-5ieEtmgTc",
+          "title": "4:LOOP gameplay reveal trailer",
+          "poster": "06.jpg"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "A crew in powered exosuits fights a swarm of winged alien creatures over a dusty street at sunset"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "Hulking alien-infected figures stand beside a playground at night under a floating jellyfish-like craft"
+        },
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "Armored crew members advance through an oil field at dusk past a glowing alien pod"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "The crew trades fire with a large armored alien in a burning street at night"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "Four armored players stand in a purple-lit hall as tentacled alien craft hover overhead"
+        },
+        {
+          "type": "image",
+          "src": "06.jpg",
+          "alt": "Two players open fire on a spiked reptilian alien in a misty forest"
+        }
+      ],
+      "order": 2,
+      "cover": {
+        "src": "06.jpg",
+        "alt": "Two players open fire on a spiked reptilian alien in a misty forest"
+      }
     },
     {
       "id": "until-you-fall",
@@ -518,7 +559,33 @@
         "Worked on Project Octavia, a PvPvE Unreal Engine title, as Programmer and then Senior Programmer.",
         "A stylized third-person spy action game built around infiltration, gunplay and close-quarters combat."
       ],
-      "media": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "03.jpg",
+          "alt": "An agent in pink lands a flying kick on a guard in an office, drawn in an ink-outlined comic style"
+        },
+        {
+          "type": "image",
+          "src": "01.jpg",
+          "alt": "Two agents slip through the gate of a quarantine area at night"
+        },
+        {
+          "type": "image",
+          "src": "02.jpg",
+          "alt": "A dim 1970s-style lounge with mushroom lamps and an orange-striped wall"
+        },
+        {
+          "type": "image",
+          "src": "04.jpg",
+          "alt": "An agent crouches by a wall outside a government building at night"
+        },
+        {
+          "type": "image",
+          "src": "05.jpg",
+          "alt": "Over-the-shoulder view of an agent firing a pistol in a lobby while the mission HUD reads Gather intel"
+        }
+      ],
       "platformGroup": "pc",
       "platforms": [
         "PC"
@@ -529,7 +596,11 @@
           "label": "Project Octavia on Steam",
           "url": "https://store.steampowered.com/app/1941770/Project_Octavia/"
         }
-      ]
+      ],
+      "cover": {
+        "src": "03.jpg",
+        "alt": "An agent in pink lands a flying kick on a guard in an office, drawn in an ink-outlined comic style"
+      }
     },
     {
       "id": "superchem-vr",

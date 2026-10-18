@@ -134,3 +134,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** `npm run check` (every push and every deploy) runs the static gates, unit tests with the 95% branch coverage gate, the build, and the light system tests: Pixel 9 Pro XL and desktop Chrome. The extended suite runs all eleven profiles in Chromium, Firefox and WebKit, via `npm run check:extended` or the CI workflow run by hand with `extended`.
 - **Why:** Henry (Oct 17, 2026): "split test in light and extended so we run light by default but can run extended when needed." The full run took about 19 minutes per push.
 - **Alternatives:** extended on pull requests to `main` only (Henry asked for on demand).
+
+## 2026-10-18 · Steam media for 4:LOOP and Project Octavia
+
+- **Decision:** the 4:LOOP and Project Octavia cards and pages use the screenshots from their Steam store pages, and 4:LOOP's page plays its gameplay reveal trailer through the YouTube facade (ID from the PlayStation Blog announcement). Octavia's only trailer is a Steam stream with no YouTube upload, so it is left out; its page links to Steam. The cloud sessions cannot reach Steam, so `steam-media.yml` (run by hand) downloads the files on a GitHub runner.
+- **Why:** Henry (Oct 18, 2026) asked for the images and video from the Steam pages, which is his OK on using that art.
+- **Alternatives:** self-hosting the Octavia trailer as an MP4 (the site has no self-hosted video player yet, and it would be the heaviest file on the site).
