@@ -9,7 +9,7 @@
     { "kind": "github", "label": "GitHub", "url": "https://github.com/hbraun87" }
   ],
   "portrait": { "src": "henry.jpg", "alt": "Henry Braun smiling in sunglasses beside his white Samoyed in an autumn forest" },
-  "bio": "I earned my B.Sc. in Computer Science from PUCRS at 21, while doing computer graphics R&D at the Hewlett-Packard PUCRS Laboratory. I completed the PUCRS/Ubisoft Game Development specialization in 2011 and my master's in computer graphics in 2012, including time as a visiting scholar at Carnegie Mellon University.\n\nIn 2013 I moved to the United States as Co-Director of Interactive Media Initiatives at Vissman Management. In 2015 I joined Schell Games, where I spent more than six years as an Advanced and then Senior Engineer and technical lead on a diverse slate of projects, with a strong focus on VR and AR. I then worked as a Senior Programmer at Twin Suns Corp on Project Octavia, a PvPvE Unreal Engine title.\n\nToday I am an Engineering Manager at Bad Robot Games, where I previously served as Lead Gameplay Engineer, and the founder of Maned Wolf Games.",
+  "bio": "I earned my B.Sc. in Computer Science from PUCRS at 21, while doing computer graphics R&D at the Hewlett-Packard PUCRS Laboratory. I completed the PUCRS/Ubisoft Game Development specialization in 2011 and my master's in computer graphics in 2012, including time as a visiting scholar at Carnegie Mellon University.\n\nIn 2013 I moved to the United States as Co-Director of Interactive Media Initiatives at Vissman Management. In 2015 I joined Schell Games, where I spent more than six years as an Advanced and then Senior Engineer and technical lead on a diverse slate of projects, with a strong focus on VR and AR. I then worked as a Senior Engineer at Twin Suns Corp on Project Octavia, a PvPvE Unreal Engine title.\n\nToday I am an Engineering Manager at Bad Robot Games, where I previously served as Lead Gameplay Engineer, and the founder of Maned Wolf Games.",
   "pillars": [
     {
       "title": "Engineering leadership",
@@ -102,17 +102,10 @@
     },
     {
       "company": "Twin Suns Corp",
-      "title": "Senior Programmer",
-      "start": "2022-10",
+      "title": "Senior Engineer",
+      "start": "2021-10",
       "end": "2024-01",
       "highlights": ["Worked on Project Octavia, a PvPvE title in Unreal Engine."]
-    },
-    {
-      "company": "Twin Suns Corp",
-      "title": "Programmer",
-      "start": "2021-10",
-      "end": "2022-10",
-      "highlights": []
     },
     {
       "company": "Schell Games",
@@ -144,7 +137,7 @@
     },
     {
       "company": "Aquiris Game Studio",
-      "title": "Programmer",
+      "title": "Gameplay Engineer",
       "location": "Porto Alegre, Brazil",
       "start": "2013-07",
       "end": "2013-08",
@@ -152,14 +145,14 @@
     },
     {
       "company": "Rockhead Games",
-      "title": "Programmer",
+      "title": "Gameplay Engineer",
       "start": "2013-04",
       "end": "2013-05",
       "highlights": ["Programmed Sim Camisaria, a factory management game."]
     },
     {
       "company": "Swordtales",
-      "title": "Programmer",
+      "title": "Gameplay Engineer",
       "start": "2011-08",
       "end": "2012-03",
       "highlights": ["Programmed part of the Toren alpha released on OnLive."]

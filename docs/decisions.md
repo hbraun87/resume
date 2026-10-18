@@ -152,3 +152,8 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** games can list more platforms in `alsoOn`, each shown as its own chip and counted under each filter; Until You Fall, I Expect You To Die and 4:LOOP show PlayStation and PC. Current roles in the quest log are dated from when Henry joined the company, so Bad Robot Games reads 2024–present. Role labels no longer carry "(alpha)", "(prototype)" or "(freelance)", and Toren lost its "Alpha version" subtitle.
 - **Why:** Henry (Oct 18, 2026): use his 2024 Bad Robot start, tag games on both PlayStation and PC, and drop the qualifiers as not relevant.
 - **Alternatives:** making `platformGroup` an array (every entry and test would change for three games).
+
+## 2026-10-18 · Engineer titles
+
+- **Decision:** Henry's Programmer titles read Gameplay Engineer, on roles and project cards. His two Twin Suns roles are one: Senior Engineer, Oct 2021 to Jan 2024, also on Project Octavia. Toren shows PlayStation and PC.
+- **Why:** Henry (Oct 18, 2026): "on the twin suns project keep just senior engineer", "replace programmer for gameplay engineer", and Toren was a PlayStation and PC title. His word overrides the LinkedIn titles in `09-migration-inventory.md`.
