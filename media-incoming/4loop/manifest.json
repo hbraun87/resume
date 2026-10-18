@@ -1,0 +1,60 @@
+{
+  "appid": "3355360",
+  "files": [
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3355360/3b7bb97ea9a71b0dce82ee64c25d0c5e1a28df9a/header.jpg",
+      "file": "media-incoming/4loop/store-header.jpg",
+      "bytes": 36784
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3355360/3b7bb97ea9a71b0dce82ee64c25d0c5e1a28df9a/capsule_616x353.jpg",
+      "file": "media-incoming/4loop/store-capsule_616x353.jpg",
+      "error": "Error: 404 https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3355360/3b7bb97ea9a71b0dce82ee64c25d0c5e1a28df9a/capsule_616x353.jpg"
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3355360/3b7bb97ea9a71b0dce82ee64c25d0c5e1a28df9a/library_hero.jpg",
+      "file": "media-incoming/4loop/store-library_hero.jpg",
+      "error": "Error: 404 https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3355360/3b7bb97ea9a71b0dce82ee64c25d0c5e1a28df9a/library_hero.jpg"
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3355360/3b7bb97ea9a71b0dce82ee64c25d0c5e1a28df9a/library_600x900.jpg",
+      "file": "media-incoming/4loop/store-library_600x900.jpg",
+      "error": "Error: 404 https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3355360/3b7bb97ea9a71b0dce82ee64c25d0c5e1a28df9a/library_600x900.jpg"
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3355360/c90acdf6220d4f15d1568370b85123fb181b46a5/ss_c90acdf6220d4f15d1568370b85123fb181b46a5.1920x1080.jpg",
+      "file": "media-incoming/4loop/shot-01.jpg",
+      "bytes": 325843
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3355360/c2a598d0bb35aaffa59f6bf1fc3d465b5f25552e/ss_c2a598d0bb35aaffa59f6bf1fc3d465b5f25552e.1920x1080.jpg",
+      "file": "media-incoming/4loop/shot-02.jpg",
+      "bytes": 223236
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3355360/164eac09c171ee73c7c5b12f8ff1405633800e1a/ss_164eac09c171ee73c7c5b12f8ff1405633800e1a.1920x1080.jpg",
+      "file": "media-incoming/4loop/shot-03.jpg",
+      "bytes": 324241
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3355360/0edd570370074b45bb766d38c5bf0918b774d86e/ss_0edd570370074b45bb766d38c5bf0918b774d86e.1920x1080.jpg",
+      "file": "media-incoming/4loop/shot-04.jpg",
+      "bytes": 262880
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3355360/ba2d4040645ea1f83e1ad4de167d27560728fec3/ss_ba2d4040645ea1f83e1ad4de167d27560728fec3.1920x1080.jpg",
+      "file": "media-incoming/4loop/shot-05.jpg",
+      "bytes": 394882
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3355360/2c4620a776cedaf7a25e29f5322d5b07cf1b914e/ss_2c4620a776cedaf7a25e29f5322d5b07cf1b914e.1920x1080.jpg",
+      "file": "media-incoming/4loop/shot-06.jpg",
+      "bytes": 418266
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257247757/ccba5d69be70e622a1592cbb87ec63051c53cc7b/movie_600x337.jpg?t=1765503138",
+      "file": "media-incoming/4loop/movie-1-thumb.jpg",
+      "bytes": 75594
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "appid": "1941770",
+  "files": [
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1941770/776c35878abe0d4a3f55734fea6b236a093511f6/header.jpg",
+      "file": "media-incoming/project-octavia/store-header.jpg",
+      "bytes": 24263
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1941770/776c35878abe0d4a3f55734fea6b236a093511f6/capsule_616x353.jpg",
+      "file": "media-incoming/project-octavia/store-capsule_616x353.jpg",
+      "error": "Error: 404 https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1941770/776c35878abe0d4a3f55734fea6b236a093511f6/capsule_616x353.jpg"
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1941770/776c35878abe0d4a3f55734fea6b236a093511f6/library_hero.jpg",
+      "file": "media-incoming/project-octavia/store-library_hero.jpg",
+      "error": "Error: 404 https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1941770/776c35878abe0d4a3f55734fea6b236a093511f6/library_hero.jpg"
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1941770/776c35878abe0d4a3f55734fea6b236a093511f6/library_600x900.jpg",
+      "file": "media-incoming/project-octavia/store-library_600x900.jpg",
+      "error": "Error: 404 https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1941770/776c35878abe0d4a3f55734fea6b236a093511f6/library_600x900.jpg"
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1941770/1dd0c10f23e6fab62a6d3fd99c6bd6f0bec91884/ss_1dd0c10f23e6fab62a6d3fd99c6bd6f0bec91884.1920x1080.jpg",
+      "file": "media-incoming/project-octavia/shot-01.jpg",
+      "bytes": 570773
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1941770/bd17bcccc7a7c25045af1f0c4cfdac36f9f5ece3/ss_bd17bcccc7a7c25045af1f0c4cfdac36f9f5ece3.1920x1080.jpg",
+      "file": "media-incoming/project-octavia/shot-02.jpg",
+      "bytes": 515049
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1941770/b6495bf0d8e15228b324119cf02913231b36bcda/ss_b6495bf0d8e15228b324119cf02913231b36bcda.1920x1080.jpg",
+      "file": "media-incoming/project-octavia/shot-03.jpg",
+      "bytes": 431746
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1941770/a07bb680dd7afbac61047e4e0a5e8b1f2a5cdf0a/ss_a07bb680dd7afbac61047e4e0a5e8b1f2a5cdf0a.1920x1080.jpg",
+      "file": "media-incoming/project-octavia/shot-04.jpg",
+      "bytes": 622129
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1941770/f35960050e5b259fadc9e6aa592850fd06d14711/ss_f35960050e5b259fadc9e6aa592850fd06d14711.1920x1080.jpg",
+      "file": "media-incoming/project-octavia/shot-05.jpg",
+      "bytes": 503314
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257215081/e31feb8121df5517ca520ed85e5b2476cc048ecd/movie_600x337.jpg?t=1761600691",
+      "file": "media-incoming/project-octavia/movie-1-thumb.jpg",
+      "bytes": 81831
+    }
+  ]
+}
