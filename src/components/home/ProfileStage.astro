@@ -164,11 +164,10 @@ const columns = [
     font-size: var(--step--2);
     font-weight: 600;
   }
-  /* The photo keeps its 4:3 framing and scales down on wide sheets instead of
-     being cropped shorter. */
+  /* The photo spans the sheet. Beyond phones it is a little shorter, trimmed
+     from the bottom so heads and ears stay in frame. */
   .portrait {
-    width: min(100%, 24rem);
-    margin: var(--space-4) auto 0;
+    margin-top: var(--space-4);
     overflow: hidden;
     aspect-ratio: 4 / 3;
     background: var(--line);
@@ -180,6 +179,14 @@ const columns = [
     height: 100%;
     object-fit: cover;
     object-position: 50% 40%;
+  }
+  @media (min-width: 560px) {
+    .portrait {
+      aspect-ratio: 16 / 10;
+    }
+    .portrait :global(img) {
+      object-position: 50% 15%;
+    }
   }
   /* Borders, not grid gaps, draw the lines between stats: a 1px gap can vanish
      on screens scaled to 125% or 150%. */
