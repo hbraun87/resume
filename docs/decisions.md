@@ -187,3 +187,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** the contact section's headline reads "Say hello." and the line under it is gone; `home.contactLede` is now optional, so a line can come back by adding it to `profile.json`.
 - **Why:** Henry (Oct 18, 2026) is still employed, and "Your project is next in the queue." read like an active job search. He picked "Say hello." from three softer options.
 - **Alternatives:** "Always up for talking games. Let's connect." and "Open to conversations about what's next."
+
+## 2026-10-19 · Portrait in the character sheet
+
+- **Decision:** the photo of Henry with his Samoyed (from henrybraun.info, already in `src/assets/profile/`) shows at the top of the character sheet as AVIF/WebP at 360–800px, lazy-loaded, in a 4:3 frame (2:1 on tablets, where the sheet is full width). `portrait.visibility` in `profile.json` switches it off.
+- **Why:** Henry (Oct 19, 2026) wanted to try his photo on the site, with an easy rollback.
+- **Alternatives:** a round avatar beside the bio (crops the dog out); the hero (competes with the boot sequence).

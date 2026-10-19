@@ -10,6 +10,18 @@ const projectImages: ImageModules = import.meta.glob<{ default: ImageMetadata }>
   { eager: true },
 );
 
+const profileImages: ImageModules = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/profile/*.{jpg,jpeg,png,webp,avif}',
+  { eager: true },
+);
+
+/** The image `file` from src/assets/profile/. */
+export function profileImage(file: string, images = profileImages): ImageMetadata {
+  const image = images[`/src/assets/profile/${file}`];
+  if (!image) throw new Error(`Missing image src/assets/profile/${file}`);
+  return image.default;
+}
+
 /** The image `file` from src/assets/projects/<id>/. */
 export function projectImage(id: string, file: string, images = projectImages): ImageMetadata {
   const image = images[`/src/assets/projects/${id}/${file}`];

@@ -2,7 +2,9 @@
 /* Stage 1: bio, character sheet and quest log. */
 import profile from '../../content/profile.json';
 import StageHeader from '../StageHeader.astro';
-import { paragraphs, questLog } from '../../lib/profile';
+import { Picture } from 'astro:assets';
+import { isShown, paragraphs, questLog } from '../../lib/profile';
+import { profileImage } from '../../lib/media';
 
 interface Props {
   titles: number;
@@ -11,6 +13,8 @@ interface Props {
 
 const { titles, researchCount } = Astro.props;
 const { home } = profile;
+const { portrait } = profile;
+const portraitImage = isShown(portrait) ? profileImage(portrait.src) : undefined;
 const [years, platforms] = home.stats;
 const stats = [
   years,
@@ -51,6 +55,18 @@ const columns = [
       <h3 id="sheet-title" class="mono sheet-title">
         Character sheet
       </h3>
+      {portraitImage && (
+        <figure class="portrait">
+          <Picture
+            src={portraitImage}
+            alt={portrait.alt}
+            formats={['avif', 'webp']}
+            widths={[360, 560, 800]}
+            sizes="(min-width: 76rem) 30rem, (min-width: 54rem) 40vw, 100vw"
+            loading="lazy"
+          />
+        </figure>
+      )}
       <dl class="stats">
         {stats.map((stat) => (
           <div>
@@ -129,6 +145,26 @@ const columns = [
     color: var(--wolf);
     font-size: var(--step--2);
     font-weight: 600;
+  }
+  .portrait {
+    margin-top: var(--space-4);
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .portrait :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 40%;
+  }
+  /* Full-width sheet on tablets: a wider crop keeps the photo from taking over. */
+  @media (min-width: 560px) and (max-width: 860px) {
+    .portrait {
+      aspect-ratio: 2 / 1;
+    }
   }
   .stats {
     display: grid;

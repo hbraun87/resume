@@ -69,7 +69,12 @@ export function paragraphs(text: string): string[] {
     .filter(Boolean);
 }
 
-/** Profile links shown on the site; a link marked "hidden" stays in profile.json only. */
+/** Whether a profile item shows on the site; one marked "hidden" stays in profile.json only. */
+export function isShown(item: { visibility?: string | undefined } | undefined): boolean {
+  return item !== undefined && item.visibility !== 'hidden';
+}
+
+/** Profile links shown on the site. */
 export function visibleLinks<T extends { visibility?: string }>(links: T[]): T[] {
-  return links.filter((link) => link.visibility !== 'hidden');
+  return links.filter(isShown);
 }

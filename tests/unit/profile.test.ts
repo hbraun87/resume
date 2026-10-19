@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import profile from '../../src/content/profile.json';
-import { paragraphs, questLog, visibleLinks, yearSpan } from '../../src/lib/profile';
+import { isShown, paragraphs, questLog, visibleLinks, yearSpan } from '../../src/lib/profile';
 import type { Profile } from '../../src/lib/schema';
 
 type Role = Profile['roles'][number];
@@ -65,5 +65,14 @@ describe('visibleLinks', () => {
       { kind: 'c', visibility: 'hidden' },
     ];
     expect(visibleLinks(links).map((link) => link.kind)).toEqual(['a', 'b']);
+  });
+});
+
+describe('isShown', () => {
+  it('shows public and unmarked items, and hides hidden or missing ones', () => {
+    expect(isShown({ visibility: 'public' })).toBe(true);
+    expect(isShown({})).toBe(true);
+    expect(isShown({ visibility: 'hidden' })).toBe(false);
+    expect(isShown(undefined)).toBe(false);
   });
 });

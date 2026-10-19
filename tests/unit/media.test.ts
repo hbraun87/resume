@@ -1,9 +1,27 @@
 import { describe, expect, it } from 'vitest';
-import { posterFile, projectImage } from '../../src/lib/media';
+import { posterFile, profileImage, projectImage } from '../../src/lib/media';
 
 const meta = { src: '/x.jpg', width: 1600, height: 900, format: 'jpg' } as const;
 const images = { '/src/assets/projects/toren/01.jpg': { default: meta } };
 const video = { type: 'youtube', id: 'JjSu--jB4Zs', title: 'Toren video' } as const;
+
+describe('profileImage', () => {
+  const portraits = { '/src/assets/profile/henry.jpg': { default: meta } };
+
+  it('finds a profile image by file name', () => {
+    expect(profileImage('henry.jpg', portraits)).toBe(meta);
+  });
+
+  it('names the missing file', () => {
+    expect(() => profileImage('nope.jpg', portraits)).toThrow(
+      'Missing image src/assets/profile/nope.jpg',
+    );
+  });
+
+  it('resolves the real portrait by default', () => {
+    expect(profileImage('henry.jpg')).toBeTruthy();
+  });
+});
 
 describe('projectImage', () => {
   it('finds an image by entry id and file name', () => {
