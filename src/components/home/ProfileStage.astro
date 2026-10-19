@@ -42,10 +42,10 @@ const columns = [
   aria-labelledby="profile-title"
 >
   <StageHeader stage="Stage 1" label="Player profile" />
-  <h2 id="profile-title" class="headline">
-    {home.profileHeadline}
-  </h2>
   <div class="split">
+    <h2 id="profile-title" class="headline">
+      {home.profileHeadline}
+    </h2>
     <div class="bio">
       {paragraphs(profile.bio).map((text) => (
         <p>{text}</p>
@@ -106,7 +106,8 @@ const columns = [
     padding-block: var(--space-16);
   }
   .headline {
-    margin-block: var(--space-6) var(--space-12);
+    grid-area: headline;
+    margin-block: var(--space-6) var(--space-6);
     max-width: 18ch;
     font-family: var(--font-display);
     font-size: var(--step-3);
@@ -116,18 +117,32 @@ const columns = [
     text-transform: uppercase;
     text-wrap: balance;
   }
+  /* On desktop the headline and bio share the left column and the character
+     sheet starts level with the headline, so the two columns end near each
+     other. Phones and tablets stack them in reading order. */
   .split {
     display: grid;
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-    gap: var(--space-12);
+    grid-template-areas:
+      'headline sheet'
+      'bio sheet';
+    grid-template-rows: auto 1fr;
+    column-gap: var(--space-12);
     align-items: start;
   }
   @media (max-width: 860px) {
     .split {
       grid-template-columns: minmax(0, 1fr);
+      grid-template-areas: 'headline' 'bio' 'sheet';
+      grid-template-rows: none;
+      row-gap: var(--space-12);
+    }
+    .headline {
+      margin-bottom: 0;
     }
   }
   .bio {
+    grid-area: bio;
     display: grid;
     gap: var(--space-4);
     max-width: var(--measure);
@@ -135,6 +150,9 @@ const columns = [
     line-height: 1.6;
   }
   .sheet {
+    grid-area: sheet;
+    margin-top: var(--space-6);
+    container-type: inline-size;
     padding: var(--space-6);
     background: var(--panel);
     border: 1px solid var(--line);
@@ -160,13 +178,21 @@ const columns = [
     object-fit: cover;
     object-position: 50% 40%;
   }
-  /* Full-width sheet on tablets: a wider crop keeps the photo from taking over. */
-  @media (min-width: 560px) and (max-width: 860px) {
+  /* Beyond phones a wider crop keeps the photo from taking over the sheet. */
+  @media (min-width: 560px) {
     .portrait {
       aspect-ratio: 2 / 1;
     }
     .portrait :global(img) {
       object-position: 50% 25%;
+    }
+  }
+  @media (min-width: 861px) {
+    .portrait {
+      aspect-ratio: 16 / 9;
+    }
+    .portrait :global(img) {
+      object-position: 50% 15%;
     }
   }
   .stats {
@@ -177,9 +203,16 @@ const columns = [
     background: var(--line);
     border: 1px solid var(--line);
   }
+  /* A wide sheet fits the four stats on one row. */
+  @container (min-width: 30rem) {
+    .stats {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
   .stats div {
     display: flex;
     flex-direction: column-reverse;
+    justify-content: flex-end;
     gap: var(--space-1);
     padding: var(--space-4);
     background: var(--panel);

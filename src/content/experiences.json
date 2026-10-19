@@ -2119,7 +2119,7 @@
       "category": "research",
       "tier": "archive",
       "status": "published",
-      "visibility": "public",
+      "visibility": "hidden",
       "order": 112,
       "role": "Developer",
       "period": {
