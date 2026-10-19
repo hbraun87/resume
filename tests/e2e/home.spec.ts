@@ -168,6 +168,17 @@ test('platform filters show one platform and announce the count', async ({ page 
   await expect(cards.filter({ visible: true })).toHaveCount(GAMES);
 });
 
+test('the spotlight game leads the grid at full width', async ({ page }) => {
+  const spotlight = content.experiences.find((entry) => 'spotlight' in entry && entry.spotlight);
+  test.skip(!spotlight, 'no game is in the spotlight');
+  await page.goto('');
+  const grid = page.locator('#games .grid');
+  const first = grid.locator('> li').first();
+  await expect(first).toHaveAttribute('data-asset-name', spotlight?.title ?? '');
+  const [gridBox, cardBox] = await Promise.all([grid.boundingBox(), first.boundingBox()]);
+  expect(Math.abs((cardBox?.width ?? 0) - (gridBox?.width ?? 1))).toBeLessThanOrEqual(1);
+});
+
 test('every card and research row links to its own page', async ({ page, request }) => {
   await page.goto('');
   const links = await page

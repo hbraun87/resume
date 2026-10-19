@@ -40,6 +40,9 @@
               "archive"
             ]
           },
+          "spotlight": {
+            "type": "boolean"
+          },
           "status": {
             "type": "string",
             "enum": [

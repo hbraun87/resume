@@ -6,6 +6,7 @@
       "title": "4:LOOP",
       "category": "game",
       "tier": "selected",
+      "spotlight": true,
       "status": "in-development",
       "visibility": "public",
       "studio": "Bad Robot Games",

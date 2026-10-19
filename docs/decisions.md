@@ -211,3 +211,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** `footer.privacyLine` in `profile.json` hides "No cookies, no trackers, no third-party requests." The site still makes no such requests; only the line is gone. The HUD test now measures the footer's last element instead of its last paragraph, since the footer can end with the link row.
 - **Why:** Henry (Oct 19, 2026): the line is out of context and takes attention from his work.
 - **Alternatives:** deleting the line (Henry prefers switches he can flip back).
+
+## 2026-10-19 · 4:LOOP in the spotlight
+
+- **Decision:** entries gain an optional `spotlight` flag. The spotlight card spans the whole first row of the games grid, with the art and text side by side on wide screens and a larger title; on phones it stacks like the other cards. 4:LOOP is the spotlight. A system test checks the spotlight card leads the grid at full width.
+- **Why:** Henry (Oct 19, 2026) wants 4:LOOP, his current and biggest project, to be the center of attention. Making it a `featured` card would need a case study only he can write, and featured cards only span two columns.
+- **Alternatives:** `tier: "featured"` with a case study (blocked on Henry's words, and still smaller than the full row).

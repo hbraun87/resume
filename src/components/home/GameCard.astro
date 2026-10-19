@@ -15,13 +15,21 @@ interface Props {
 const { entry } = Astro.props;
 const groups = platformGroups(entry);
 const [group = 'pc'] = groups;
-const featured = entry.tier === 'featured';
+const spotlight = entry.spotlight === true;
+const featured = entry.tier === 'featured' && !spotlight;
 const cover = entry.cover && projectImage(entry.id, entry.cover.src);
-const widths = cover ? [400, 800].filter((w) => w <= cover.width) : [];
+const widths = cover
+  ? [400, 800, ...(spotlight ? [1200] : [])].filter((w) => w <= cover.width)
+  : [];
+const sizes = spotlight
+  ? '(min-width: 76rem) 46rem, 100vw'
+  : featured
+    ? '(min-width: 76rem) 37rem, (min-width: 40rem) 60vw, 100vw'
+    : '(min-width: 76rem) 18rem, (min-width: 40rem) 45vw, 100vw';
 ---
 
 <li
-  class:list={['card', group, { featured }]}
+  class:list={['card', group, { featured, spotlight }]}
   data-platform={groups.join(' ')}
   data-asset="level"
   data-asset-name={entry.title}
@@ -33,11 +41,7 @@ const widths = cover ? [400, 800].filter((w) => w <= cover.width) : [];
         alt=""
         formats={['avif', 'webp']}
         widths={widths.length ? widths : [cover.width]}
-        sizes={
-          featured
-            ? '(min-width: 76rem) 37rem, (min-width: 40rem) 60vw, 100vw'
-            : '(min-width: 76rem) 18rem, (min-width: 40rem) 45vw, 100vw'
-        }
+        sizes={sizes}
         loading="lazy"
       />
     ) : (
@@ -89,6 +93,33 @@ const widths = cover ? [400, 800].filter((w) => w <= cover.width) : [];
   @container (min-width: 35rem) {
     .featured {
       grid-column: span 2;
+    }
+  }
+  /* The spotlight card takes the whole first row; on wide grids the art and text
+     sit side by side. */
+  .spotlight {
+    grid-column: 1 / -1;
+  }
+  .spotlight h3 {
+    font-size: var(--step-2);
+    line-height: 1.15;
+  }
+  .spotlight .summary {
+    font-size: var(--step-0);
+  }
+  @container (min-width: 46rem) {
+    .spotlight {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    }
+    .spotlight .art {
+      border-right: 1px solid var(--line);
+      border-bottom: 0;
+    }
+    .spotlight .body {
+      align-content: center;
+      gap: var(--space-3);
+      padding: var(--space-8);
     }
   }
   .card:hover,

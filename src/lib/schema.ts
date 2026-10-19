@@ -96,6 +96,8 @@ export const experienceSchema = z
     subtitle: z.string().optional(),
     category: z.enum(['game', 'prototype', 'tool', 'research', 'jam', 'other']),
     tier: z.enum(['featured', 'selected', 'archive']),
+    /** Shows the card full width at the top of the games grid, as the centerpiece. */
+    spotlight: z.boolean().optional(),
     status: z.enum([
       'shipped',
       'released-early-access',
