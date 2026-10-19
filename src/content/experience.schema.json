@@ -43,6 +43,13 @@
           "spotlight": {
             "type": "boolean"
           },
+          "card": {
+            "type": "string",
+            "enum": [
+              "wide",
+              "regular"
+            ]
+          },
           "status": {
             "type": "string",
             "enum": [

@@ -179,6 +179,22 @@ test('the spotlight game leads the grid at full width', async ({ page }) => {
   expect(Math.abs((cardBox?.width ?? 0) - (gridBox?.width ?? 1))).toBeLessThanOrEqual(1);
 });
 
+test('a featured game set to a regular card stays one column wide', async ({ page }) => {
+  const regular = content.experiences.find(
+    (entry) => entry.visibility === 'public' && 'card' in entry && entry.card === 'regular',
+  );
+  test.skip(!regular, 'no featured game is set to a regular card');
+  await page.goto('');
+  const grid = page.locator('#games .grid');
+  const card = grid.locator(`> li[data-asset-name="${regular?.title ?? ''}"]`);
+  await expect(card).not.toHaveClass(/\bfeatured\b/);
+  const [gridBox, cardBox] = await Promise.all([grid.boundingBox(), card.boundingBox()]);
+  const columns = await grid.evaluate(
+    (el) => getComputedStyle(el).gridTemplateColumns.split(' ').length,
+  );
+  expect(cardBox?.width ?? Infinity).toBeLessThanOrEqual((gridBox?.width ?? 0) / columns + 1);
+});
+
 test('every card and research row links to its own page', async ({ page, request }) => {
   await page.goto('');
   const links = await page

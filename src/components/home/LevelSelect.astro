@@ -60,6 +60,7 @@ const filters = [
 <style>
   .stage {
     padding-block: var(--space-16);
+    container: games / inline-size;
   }
   .head {
     display: flex;
@@ -118,13 +119,26 @@ const filters = [
   .filter[aria-pressed='true'] .count {
     color: inherit;
   }
+  /* One, two or four columns (never three), so the wide cards, which span two,
+     pair up and the last row fills. Four columns start where each is about 14rem,
+     so laptops at 1280px get four. */
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+    grid-template-columns: minmax(0, 1fr);
     grid-auto-flow: dense;
     container-type: inline-size;
     gap: var(--space-4);
     padding: 0;
     list-style: none;
+  }
+  @container games (min-width: 35rem) {
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @container games (min-width: 60rem) {
+    .grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
   }
 </style>

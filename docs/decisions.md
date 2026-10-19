@@ -217,3 +217,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** entries gain an optional `spotlight` flag. The spotlight card spans the whole first row of the games grid, with the art and text side by side on wide screens and a larger title; on phones it stacks like the other cards. 4:LOOP is the spotlight. A system test checks the spotlight card leads the grid at full width.
 - **Why:** Henry (Oct 19, 2026) wants 4:LOOP, his current and biggest project, to be the center of attention. Making it a `featured` card would need a case study only he can write, and featured cards only span two columns.
 - **Alternatives:** `tier: "featured"` with a case study (blocked on Henry's words, and still smaller than the full row).
+
+## 2026-10-19 · Domino World AR as a regular card; the games grid never has three columns
+
+- **Decision:** entries gain an optional `card` field (`wide` or `regular`). A featured entry is a wide card unless `card` is `regular`, which keeps its case-study project page but shows a regular card on the home grid. Domino World AR is set to `regular`, so the grid holds five wide cards and ten regular ones (20 cells). The games grid now uses one, two or four columns, chosen by a container query on the games section, instead of `auto-fill`, which produced three columns between about 940 and 1310px and left a gap on the last row. Four columns start at a 60rem grid (about 1110px windows), so 1180 and 1280px screens get four.
+- **Why:** Henry wanted As Aventuras do Avião Vermelho off its own last row. With wide cards spanning two columns, 20 cells fill four and two columns exactly; three columns can't.
+- **Alternatives:** changing Domino World's tier to `selected` (drops its case-study page layout); keeping `auto-fill` (gaps at laptop and iPad-landscape widths).

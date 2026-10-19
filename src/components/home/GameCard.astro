@@ -16,7 +16,7 @@ const { entry } = Astro.props;
 const groups = platformGroups(entry);
 const [group = 'pc'] = groups;
 const spotlight = entry.spotlight === true;
-const featured = entry.tier === 'featured' && !spotlight;
+const featured = entry.tier === 'featured' && !spotlight && entry.card !== 'regular';
 const cover = entry.cover && projectImage(entry.id, entry.cover.src);
 const widths = cover
   ? [400, 800, ...(spotlight ? [1200] : [])].filter((w) => w <= cover.width)

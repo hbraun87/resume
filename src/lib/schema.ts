@@ -98,6 +98,8 @@ export const experienceSchema = z
     tier: z.enum(['featured', 'selected', 'archive']),
     /** Shows the card full width at the top of the games grid, as the centerpiece. */
     spotlight: z.boolean().optional(),
+    /** Card size in the games grid. Featured entries are wide unless set to regular. */
+    card: z.enum(['wide', 'regular']).optional(),
     status: z.enum([
       'shipped',
       'released-early-access',

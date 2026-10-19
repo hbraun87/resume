@@ -402,6 +402,7 @@
       "title": "Domino World AR",
       "category": "game",
       "tier": "featured",
+      "card": "regular",
       "status": "shipped",
       "visibility": "public",
       "order": 8,
