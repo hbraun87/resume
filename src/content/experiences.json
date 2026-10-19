@@ -1950,12 +1950,12 @@
       "client": "General Motors",
       "role": "Developer",
       "tags": [
-        "VR",
+        "AR",
         "Automotive"
       ],
-      "summary": "CMU ETC project: designed and built an interactive survey of vehicle roominess and visibility for General Motors.",
+      "summary": "Carnegie Mellon University Entertainment Technology Center project: designed and built an interactive AR survey of vehicle roominess and visibility for General Motors.",
       "publication": {
-        "abstract": "An Entertainment Technology Center project team at Carnegie Mellon designing and implementing a new interactive survey on vehicle roominess and visibility for General Motors."
+        "abstract": "An Entertainment Technology Center project team at Carnegie Mellon University designing and implementing a new interactive AR survey on vehicle roominess and visibility for General Motors."
       },
       "media": [
         {
