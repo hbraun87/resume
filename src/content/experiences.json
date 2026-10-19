@@ -242,7 +242,8 @@
       ],
       "cover": {
         "src": "01.jpg",
-        "alt": "\"I Expect You To Die goes global\" announcement listing French, German, Italian, Japanese, Korean, Simplified Chinese, Spanish and Traditional Chinese"
+        "alt": "\"I Expect You To Die goes global\" announcement listing French, German, Italian, Japanese, Korean, Simplified Chinese, Spanish and Traditional Chinese",
+        "fit": "contain"
       }
     },
     {

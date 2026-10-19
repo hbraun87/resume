@@ -235,3 +235,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** the portrait source is now `henry-centered.png`, cut losslessly from the 1024×768 PNG Henry supplied (same 900px-wide centered framing), replacing a JPEG re-encode of a JPEG. The `<Picture>` serves 400, 640 and 900px widths at quality 80 with a JPEG fallback; before it served up to 800px with sharp's default AVIF quality of 50, which smeared hair and beard detail.
 - **Why:** Henry saw the photo as low resolution. The original is only 1024px wide, so on a 2x screen at desktop width the 900px image is still slightly upscaled; a larger original would be the next step.
 - **Alternatives:** keeping the JPEG source with higher quality (still two generations of JPEG loss).
+
+## 2026-10-19 · Contained covers for text banners
+
+- **Decision:** a cover can set `"fit": "contain"`. The card then shows the whole image, centered over a blurred, dimmed copy of itself that fills the rest of the art band, instead of cropping it. The I Expect You To Die localization banner uses it.
+- **Why:** wide cards on desktop use a 21:9 art band and phones a 16:9 one, so the banner (about 1.9:1) lost its headline and footer text on desktop. Photos and screenshots crop well, so `cover` stays the default.
+- **Alternatives:** a 16:9 band for all wide cards (taller cards, uneven rows); a different cover image (Henry chose this one).

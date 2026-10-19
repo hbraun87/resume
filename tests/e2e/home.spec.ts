@@ -195,6 +195,23 @@ test('a featured game set to a regular card stays one column wide', async ({ pag
   expect(cardBox?.width ?? Infinity).toBeLessThanOrEqual((gridBox?.width ?? 0) / columns + 1);
 });
 
+test('a contained cover shows whole over its blurred backdrop', async ({ page }) => {
+  const entry = content.experiences.find(
+    (each) =>
+      each.visibility === 'public' &&
+      'cover' in each &&
+      each.cover &&
+      'fit' in each.cover &&
+      each.cover.fit === 'contain',
+  );
+  test.skip(!entry, 'no card uses a contained cover');
+  await page.goto('');
+  const art = page.locator(`#games .grid > li[data-asset-name="${entry?.title ?? ''}"] .art`);
+  await expect(art).toHaveClass(/\bcontain\b/);
+  await expect(art.locator('img.backdrop')).toHaveCount(1);
+  await expect(art.locator('img:not(.backdrop)')).toHaveCSS('object-fit', 'contain');
+});
+
 test('every card and research row links to its own page', async ({ page, request }) => {
   await page.goto('');
   const links = await page

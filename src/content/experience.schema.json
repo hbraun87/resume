@@ -274,6 +274,13 @@
               "alt": {
                 "type": "string",
                 "minLength": 1
+              },
+              "fit": {
+                "type": "string",
+                "enum": [
+                  "cover",
+                  "contain"
+                ]
               }
             },
             "required": [

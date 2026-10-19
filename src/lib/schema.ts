@@ -158,7 +158,14 @@ export const experienceSchema = z
       })
       .optional(),
     /** Optional: cards without a cover use the generated title-glyph art band. */
-    cover: z.object({ src: imageFile, alt: altText }).optional(),
+    cover: z
+      .object({
+        src: imageFile,
+        alt: altText,
+        /** `contain` shows the whole cover, over a blurred copy, instead of cropping it to the card. For text banners. */
+        fit: z.enum(['cover', 'contain']).optional(),
+      })
+      .optional(),
     coverLoop: z.object({ src: z.string().regex(/^[\w.-]+\.(gif|mp4|webm)$/i) }).optional(),
     media: z.array(mediaSchema).optional(),
     links: z.array(linkSchema).optional(),
