@@ -229,3 +229,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** on desktop the profile headline moves into the bio column and the character sheet starts level with it, so both columns end close together (within about 100px from 900 to 1920px, down from 250 to 500px). The photo spans the sheet: 4:3 on phones, 16:10 from 560px up, anchored near the top so only the bottom is trimmed (a 16:9 crop centered lower cut off Henry's head and the dog's ears; a scaled-down 4:3 photo left empty margins Henry didn't like). The four stats sit on one row when the sheet is wide enough; the lines between them are borders, because a 1px grid gap vanished on screens scaled to 125% or 150%. Phones and tablets keep the stacked order. Localization & porting, Procedural generation, Real-time rendering and Computer vision leave the skill tree (they live only in `profile.json`, so adding one back is one line). Solar System Simulator is hidden, leaving eight research entries.
 - **Why:** Henry saw a large empty gap under the bio beside the taller character sheet and asked for the photo to shrink a bit and four skills to go.
 - **Alternatives:** shrinking only the photo (the sheet was still about 450px taller than the bio at 1440px).
+
+## 2026-10-19 · Sharper portrait
+
+- **Decision:** the portrait source is now `henry-centered.png`, cut losslessly from the 1024×768 PNG Henry supplied (same 900px-wide centered framing), replacing a JPEG re-encode of a JPEG. The `<Picture>` serves 400, 640 and 900px widths at quality 80 with a JPEG fallback; before it served up to 800px with sharp's default AVIF quality of 50, which smeared hair and beard detail.
+- **Why:** Henry saw the photo as low resolution. The original is only 1024px wide, so on a 2x screen at desktop width the 900px image is still slightly upscaled; a larger original would be the next step.
+- **Alternatives:** keeping the JPEG source with higher quality (still two generations of JPEG loss).

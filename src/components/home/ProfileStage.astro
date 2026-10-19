@@ -61,7 +61,9 @@ const columns = [
             src={portraitImage}
             alt={portrait.alt}
             formats={['avif', 'webp']}
-            widths={[360, 560, 800]}
+            widths={[400, 640, 900]}
+            quality={80}
+            fallbackFormat="jpg"
             sizes="(min-width: 76rem) 30rem, (min-width: 54rem) 40vw, 100vw"
             loading="lazy"
           />
