@@ -243,8 +243,11 @@ export const profileSchema = z.object({
       visibility: z.enum(['public', 'hidden']).optional(),
     }),
   ),
-  /** The footer's "Built with Astro · Source on GitHub · Build" line. */
-  footer: z.object({ buildLine: z.enum(['public', 'hidden']) }),
+  /** Footer lines: "Built with Astro · Source on GitHub · Build" and "No cookies, no trackers". */
+  footer: z.object({
+    buildLine: z.enum(['public', 'hidden']),
+    privacyLine: z.enum(['public', 'hidden']),
+  }),
   /** Photo in the character sheet, from src/assets/profile/; "hidden" keeps it off the site. */
   portrait: z
     .object({ src: imageFile, alt: altText, visibility: z.enum(['public', 'hidden']).optional() })

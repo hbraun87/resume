@@ -205,3 +205,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** the portrait uses `henry-centered.jpg`, the original with the empty right edge trimmed (1024 to 900px wide) so Henry and his dog sit centered; `henry.jpg` stays in place, so pointing `portrait.src` back at it undoes the crop. VRoom 360 is tagged AR, and its text spells out Carnegie Mellon University instead of CMU ETC.
 - **Why:** Henry (Oct 19, 2026): VRoom 360 was an AR project, the school's full name matters, and the photo had too much space on the right.
 - **Alternatives:** shifting `object-position` only (cannot recenter on phones and desktop, where the whole width shows).
+
+## 2026-10-19 · Privacy line hidden
+
+- **Decision:** `footer.privacyLine` in `profile.json` hides "No cookies, no trackers, no third-party requests." The site still makes no such requests; only the line is gone. The HUD test now measures the footer's last element instead of its last paragraph, since the footer can end with the link row.
+- **Why:** Henry (Oct 19, 2026): the line is out of context and takes attention from his work.
+- **Alternatives:** deleting the line (Henry prefers switches he can flip back).

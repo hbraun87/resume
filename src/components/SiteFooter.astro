@@ -6,6 +6,7 @@ import { visibleLinks } from '../lib/profile';
 const build = buildInfo();
 const repo = 'https://github.com/hbraun87/resume';
 const showBuildLine = profile.footer.buildLine !== 'hidden';
+const showPrivacyLine = profile.footer.privacyLine !== 'hidden';
 ---
 
 <footer class="site-footer">
@@ -37,7 +38,7 @@ const showBuildLine = profile.footer.buildLine !== 'hidden';
         · {build.date}
       </p>
     )}
-    <p class="mono meta">No cookies, no trackers, no third-party requests.</p>
+    {showPrivacyLine && <p class="mono meta">No cookies, no trackers, no third-party requests.</p>}
   </div>
 </footer>
 

@@ -81,11 +81,11 @@ test.describe('loading HUD', () => {
             window.scrollTo(0, document.documentElement.scrollHeight);
             const bar = document.querySelector('[data-hud]')?.getBoundingClientRect();
             const text = document
-              .querySelector('.site-footer p:last-child')
+              .querySelector('.site-footer .inner > :last-child')
               ?.getBoundingClientRect();
             return bar && text ? text.bottom - bar.top : Infinity;
           }),
-        { message: 'the last footer line clears the HUD' },
+        { message: 'the end of the footer clears the HUD' },
       )
       .toBeLessThanOrEqual(0);
   });
