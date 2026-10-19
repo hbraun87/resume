@@ -1610,7 +1610,7 @@
       "category": "research",
       "tier": "selected",
       "status": "published",
-      "visibility": "public",
+      "visibility": "hidden",
       "order": 102,
       "role": "Researcher",
       "tags": [
@@ -1881,7 +1881,7 @@
       "category": "research",
       "tier": "archive",
       "status": "published",
-      "visibility": "public",
+      "visibility": "hidden",
       "order": 107,
       "role": "Researcher",
       "tags": [
@@ -1913,7 +1913,7 @@
       "category": "research",
       "tier": "archive",
       "status": "published",
-      "visibility": "public",
+      "visibility": "hidden",
       "order": 108,
       "role": "Researcher",
       "tags": [
@@ -1945,7 +1945,7 @@
       "tier": "archive",
       "status": "published",
       "visibility": "public",
-      "order": 109,
+      "order": 102,
       "studio": "Carnegie Mellon University, Entertainment Technology Center",
       "client": "General Motors",
       "role": "Developer",
@@ -2021,7 +2021,7 @@
       "category": "research",
       "tier": "archive",
       "status": "published",
-      "visibility": "public",
+      "visibility": "hidden",
       "order": 110,
       "studio": "PUCRS",
       "role": "Researcher",
@@ -2163,7 +2163,7 @@
       "category": "research",
       "tier": "archive",
       "status": "published",
-      "visibility": "public",
+      "visibility": "hidden",
       "order": 113,
       "role": "Researcher",
       "tags": [

@@ -193,3 +193,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** the photo of Henry with his Samoyed (from henrybraun.info, already in `src/assets/profile/`) shows at the top of the character sheet as AVIF/WebP at 360–800px, lazy-loaded, in a 4:3 frame (2:1 on tablets, where the sheet is full width). `portrait.visibility` in `profile.json` switches it off.
 - **Why:** Henry (Oct 19, 2026) wanted to try his photo on the site, with an easy rollback.
 - **Alternatives:** a round avatar beside the bio (crops the dog out); the hero (competes with the boot sequence).
+
+## 2026-10-19 · A shorter research list
+
+- **Decision:** Mise en Scène, Webcam 3D Scanner, VHuP, VhCVE and A Simple Model for Real-Time Sky Rendering are hidden, and VRoom 360 moves up to second, after the ocean breaking waves paper. The R&D count reads 9.
+- **Why:** Henry (Oct 19, 2026): those projects are no longer relevant, and "making waves" and VRoom 360 should lead. "Making waves" is read as the ocean waves paper; if he meant Making Them Alive, it is a one-number change to `order`.
+- **Alternatives:** none worth keeping.
