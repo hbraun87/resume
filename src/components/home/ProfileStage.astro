@@ -164,8 +164,11 @@ const columns = [
     font-size: var(--step--2);
     font-weight: 600;
   }
+  /* The photo keeps its 4:3 framing and scales down on wide sheets instead of
+     being cropped shorter. */
   .portrait {
-    margin-top: var(--space-4);
+    width: min(100%, 24rem);
+    margin: var(--space-4) auto 0;
     overflow: hidden;
     aspect-ratio: 4 / 3;
     background: var(--line);
@@ -178,36 +181,13 @@ const columns = [
     object-fit: cover;
     object-position: 50% 40%;
   }
-  /* Beyond phones a wider crop keeps the photo from taking over the sheet. */
-  @media (min-width: 560px) {
-    .portrait {
-      aspect-ratio: 2 / 1;
-    }
-    .portrait :global(img) {
-      object-position: 50% 25%;
-    }
-  }
-  @media (min-width: 861px) {
-    .portrait {
-      aspect-ratio: 16 / 9;
-    }
-    .portrait :global(img) {
-      object-position: 50% 15%;
-    }
-  }
+  /* Borders, not grid gaps, draw the lines between stats: a 1px gap can vanish
+     on screens scaled to 125% or 150%. */
   .stats {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1px;
     margin-block: var(--space-4) var(--space-6);
-    background: var(--line);
     border: 1px solid var(--line);
-  }
-  /* A wide sheet fits the four stats on one row. */
-  @container (min-width: 30rem) {
-    .stats {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
   }
   .stats div {
     display: flex;
@@ -216,6 +196,24 @@ const columns = [
     gap: var(--space-1);
     padding: var(--space-4);
     background: var(--panel);
+  }
+  .stats div:nth-child(odd) {
+    border-right: 1px solid var(--line);
+  }
+  .stats div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+  /* A wide sheet fits the four stats on one row. */
+  @container (min-width: 30rem) {
+    .stats {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .stats div:nth-child(-n + 2) {
+      border-bottom: 0;
+    }
+    .stats div:not(:last-child) {
+      border-right: 1px solid var(--line);
+    }
   }
   .stats dt {
     color: var(--dim);
