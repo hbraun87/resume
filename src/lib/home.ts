@@ -1,7 +1,7 @@
 // Wires the loading-screen home page (docs/brief/10-loading-screen-spec.md).
 // The page is complete HTML without this script; it adds the HUD, filters,
 // the typing console, the finale canvas, copy and toasts.
-import { copyText, linkToButton } from './clipboard';
+import { copyText } from './clipboard';
 import { Finale, type Context2D } from './finale';
 import { enhanceFilters } from './filter';
 import {
@@ -316,17 +316,18 @@ export function initHome(doc: Document = document, env: HomeEnv = browserEnv()):
     });
   }
 
+  // PRESS START stays a mailto link, so the visitor's mail app opens with the
+  // address filled in. The address is also copied, for visitors without one.
   const start = $<HTMLAnchorElement>('a[data-start]');
   if (start && email) {
-    const button = linkToButton(start);
-    button.addEventListener('click', async () => {
-      const result = await copyText(address, email);
+    start.addEventListener('click', async () => {
       if (done) burstNow();
       else complete();
+      const result = await copyText(address, email);
       toast(
         'Player 2 has joined',
-        result === 'copied' ? 'Email copied to clipboard' : 'Email selected',
-        `${address} · paste it into your mail app and say hi.`,
+        'Opening your mail app',
+        `${address} · ${result === 'copied' ? 'also copied' : 'selected'}, in case nothing opens.`,
       );
     });
   }

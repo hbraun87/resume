@@ -241,3 +241,9 @@ Short log of non-obvious choices. Newest last.
 - **Decision:** a cover can set `"fit": "contain"`. The card then shows the whole image, centered over a blurred, dimmed copy of itself that fills the rest of the art band, instead of cropping it. The I Expect You To Die localization banner uses it.
 - **Why:** wide cards on desktop use a 21:9 art band and phones a 16:9 one, so the banner (about 1.9:1) lost its headline and footer text on desktop. Photos and screenshots crop well, so `cover` stays the default.
 - **Alternatives:** a 16:9 band for all wide cards (taller cards, uneven rows); a different cover image (Henry chose this one).
+
+## 2026-10-22 · PRESS START opens the visitor's mail app
+
+- **Decision:** PRESS START stays a `mailto:` link with JavaScript on, so it opens the visitor's mail app with Henry's address filled in. It still completes the load, bursts the finale and copies the address, and the toast says the mail app is opening and the address is copied in case nothing opens. `linkToButton` is removed, since nothing uses it now.
+- **Why:** Henry asked for the button to open an email. Before, it only copied the address.
+- **Alternatives:** opening the mail app only (visitors with webmail and no mail app would get nothing); a prefilled subject (Henry didn't ask for one).

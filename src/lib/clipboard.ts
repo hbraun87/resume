@@ -24,18 +24,3 @@ export async function copyText(
     return 'selected';
   }
 }
-
-/**
- * Replaces a link with a button carrying the same attributes (minus href) and
- * children, so a no-JS link becomes an action once scripts run.
- */
-export function linkToButton(link: HTMLAnchorElement): HTMLButtonElement {
-  const button = document.createElement('button');
-  for (const { name, value } of link.attributes) {
-    if (name !== 'href') button.setAttribute(name, value);
-  }
-  button.type = 'button';
-  button.append(...link.childNodes);
-  link.replaceWith(button);
-  return button;
-}

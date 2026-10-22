@@ -114,16 +114,25 @@ test.describe('finale', () => {
     expect(painted).toBeGreaterThan(50);
   });
 
-  test('PRESS START copies the email or selects it', async ({ page, browserName, context }) => {
+  test('PRESS START opens a mail to Henry and copies the address', async ({
+    page,
+    browserName,
+    context,
+  }) => {
     if (browserName === 'chromium')
       await context.grantPermissions(['clipboard-read', 'clipboard-write']);
     await page.goto('');
-    const start = page.getByRole('button', { name: 'Press start' });
+    const start = page.getByRole('link', { name: 'Press start' });
+    await expect(start).toHaveAttribute('href', 'mailto:hbraun87@gmail.com');
+    // Test browsers have no mail app; stop the mailto navigation after the page's handler runs.
+    await page.evaluate(() =>
+      document.addEventListener('click', (event) => event.preventDefault()),
+    );
     await start.scrollIntoViewIfNeeded();
     await start.click();
     const toast = page.locator('[data-toasts] .toast');
     await expect(toast).toContainText('Player 2 has joined');
-    await expect(toast).toContainText(/Email (copied to clipboard|selected)/);
+    await expect(toast).toContainText('Opening your mail app');
     await expect(hud(page)).toHaveClass(/is-done/);
     if (browserName === 'chromium') {
       expect(await page.evaluate(() => navigator.clipboard.readText())).toBe('hbraun87@gmail.com');

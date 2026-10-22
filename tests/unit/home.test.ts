@@ -368,7 +368,7 @@ describe('initHome', () => {
     await vi.waitFor(() => expect(copy.textContent).toBe('Selected, copy now'));
   });
 
-  it('PRESS START copies, completes the load, then re-bursts', async () => {
+  it('PRESS START stays a mail link, copies the address, completes the load, then re-bursts', async () => {
     const h = harness();
     layoutSections();
     const home = must(initHome(document, h.env), 'home');
@@ -376,15 +376,23 @@ describe('initHome', () => {
       value: { writeText: async () => {} },
       configurable: true,
     });
-    expect(document.querySelector('a[data-start]')).toBeNull();
-    const start = $('button.start');
+    const start = $('a[data-start]');
+    expect(start.getAttribute('href')).toBe('mailto:henry@example.com');
+    // jsdom cannot open a mail app; stop the navigation after the page's handler runs.
+    let opened = 0;
+    const open = (event: Event) => {
+      opened += 1;
+      event.preventDefault();
+    };
+    document.addEventListener('click', open);
     start.click();
     await vi.waitFor(() =>
-      expect(text('[data-toasts] .toast-title')).toBe('Email copied to clipboard'),
+      expect(text('[data-toasts] .toast-title')).toBe('Opening your mail app'),
     );
+    expect(opened).toBe(1);
     expect(text('[data-toasts] .toast-kicker')).toBe('Player 2 has joined');
     expect(text('[data-toasts] .toast-detail')).toBe(
-      'henry@example.com · paste it into your mail app and say hi.',
+      'henry@example.com · also copied, in case nothing opens.',
     );
     expect(home.done).toBe(true);
     vi.advanceTimersByTime(350);
@@ -398,8 +406,13 @@ describe('initHome', () => {
       configurable: true,
     });
     start.click();
-    await vi.waitFor(() => expect(text('[data-toasts] .toast-title')).toBe('Email selected'));
+    await vi.waitFor(() =>
+      expect(text('[data-toasts] .toast-detail')).toBe(
+        'henry@example.com · selected, in case nothing opens.',
+      ),
+    );
     expect(home.finale?.phase).toBe('burst');
+    document.removeEventListener('click', open);
   });
 
   it('toggles party mode with the Konami code', () => {

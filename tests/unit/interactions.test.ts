@@ -1,6 +1,6 @@
 // @vitest-environment happy-dom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { copyText, linkToButton, selectText } from '../../src/lib/clipboard';
+import { copyText, selectText } from '../../src/lib/clipboard';
 import { applyFilter, enhanceFilters } from '../../src/lib/filter';
 import { KONAMI, konamiListener } from '../../src/lib/konami';
 import { showToast } from '../../src/lib/toast';
@@ -112,20 +112,6 @@ describe('selectText', () => {
   it('does nothing without a selection object', () => {
     document.body.innerHTML = '<span>x</span>';
     expect(() => selectText(must(document.querySelector('span'), 'span'), null)).not.toThrow();
-  });
-});
-
-describe('linkToButton', () => {
-  it('keeps attributes and children but drops the href', () => {
-    document.body.innerHTML =
-      '<a href="mailto:x" class="start" data-start data-astro-cid-1><b>Press start</b></a>';
-    const button = linkToButton(must(document.querySelector('a'), 'link'));
-    expect(document.querySelector('a')).toBeNull();
-    expect(button.type).toBe('button');
-    expect(button.hasAttribute('href')).toBe(false);
-    expect(button.className).toBe('start');
-    expect(button.hasAttribute('data-astro-cid-1')).toBe(true);
-    expect(button.innerHTML).toBe('<b>Press start</b>');
   });
 });
 
