@@ -122,7 +122,7 @@ test.describe('finale', () => {
     if (browserName === 'chromium')
       await context.grantPermissions(['clipboard-read', 'clipboard-write']);
     await page.goto('');
-    const start = page.getByRole('link', { name: 'Press start' });
+    const start = page.getByRole('link', { name: 'Press start', exact: true });
     await expect(start).toHaveAttribute('href', 'mailto:hbraun87@gmail.com');
     // Test browsers have no mail app; stop the mailto navigation after the page's handler runs.
     await page.evaluate(() =>
@@ -240,7 +240,7 @@ test.describe('home without JavaScript', () => {
     await expect(page.locator('[data-filters]')).toBeHidden();
     await expect(page.locator('[data-platform]').filter({ visible: true })).toHaveCount(GAMES);
     await expect(page.getByRole('heading', { name: "Let's build the next one." })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Press start' })).toHaveAttribute(
+    await expect(page.getByRole('link', { name: 'Press start', exact: true })).toHaveAttribute(
       'href',
       'mailto:hbraun87@gmail.com',
     );
